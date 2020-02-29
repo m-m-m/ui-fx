@@ -7,8 +7,6 @@ import io.github.mmm.ui.datatype.chart.UiDataSet;
 import io.github.mmm.ui.widget.chart.UiPieChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
 
 /**
  * Implementation of {@link UiPieChart} for JavaFx.
@@ -16,7 +14,7 @@ import javafx.scene.paint.Color;
  * @since 1.0.0
  */
 public class FxPieChart extends FxChart<PieChart, Number> implements UiPieChart {
-  private final Label caption = new Label("");
+  // private final Label caption = new Label("");
 
   /**
    * The constructor.
@@ -26,8 +24,7 @@ public class FxPieChart extends FxChart<PieChart, Number> implements UiPieChart 
   public FxPieChart(UiContext context) {
 
     super(context, new PieChart());
-    this.caption.setTextFill(Color.DARKORANGE);
-    this.caption.setStyle("-fx-font: 24 arial;");
+    // this.caption.setStyle("-fx-font: 24 arial;");
   }
 
   @SuppressWarnings("unchecked")
@@ -39,7 +36,7 @@ public class FxPieChart extends FxChart<PieChart, Number> implements UiPieChart 
     for (UiDataSet<Number> set : dataSets) {
       elements[i++] = convert(set);
     }
-    this.widget.getData().addAll(elements);
+    this.widget.getData().setAll(elements);
 
     // for (Data data : elements) {
     // data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
