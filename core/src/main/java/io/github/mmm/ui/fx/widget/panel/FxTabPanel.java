@@ -91,7 +91,7 @@ public class FxTabPanel extends FxDynamicComposite<TabPane, UiTab> implements Ui
       for (UiTab uiTab : this.children) {
         if (uiTab == fxTab) {
           tabs.add(index, fxTab.getWidget());
-          return;
+          break;
         } else {
           if (uiTab.isVisible(UiVisibleFlags.ANY)) {
             index++;

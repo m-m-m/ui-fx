@@ -3,8 +3,8 @@
 package io.github.mmm.ui.fx.widget.chart;
 
 import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.fx.widget.chart.fx.AdvancedBarChart;
 import io.github.mmm.ui.widget.chart.UiBarChartVertical;
-import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 
@@ -13,7 +13,8 @@ import javafx.scene.chart.NumberAxis;
  *
  * @since 1.0.0
  */
-public class FxBarChartVertical extends FxBarChart<BarChart<Number, String>> implements UiBarChartVertical {
+public class FxBarChartVertical extends FxBarChart<AdvancedBarChart<Number, String>, Number, String>
+    implements UiBarChartVertical {
 
   /**
    * The constructor.
@@ -22,7 +23,7 @@ public class FxBarChartVertical extends FxBarChart<BarChart<Number, String>> imp
    */
   public FxBarChartVertical(UiContext context) {
 
-    super(context, new BarChart<>(new NumberAxis(), new CategoryAxis()));
+    super(context, new AdvancedBarChart<>(new NumberAxis(), new CategoryAxis()));
   }
 
 }

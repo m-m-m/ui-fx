@@ -4,8 +4,8 @@ package io.github.mmm.ui.fx.widget.chart;
 
 import io.github.mmm.ui.UiContext;
 import io.github.mmm.ui.datatype.chart.UiDataSet;
+import io.github.mmm.ui.fx.widget.chart.fx.AdvancedPieChart;
 import io.github.mmm.ui.widget.chart.UiPieChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
 
 /**
@@ -13,8 +13,7 @@ import javafx.scene.chart.PieChart.Data;
  *
  * @since 1.0.0
  */
-public class FxPieChart extends FxChart<PieChart, Number> implements UiPieChart {
-  // private final Label caption = new Label("");
+public class FxPieChart extends FxChart<AdvancedPieChart, Number, Data> implements UiPieChart {
 
   /**
    * The constructor.
@@ -23,44 +22,31 @@ public class FxPieChart extends FxChart<PieChart, Number> implements UiPieChart 
    */
   public FxPieChart(UiContext context) {
 
-    super(context, new PieChart());
-    // this.caption.setStyle("-fx-font: 24 arial;");
+    super(context, new AdvancedPieChart());
   }
 
-  @SuppressWarnings("unchecked")
   @Override
-  public void setData(UiDataSet<Number>... dataSets) {
+  protected Data[] createDataArray(int length) {
 
-    Data[] elements = new Data[dataSets.length];
-    int i = 0;
-    for (UiDataSet<Number> set : dataSets) {
-      elements[i++] = convert(set);
-    }
-    this.widget.getData().setAll(elements);
-
-    // for (Data data : elements) {
-    // data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-    //
-    // @Override
-    // public void handle(MouseEvent e) {
-    //
-    // FxPieChart.this.caption.setTranslateX(e.getSceneX());
-    // FxPieChart.this.caption.setTranslateY(e.getSceneY());
-    // FxPieChart.this.caption.setText(String.valueOf(data.getPieValue()) + "%");
-    // }
-    // });
-    // }
+    return new Data[length];
   }
 
-  private Data convert(UiDataSet<Number> set) {
+  @Override
+  protected Data convertData(UiDataSet<Number> dataSet) {
 
     double doubleValue = 0;
-    Number value = set.getData();
+    Number value = dataSet.getData();
     if (value != null) {
       doubleValue = value.doubleValue();
     }
-    Data data = new Data(set.getTitle(), doubleValue);
+    Data data = new Data(dataSet.getTitle(), doubleValue);
     return data;
+  }
+
+  @Override
+  protected void setDataColor(Data data, String color) {
+
+    data.getNode().setStyle("-fx-pie-color: " + color + ";");
   }
 
 }

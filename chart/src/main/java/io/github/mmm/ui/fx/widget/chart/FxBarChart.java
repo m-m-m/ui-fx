@@ -5,6 +5,7 @@ package io.github.mmm.ui.fx.widget.chart;
 import io.github.mmm.ui.UiContext;
 import io.github.mmm.ui.datatype.chart.UiDataSeries;
 import io.github.mmm.ui.datatype.chart.UiDataSet;
+import io.github.mmm.ui.fx.widget.chart.fx.AdvancedChart;
 import io.github.mmm.ui.widget.chart.UiBarChart;
 import io.github.mmm.ui.widget.chart.UiBarChartHorizontal;
 import javafx.collections.ObservableList;
@@ -15,10 +16,13 @@ import javafx.scene.chart.XYChart.Series;
 /**
  * Implementation of {@link UiBarChart} for JavaFx.
  *
+ * @param <X> type of data for X-axis.
+ * @param <Y> type of data for Y-axis.
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxBarChart<W extends BarChart<?, ?>> extends FxChart<W, UiDataSeries> implements UiBarChart {
+public abstract class FxBarChart<W extends BarChart<X, Y> & AdvancedChart<Series<X, Y>>, X, Y>
+    extends FxChart<W, UiDataSeries, Series<X, Y>> implements UiBarChart {
 
   private final boolean horizontal;
 
@@ -41,7 +45,7 @@ public abstract class FxBarChart<W extends BarChart<?, ?>> extends FxChart<W, Ui
   public void setSeriesLabels(String... labels) {
 
     this.seriesLabels = labels;
-    for (Series<?, ?> series : this.widget.getData()) {
+    for (Series<X, Y> series : this.widget.getData()) {
       int i = 0;
       for (Data data : series.getData()) {
         if (this.horizontal) {
@@ -65,25 +69,20 @@ public abstract class FxBarChart<W extends BarChart<?, ?>> extends FxChart<W, Ui
     return label;
   }
 
-  @SuppressWarnings({ "unchecked", "rawtypes" })
+  @SuppressWarnings("unchecked")
   @Override
-  public void setData(UiDataSet<UiDataSeries>... dataSets) {
+  protected Series<X, Y>[] createDataArray(int length) {
 
-    Series[] elements = new Series[dataSets.length];
-    int i = 0;
-    for (UiDataSet<UiDataSeries> set : dataSets) {
-      elements[i++] = convert(set);
-    }
-    this.widget.getData().setAll(elements);
+    return new Series[length];
   }
 
-  @SuppressWarnings("rawtypes")
-  private Series convert(UiDataSet<UiDataSeries> set) {
+  @Override
+  protected Series<X, Y> convertData(UiDataSet<UiDataSeries> dataSet) {
 
-    Series series = new Series<>();
-    series.setName(set.getTitle());
-    ObservableList<Data> list = series.getData();
-    UiDataSeries data = set.getData();
+    Series<X, Y> series = new Series<>();
+    series.setName(dataSet.getTitle());
+    ObservableList<Data<X, Y>> list = series.getData();
+    UiDataSeries data = dataSet.getData();
     int count = data.getCount();
     for (int i = 0; i < count; i++) {
       list.add(convert(data, i));
@@ -91,13 +90,22 @@ public abstract class FxBarChart<W extends BarChart<?, ?>> extends FxChart<W, Ui
     return series;
   }
 
-  private Data<?, ?> convert(UiDataSeries data, int i) {
+  @SuppressWarnings({ "unchecked", "rawtypes" })
+  private Data<X, Y> convert(UiDataSeries data, int i) {
 
     if (this.horizontal) {
-      return new Data<>(getSeriesLabel(i), data.getNumber(i));
+      return new Data(getSeriesLabel(i), data.getNumber(i));
 
     } else {
-      return new Data<>(data.getNumber(i), getSeriesLabel(i));
+      return new Data(data.getNumber(i), getSeriesLabel(i));
+    }
+  }
+
+  @Override
+  protected void setDataColor(Series<X, Y> series, String color) {
+
+    for (Data<X, Y> data : series.getData()) {
+      data.getNode().setStyle("-fx-bar-fill:" + color + ";");
     }
   }
 
