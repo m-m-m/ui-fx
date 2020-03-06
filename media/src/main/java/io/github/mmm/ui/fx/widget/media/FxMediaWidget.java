@@ -7,12 +7,12 @@ import io.github.mmm.ui.datatype.media.UiMedia;
 import io.github.mmm.ui.datatype.media.UiMediaSource;
 import io.github.mmm.ui.datatype.media.UiMediaType;
 import io.github.mmm.ui.fx.widget.FxWidgetNode;
+import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerAdapter;
+import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerWrapper;
 import io.github.mmm.ui.widget.media.UiMediaWidget;
 import javafx.scene.Node;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaPlayer.Status;
-import javafx.util.Duration;
 
 /**
  * Implementation of {@link UiMediaWidget} using JavaFx.
@@ -22,13 +22,10 @@ import javafx.util.Duration;
  */
 public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> implements UiMediaWidget {
 
-  private MediaPlayer mediaPlayer;
+  /** The {@link MediaPlayerAdapter}. */
+  protected final MediaPlayerAdapter mediaPlayerAdapter;
 
   private UiMedia media;
-
-  private double volume;
-
-  private boolean muted;
 
   /**
    * The constructor.
@@ -39,7 +36,15 @@ public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> impl
   public FxMediaWidget(UiContext context, W widget) {
 
     super(context, widget);
-    this.volume = 0.8;
+    this.mediaPlayerAdapter = createMediaPlayerAdapter();
+  }
+
+  /**
+   * @return the {@link MediaPlayerAdapter}.
+   */
+  protected MediaPlayerAdapter createMediaPlayerAdapter() {
+
+    return new MediaPlayerWrapper();
   }
 
   @Override
@@ -54,28 +59,17 @@ public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> impl
     if (media == this.media) {
       return;
     }
-    if (this.mediaPlayer != null) {
-      this.mediaPlayer.stop();
-    }
     MediaPlayer player = null;
     if (media != null) {
       checkMediaType(media.getType());
       UiMediaSource source = media.getSources().iterator().next();
-      Media fxMedia = new Media(source.getSource());
+      String url = source.getSource();
+      url = "file:///Users/hohwille/projects/mmm/workspaces/main/demo-ui/View_From_A_Blue_Moon_Trailer-576p.mp4";
+      Media fxMedia = new Media(url);
       player = new MediaPlayer(fxMedia);
-      player.setVolume(this.volume);
     }
-    this.mediaPlayer = player;
+    this.mediaPlayerAdapter.setMediaPlayer(player);
     this.media = media;
-    updateMediaPlayer(player);
-  }
-
-  /**
-   * @param player the new {@link MediaPlayer}.
-   * @see #setMedia(UiMedia)
-   */
-  protected void updateMediaPlayer(MediaPlayer player) {
-
   }
 
   /**
@@ -88,89 +82,55 @@ public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> impl
   @Override
   public boolean isPlaying() {
 
-    if (this.mediaPlayer == null) {
-      return false;
-    }
-    return this.mediaPlayer.getStatus() == Status.PLAYING;
+    return this.mediaPlayerAdapter.isPlaying();
   }
 
   @Override
   public void setPlaying(boolean playing) {
 
-    if (this.mediaPlayer == null) {
-      return;
-    }
-    if (playing) {
-      this.mediaPlayer.play();
-    } else {
-      this.mediaPlayer.stop();
-    }
+    this.mediaPlayerAdapter.setPlaying(playing);
   }
 
   @Override
   public double getVolume() {
 
-    return this.volume;
+    return this.mediaPlayerAdapter.getVolume();
   }
 
   @Override
   public void setVolume(double volume) {
 
-    if (volume == this.volume) {
-      return;
-    }
-    if (this.mediaPlayer != null) {
-      this.mediaPlayer.setVolume(volume);
-    }
-    this.volume = volume;
+    this.mediaPlayerAdapter.setVolume(volume);
   }
 
   @Override
   public boolean isMuted() {
 
-    return this.muted;
+    return this.mediaPlayerAdapter.isMuted();
   }
 
   @Override
   public void setMuted(boolean muted) {
 
-    if (this.mediaPlayer != null) {
-      this.mediaPlayer.setMute(muted);
-    }
-    this.muted = muted;
+    this.mediaPlayerAdapter.setMuted(muted);
   }
 
   @Override
   public double getPosition() {
 
-    if (this.mediaPlayer != null) {
-      return this.mediaPlayer.getCurrentRate();
-    }
-    return 0;
+    return this.mediaPlayerAdapter.getPosition();
   }
 
   @Override
   public void setPosition(double position) {
 
-    if (this.mediaPlayer != null) {
-      if (this.mediaPlayer.getStatus() == Status.STOPPED) {
-        this.mediaPlayer.play();
-        this.mediaPlayer.pause();
-      }
-      Duration totalDuration = this.mediaPlayer.getTotalDuration();
-      Duration seekTime = totalDuration.multiply(position);
-      this.mediaPlayer.seek(seekTime);
-    }
+    this.mediaPlayerAdapter.setPosition(position);
   }
 
   @Override
   public double getDuration() {
 
-    if (this.mediaPlayer != null) {
-      Duration totalDuration = this.mediaPlayer.getTotalDuration();
-      return totalDuration.toSeconds();
-    }
-    return 0;
+    return this.mediaPlayerAdapter.getDuration();
   }
 
 }

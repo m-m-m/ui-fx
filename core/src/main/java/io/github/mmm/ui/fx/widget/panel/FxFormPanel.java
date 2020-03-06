@@ -3,6 +3,7 @@
 package io.github.mmm.ui.fx.widget.panel;
 
 import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.fx.widget.composite.FxValuedComposite;
 import io.github.mmm.ui.widget.UiLabel;
 import io.github.mmm.ui.widget.input.UiAbstractInput;
 import io.github.mmm.ui.widget.input.UiInput;
@@ -12,9 +13,11 @@ import javafx.scene.Node;
 /**
  * Implementation of {@link UiFormPanel} using JavaFx.
  *
+ * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0
  */
-public class FxFormPanel extends FxFailureComposite<AdvancedGridPane, UiAbstractInput<?>> implements UiFormPanel {
+public class FxFormPanel<V> extends FxValuedComposite<AdvancedGridPane, UiAbstractInput<?>, V>
+    implements UiFormPanel<V> {
 
   /**
    * The constructor.

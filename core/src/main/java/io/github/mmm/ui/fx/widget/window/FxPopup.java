@@ -4,6 +4,7 @@ package io.github.mmm.ui.fx.widget.window;
 
 import io.github.mmm.ui.UiContext;
 import io.github.mmm.ui.datatype.UiEnabledFlags;
+import io.github.mmm.ui.event.action.UiActionClose;
 import io.github.mmm.ui.fx.widget.panel.FxButtonPanel;
 import io.github.mmm.ui.widget.button.UiButton;
 import io.github.mmm.ui.widget.panel.UiButtonPanel;
@@ -51,7 +52,8 @@ public class FxPopup extends FxAbstractWindow<Stage> implements UiPopup {
   public UiButton createAndAddCloseButton() {
 
     // TODO i18n, etc.
-    UiButton closeButton = this.context.createButton("close", (e) -> setVisible(false));
+    UiActionClose close = (e) -> setVisible(false);
+    UiButton closeButton = this.context.createButton(close);
     this.buttonPanel.addChild(closeButton);
     return closeButton;
   }

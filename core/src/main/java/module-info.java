@@ -5,6 +5,7 @@ import io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox;
 import io.github.mmm.ui.fx.factory.core.FxFactoryFormGroup;
 import io.github.mmm.ui.fx.factory.core.FxFactoryFormPanel;
 import io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel;
+import io.github.mmm.ui.fx.factory.core.FxFactoryIntegerInput;
 import io.github.mmm.ui.fx.factory.core.FxFactoryLabel;
 import io.github.mmm.ui.fx.factory.core.FxFactoryMenu;
 import io.github.mmm.ui.fx.factory.core.FxFactoryMenuItem;
@@ -49,6 +50,7 @@ module io.github.mmm.ui.fx.core {
       FxFactoryFormGroup, //
       FxFactoryFormPanel, //
       FxFactoryHorizontalPanel, //
+      FxFactoryIntegerInput, //
       FxFactoryLabel, //
       FxFactoryMenu, //
       FxFactoryMenuItem, //

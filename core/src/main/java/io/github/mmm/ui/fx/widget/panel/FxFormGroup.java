@@ -3,6 +3,7 @@
 package io.github.mmm.ui.fx.widget.panel;
 
 import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.fx.widget.composite.FxValuedComposite;
 import io.github.mmm.ui.widget.UiLabel;
 import io.github.mmm.ui.widget.input.UiInput;
 import io.github.mmm.ui.widget.panel.UiFormGroup;
@@ -12,9 +13,10 @@ import javafx.scene.control.TitledPane;
 /**
  * Implementation of {@link UiFormGroup} using JavaFx {@link TitledPane}.
  *
+ * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0
  */
-public class FxFormGroup extends FxFailureComposite<AdvancedGridPane, UiInput<?>> implements UiFormGroup {
+public class FxFormGroup<V> extends FxValuedComposite<AdvancedGridPane, UiInput<?>, V> implements UiFormGroup<V> {
 
   private final TitledPane topWidget;
 

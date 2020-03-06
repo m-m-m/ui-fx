@@ -49,9 +49,9 @@ public abstract class FxBarChart<W extends BarChart<X, Y> & AdvancedChart<Series
       int i = 0;
       for (Data data : series.getData()) {
         if (this.horizontal) {
-          data.setXValue(getSeriesLabel(i++));
-        } else {
           data.setYValue(getSeriesLabel(i++));
+        } else {
+          data.setXValue(getSeriesLabel(i++));
         }
       }
     }
@@ -94,10 +94,9 @@ public abstract class FxBarChart<W extends BarChart<X, Y> & AdvancedChart<Series
   private Data<X, Y> convert(UiDataSeries data, int i) {
 
     if (this.horizontal) {
-      return new Data(getSeriesLabel(i), data.getNumber(i));
-
-    } else {
       return new Data(data.getNumber(i), getSeriesLabel(i));
+    } else {
+      return new Data(getSeriesLabel(i), data.getNumber(i));
     }
   }
 

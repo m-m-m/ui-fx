@@ -3,9 +3,12 @@
 package io.github.mmm.ui.fx.widget.media;
 
 import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerAdapter;
+import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerControlBar;
 import io.github.mmm.ui.widget.media.UiMediaPlayer;
 import io.github.mmm.ui.widget.media.UiMediaWidget;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.Node;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaView;
 
 /**
@@ -15,6 +18,8 @@ import javafx.scene.media.MediaView;
  */
 public class FxMediaPlayer extends FxMediaWidget<MediaView> implements UiMediaPlayer {
 
+  private final VBox topWidget;
+
   /**
    * The constructor.
    *
@@ -23,13 +28,21 @@ public class FxMediaPlayer extends FxMediaWidget<MediaView> implements UiMediaPl
   public FxMediaPlayer(UiContext context) {
 
     super(context, new MediaView());
+    this.topWidget = new VBox();
+    this.topWidget.getChildren().add(this.widget);
+    this.topWidget.getChildren().add(this.mediaPlayerAdapter.getControls());
   }
 
   @Override
-  protected void updateMediaPlayer(MediaPlayer player) {
+  public Node getTopWidget() {
 
-    super.updateMediaPlayer(player);
-    this.widget.setMediaPlayer(player);
+    return this.topWidget;
+  }
+
+  @Override
+  protected MediaPlayerAdapter createMediaPlayerAdapter() {
+
+    return new MediaPlayerControlBar(this);
   }
 
 }

@@ -4,8 +4,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
-import io.github.mmm.ui.fx.factory.chart.FxFactoryBarChartHorizontal;
 import io.github.mmm.ui.fx.factory.chart.FxFactoryBarChartVertical;
+import io.github.mmm.ui.fx.factory.chart.FxFactoryBarChartHorizontal;
 import io.github.mmm.ui.fx.factory.chart.FxFactoryPieChart;
 
 /**
@@ -17,7 +17,7 @@ module io.github.mmm.ui.fx.chart {
   requires transitive io.github.mmm.ui.fx.core;
 
   provides UiSingleWidgetFactoryNative with //
-      FxFactoryBarChartHorizontal, FxFactoryBarChartVertical, FxFactoryPieChart;
+      FxFactoryBarChartVertical, FxFactoryBarChartHorizontal, FxFactoryPieChart;
 
   exports io.github.mmm.ui.fx.factory.chart;
 

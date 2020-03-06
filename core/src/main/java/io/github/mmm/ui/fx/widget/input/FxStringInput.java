@@ -3,7 +3,6 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.event.UiValueChangeEvent;
 import io.github.mmm.ui.widget.input.UiStringInput;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
@@ -45,8 +44,7 @@ public abstract class FxStringInput<W extends TextInputControl> extends FxTextua
   @Override
   public void setValueNative(String value) {
 
-    setProgrammaticEventType(UiValueChangeEvent.TYPE);
-    this.widget.setText(value);
+    setText(value);
   }
 
 }

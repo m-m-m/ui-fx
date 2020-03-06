@@ -3,6 +3,7 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.event.UiValueChangeEvent;
 import io.github.mmm.ui.widget.input.UiTextualInput;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
@@ -27,6 +28,7 @@ public abstract class FxTextualInput<W extends TextInputControl, V> extends FxIn
   public FxTextualInput(UiContext context, W nativeWidget) {
 
     super(context, nativeWidget);
+    getText();
   }
 
   @Override
@@ -45,6 +47,19 @@ public abstract class FxTextualInput<W extends TextInputControl, V> extends FxIn
   public void setPlaceholder(String placeholder) {
 
     this.widget.setPromptText(placeholder);
+  }
+
+  @Override
+  public String getText() {
+
+    return this.widget.getText();
+  }
+
+  @Override
+  public void setText(String text) {
+
+    setProgrammaticEventType(UiValueChangeEvent.TYPE);
+    this.widget.setText(text);
   }
 
   @Override

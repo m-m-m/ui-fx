@@ -1,9 +1,8 @@
 /* Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0 */
-package io.github.mmm.ui.fx.widget.panel;
+package io.github.mmm.ui.fx.widget.composite;
 
 import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.fx.widget.composite.FxDynamicCompositePane;
 import io.github.mmm.ui.widget.UiWidget;
 import io.github.mmm.ui.widget.composite.UiFailureComposite;
 import javafx.scene.layout.Pane;

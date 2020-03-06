@@ -13,7 +13,7 @@ import javafx.scene.chart.NumberAxis;
  *
  * @since 1.0.0
  */
-public class FxBarChartHorizontal extends FxBarChart<AdvancedBarChart<String, Number>, String, Number>
+public class FxBarChartHorizontal extends FxBarChart<AdvancedBarChart<Number, String>, Number, String>
     implements UiBarChartHorizontal {
 
   /**
@@ -23,7 +23,7 @@ public class FxBarChartHorizontal extends FxBarChart<AdvancedBarChart<String, Nu
    */
   public FxBarChartHorizontal(UiContext context) {
 
-    super(context, new AdvancedBarChart<>(new CategoryAxis(), new NumberAxis()));
+    super(context, new AdvancedBarChart<>(new NumberAxis(), new CategoryAxis()));
   }
 
 }
