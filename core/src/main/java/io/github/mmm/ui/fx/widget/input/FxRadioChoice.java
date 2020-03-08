@@ -111,7 +111,7 @@ public class FxRadioChoice<V> extends FxInput<RadioButton, V> implements UiRadio
 
   @SuppressWarnings("unchecked")
   @Override
-  public V getValue() {
+  public V getValueOrThrow() {
 
     Toggle selection = this.group.getSelectedToggle();
     return (V) selection.getUserData();

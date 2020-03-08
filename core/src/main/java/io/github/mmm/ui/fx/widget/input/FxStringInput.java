@@ -36,7 +36,7 @@ public abstract class FxStringInput<W extends TextInputControl> extends FxTextua
   }
 
   @Override
-  public String getValue() {
+  public String getValueOrThrow() {
 
     return this.widget.getText();
   }

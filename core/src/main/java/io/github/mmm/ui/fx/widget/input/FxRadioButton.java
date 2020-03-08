@@ -48,7 +48,7 @@ public class FxRadioButton extends FxInput<RadioButton, Boolean> implements UiRa
   }
 
   @Override
-  public Boolean getValue() {
+  public Boolean getValueOrThrow() {
 
     return Boolean.valueOf(this.widget.isSelected());
   }

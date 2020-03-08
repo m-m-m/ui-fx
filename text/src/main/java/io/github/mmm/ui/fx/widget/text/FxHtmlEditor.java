@@ -25,7 +25,7 @@ public class FxHtmlEditor extends FxInput<HTMLEditor, String> implements UiHtmlE
   }
 
   @Override
-  public String getValue() {
+  public String getValueOrThrow() {
 
     return this.widget.getHtmlText();
   }

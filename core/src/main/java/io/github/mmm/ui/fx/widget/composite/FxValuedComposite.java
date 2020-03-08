@@ -77,7 +77,7 @@ public abstract class FxValuedComposite<W extends Pane, C extends UiWidget, V> e
   }
 
   @Override
-  public V getValue() {
+  public V getValueOrThrow() {
 
     if (this.binding != null) {
       return this.binding.getValue();

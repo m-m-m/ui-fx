@@ -4,22 +4,22 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
 import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.input.UiIntegerInput;
-import javafx.scene.control.TextField;
+import io.github.mmm.ui.widget.input.UiIntegerSlider;
+import javafx.scene.control.Slider;
 
 /**
- * Implementation of {@link UiIntegerInput} using JavaFx {@link TextField}.
+ * Implementation of {@link UiIntegerSlider} using JavaFx {@link Slider}.
  *
  * @since 1.0.0
  */
-public class FxIntegerInput extends FxNumberInput<Integer> implements UiIntegerInput {
+public class FxIntegerSlider extends FxSlider<Integer> implements UiIntegerSlider {
 
   /**
    * The constructor.
    *
    * @param context the {@link #getContext() context}.
    */
-  public FxIntegerInput(UiContext context) {
+  public FxIntegerSlider(UiContext context) {
 
     super(context);
   }

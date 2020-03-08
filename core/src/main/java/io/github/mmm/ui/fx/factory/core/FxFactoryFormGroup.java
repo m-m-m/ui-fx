@@ -12,6 +12,7 @@ import io.github.mmm.ui.widget.panel.UiFormGroup;
  *
  * @since 1.0.0
  */
+@SuppressWarnings("rawtypes")
 public class FxFactoryFormGroup implements UiSingleWidgetFactoryNative<UiFormGroup> {
 
   @Override

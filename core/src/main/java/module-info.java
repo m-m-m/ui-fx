@@ -1,32 +1,10 @@
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
-import io.github.mmm.ui.fx.factory.core.FxFactoryButton;
-import io.github.mmm.ui.fx.factory.core.FxFactoryButtonPanel;
-import io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox;
-import io.github.mmm.ui.fx.factory.core.FxFactoryFormGroup;
-import io.github.mmm.ui.fx.factory.core.FxFactoryFormPanel;
-import io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel;
-import io.github.mmm.ui.fx.factory.core.FxFactoryIntegerInput;
-import io.github.mmm.ui.fx.factory.core.FxFactoryLabel;
-import io.github.mmm.ui.fx.factory.core.FxFactoryMenu;
-import io.github.mmm.ui.fx.factory.core.FxFactoryMenuItem;
-import io.github.mmm.ui.fx.factory.core.FxFactoryMenuItemCheckbox;
-import io.github.mmm.ui.fx.factory.core.FxFactoryMenuItemRadioButton;
-import io.github.mmm.ui.fx.factory.core.FxFactoryMenuItemSeparator;
-import io.github.mmm.ui.fx.factory.core.FxFactoryPasswordInput;
-import io.github.mmm.ui.fx.factory.core.FxFactoryPopup;
-import io.github.mmm.ui.fx.factory.core.FxFactoryRadioButton;
-import io.github.mmm.ui.fx.factory.core.FxFactoryRadioChoice;
-import io.github.mmm.ui.fx.factory.core.FxFactoryTab;
-import io.github.mmm.ui.fx.factory.core.FxFactoryTabPanel;
-import io.github.mmm.ui.fx.factory.core.FxFactoryTextArea;
-import io.github.mmm.ui.fx.factory.core.FxFactoryTextInput;
-import io.github.mmm.ui.fx.factory.core.FxFactoryVerticalPanel;
-import io.github.mmm.ui.fx.factory.core.FxFactoryWindow;
 
 /*
  * Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+
 /**
  * Provides the implementation of the UI framework based on JavaFx.
  */
@@ -44,29 +22,29 @@ module io.github.mmm.ui.fx.core {
   requires transitive javafx.controls;
 
   provides UiSingleWidgetFactoryNative with //
-      FxFactoryButton, //
-      FxFactoryButtonPanel, //
-      FxFactoryCheckbox, //
-      FxFactoryFormGroup, //
-      FxFactoryFormPanel, //
-      FxFactoryHorizontalPanel, //
-      FxFactoryIntegerInput, //
-      FxFactoryLabel, //
-      FxFactoryMenu, //
-      FxFactoryMenuItem, //
-      FxFactoryMenuItemCheckbox, //
-      FxFactoryMenuItemRadioButton, //
-      FxFactoryMenuItemSeparator, //
-      FxFactoryPasswordInput, //
-      FxFactoryPopup, //
-      FxFactoryRadioButton, //
-      FxFactoryRadioChoice, //
-      FxFactoryTab, //
-      FxFactoryTabPanel, //
-      FxFactoryTextInput, //
-      FxFactoryTextArea, //
-      FxFactoryVerticalPanel, //
-      FxFactoryWindow;
+      io.github.mmm.ui.fx.factory.core.FxFactoryButton, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryButtonPanel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryFormGroup, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryFormPanel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryIntegerInput, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryLabel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryMenu, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryMenuItem, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryMenuItemCheckbox, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryMenuItemRadioButton, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryMenuItemSeparator, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryPasswordInput, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryPopup, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryRadioButton, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryRadioChoice, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryTab, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryTabPanel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryTextInput, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryTextArea, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryVerticalPanel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryWindow;
 
   exports io.github.mmm.ui.fx;
 
