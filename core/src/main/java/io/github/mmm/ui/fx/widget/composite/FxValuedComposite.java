@@ -3,7 +3,7 @@
 package io.github.mmm.ui.fx.widget.composite;
 
 import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.attribute.AttributeWriteValueForUser;
+import io.github.mmm.ui.UiValueBinding;
 import io.github.mmm.ui.event.UiValueChangeEvent;
 import io.github.mmm.ui.widget.UiWidget;
 import io.github.mmm.ui.widget.composite.UiValuedComposite;
@@ -25,7 +25,7 @@ public abstract class FxValuedComposite<W extends Pane, C extends UiWidget, V> e
 
   private V originalValue;
 
-  private AttributeWriteValueForUser<V> binding;
+  private UiValueBinding<V> binding;
 
   /**
    * The constructor.
@@ -40,12 +40,13 @@ public abstract class FxValuedComposite<W extends Pane, C extends UiWidget, V> e
   }
 
   @Override
-  public void initBinding(AttributeWriteValueForUser<V> newBinding) {
+  public void initBinding(UiValueBinding<V> newBinding) {
 
     if (this.binding != null) {
       throw new IllegalStateException();
     }
     this.binding = newBinding;
+    this.binding.setWidget(this);
   }
 
   @Override

@@ -28,7 +28,6 @@ public abstract class FxTextualInput<W extends TextInputControl, V> extends FxIn
   public FxTextualInput(UiContext context, W nativeWidget) {
 
     super(context, nativeWidget);
-    getText();
   }
 
   @Override

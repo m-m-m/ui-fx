@@ -117,16 +117,16 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
   protected <V> void onValueChange(ObservableValue<? extends V> observable, V oldValue, V newValue) {
 
     boolean programmatic = getProgrammaticEventType() == UiValueChangeEvent.TYPE;
-    if (!programmatic) {
-      onValueChangedByUser();
-    }
+    onValueChanged(programmatic);
     fireEvent(new UiValueChangeEvent(this, programmatic));
   }
 
   /**
    * Called from {@link #onValueChange(ObservableValue, Object, Object)} if triggered by end-user.
+   * 
+   * @param programmatic - see {@link UiValueChangeEvent#isProgrammatic()}.
    */
-  protected void onValueChangedByUser() {
+  protected void onValueChanged(boolean programmatic) {
 
   }
 

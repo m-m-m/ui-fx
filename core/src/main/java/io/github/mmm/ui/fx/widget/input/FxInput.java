@@ -7,10 +7,12 @@ import io.github.mmm.ui.datatype.bitmask.BitMask;
 import io.github.mmm.ui.event.UiValueChangeEvent;
 import io.github.mmm.ui.fx.widget.FxActiveWidget;
 import io.github.mmm.ui.fx.widget.FxLabel;
-import io.github.mmm.ui.widget.UiLabel;
+import io.github.mmm.ui.widget.UiRegularWidget;
 import io.github.mmm.ui.widget.input.UiInput;
 import io.github.mmm.validation.Validator;
 import javafx.scene.control.Control;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 /**
  * Implementation of {@link UiInput} using JavaFx.
@@ -25,11 +27,13 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
 
   private FxLabel nameWidget;
 
+  private FxInputContainer containerWidget;
+
   private Validator<? super V> validator;
 
   private V originalValue;
 
-  private boolean modified;
+  private long modificationTimestamp;
 
   /**
    * The constructor.
@@ -40,7 +44,9 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
   public FxInput(UiContext context, W widget) {
 
     super(context, widget);
+    HBox.setHgrow(this.widget, Priority.ALWAYS);
     this.validator = Validator.none();
+    this.modificationTimestamp = -1;
   }
 
   @Override
@@ -70,7 +76,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
   }
 
   @Override
-  public UiLabel getNameWidget() {
+  public FxLabel getNameWidget() {
 
     if (this.nameWidget == null) {
       this.nameWidget = new FxLabel(this.context);
@@ -84,6 +90,21 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
       }
     }
     return this.nameWidget;
+  }
+
+  @Override
+  public boolean hasContainerWidget() {
+
+    return (this.containerWidget != null);
+  }
+
+  @Override
+  public UiRegularWidget getContainerWidget() {
+
+    if (this.containerWidget == null) {
+      this.containerWidget = new FxInputContainer(this);
+    }
+    return this.containerWidget;
   }
 
   @Override
@@ -131,15 +152,24 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
   }
 
   @Override
-  public boolean isModified() {
+  public long getModificationTimestamp() {
 
-    return this.modified;
+    return this.modificationTimestamp;
+  }
+
+  private void updateModificationTimestamp(boolean reset) {
+
+    if (reset) {
+      this.modificationTimestamp = -1;
+    } else {
+      this.modificationTimestamp = System.currentTimeMillis();
+    }
   }
 
   @Override
   public void setValue(V value, boolean forUser) {
 
-    this.modified = forUser;
+    updateModificationTimestamp(!forUser);
     if (!forUser) {
       setOriginalValue(value);
     }
@@ -153,10 +183,12 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
   protected abstract void setValueNative(V value);
 
   @Override
-  protected void onValueChangedByUser() {
+  protected void onValueChanged(boolean programmatic) {
 
-    super.onValueChangedByUser();
-    this.modified = true;
+    super.onValueChanged(programmatic);
+    if (!programmatic) {
+      updateModificationTimestamp(false);
+    }
   }
 
 }

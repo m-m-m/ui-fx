@@ -8,7 +8,11 @@ import io.github.mmm.ui.UiContext;
 import io.github.mmm.ui.spi.range.NumericRange;
 import io.github.mmm.ui.widget.input.UiSlider;
 import io.github.mmm.validation.Validator;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.Node;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 /**
  * Implementation of {@link UiSlider} using JavaFx {@link Slider}.
@@ -18,7 +22,13 @@ import javafx.scene.control.Slider;
  */
 public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> implements UiSlider<V> {
 
+  private final HBox topWidget;
+
   private final NumericRange<V> range;
+
+  private final TextField textWidget;
+
+  private String text;
 
   /**
    * The constructor.
@@ -28,7 +38,60 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
   public FxSlider(UiContext context) {
 
     super(context, new Slider());
+    this.topWidget = new HBox();
+    this.textWidget = new TextField();
+    this.textWidget.setEditable(false);
+    this.topWidget.getChildren().add(this.widget);
+    this.topWidget.getChildren().add(this.textWidget);
     this.range = new NumericRange<>(getNumberType());
+    this.widget.valueProperty().addListener(this::onValueChange);
+    this.textWidget.textProperty().addListener(this::onValueChange);
+  }
+
+  @Override
+  public Node getTopWidget() {
+
+    return this.topWidget;
+  }
+
+  @Override
+  protected <W> void onValueChange(ObservableValue<? extends W> observable, W oldValue, W newValue) {
+
+    if (observable == this.textWidget.textProperty()) {
+      try {
+        String newText = this.textWidget.getText();
+        if (newText.equals(this.text)) {
+          return;
+        }
+        this.text = newText;
+        V value = getNumberType().valueOf(this.text);
+        this.widget.setValue(value.doubleValue());
+      } catch (NumberFormatException e) {
+        // TODO
+        setValidationFailure("Invalid number");
+      }
+    } else {
+      super.onValueChange(observable, oldValue, newValue);
+    }
+  }
+
+  @Override
+  protected void onValueChanged(boolean programmatic) {
+
+    super.onValueChanged(programmatic);
+    if (!programmatic) {
+      V value = getValueOrThrow();
+      setValueAsText(value);
+    }
+  }
+
+  private void setValueAsText(V value) {
+
+    String newText = "";
+    if (value != null) {
+      newText = value.toString();
+    }
+    this.textWidget.setText(newText);
   }
 
   /**
@@ -56,6 +119,7 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
       v = this.range.clip(value).doubleValue();
     }
     this.widget.setValue(v);
+    setValueAsText(value);
   }
 
   @Override
@@ -68,29 +132,25 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
   @Override
   public boolean isTextVisible() {
 
-    // TODO Auto-generated method stub
-    return false;
+    return this.textWidget.isVisible();
   }
 
   @Override
-  public void setTextVisible(boolean outputVisible) {
+  public void setTextVisible(boolean textVisible) {
 
-    // TODO Auto-generated method stub
-
+    this.textWidget.setVisible(textVisible);
   }
 
   @Override
   public boolean isTextEditable() {
 
-    // TODO Auto-generated method stub
-    return false;
+    return this.textWidget.isEditable();
   }
 
   @Override
-  public void setTextEditable(boolean outputEditable) {
+  public void setTextEditable(boolean textEditable) {
 
-    // TODO Auto-generated method stub
-
+    this.textWidget.setEditable(textEditable);
   }
 
 }
