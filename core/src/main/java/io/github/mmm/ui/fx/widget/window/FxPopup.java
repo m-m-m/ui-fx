@@ -53,7 +53,7 @@ public class FxPopup extends FxAbstractWindow<Stage> implements UiPopup {
 
     // TODO i18n, etc.
     UiActionClose close = (e) -> setVisible(false);
-    UiButton closeButton = this.context.createButton(close);
+    UiButton closeButton = UiButton.of(this.context, close);
     this.buttonPanel.addChild(closeButton);
     return closeButton;
   }
