@@ -3,13 +3,10 @@
 package io.github.mmm.ui.fx;
 
 import io.github.mmm.ui.UiDispatcher;
+import io.github.mmm.ui.UiNotifier;
 import io.github.mmm.ui.UiScreen;
 import io.github.mmm.ui.UiToggleGroup;
-import io.github.mmm.ui.datatype.UiSeverity;
-import io.github.mmm.ui.event.action.UiAction;
-import io.github.mmm.ui.fx.widget.window.FxMainWindow;
 import io.github.mmm.ui.spi.AbstractUiContext;
-import io.github.mmm.ui.widget.window.UiMainWindow;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -20,7 +17,7 @@ import javafx.stage.Stage;
  */
 public class FxContext extends AbstractUiContext {
 
-  private final FxMainWindow mainWindow;
+  private final Stage primaryStage;
 
   private final FxScreen screen;
 
@@ -34,15 +31,17 @@ public class FxContext extends AbstractUiContext {
   public FxContext(Stage primaryStage) {
 
     super();
-    this.mainWindow = new FxMainWindow(this, primaryStage);
+    this.primaryStage = primaryStage;
     this.screen = new FxScreen(Screen.getPrimary());
     this.dispatcher = new FxDispatcher();
   }
 
-  @Override
-  public UiMainWindow getMainWindow() {
+  /**
+   * @return the primary {@link Stage}.
+   */
+  public Stage getPrimaryStage() {
 
-    return this.mainWindow;
+    return this.primaryStage;
   }
 
   @Override
@@ -64,10 +63,9 @@ public class FxContext extends AbstractUiContext {
   }
 
   @Override
-  public void showPopup(String message, UiSeverity severity, String title, String details, UiAction... actions) {
+  protected UiNotifier createDefaultNotifier() {
 
-    // TODO Auto-generated method stub
-
+    return new FxNotifier(this);
   }
 
 }

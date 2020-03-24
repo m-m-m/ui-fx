@@ -55,7 +55,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
     if (this.nameWidget == null) {
       return this.name;
     } else {
-      return this.nameWidget.getLabel();
+      return this.nameWidget.getText();
     }
   }
 
@@ -65,7 +65,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
     if (this.nameWidget == null) {
       this.name = name;
     } else {
-      this.nameWidget.setLabel(name);
+      this.nameWidget.setText(name);
     }
   }
 
@@ -81,7 +81,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
     if (this.nameWidget == null) {
       this.nameWidget = new FxLabel(this.context);
       if (this.name != null) {
-        this.nameWidget.setLabel(this.name);
+        this.nameWidget.setText(this.name);
       }
       doSetVisibleState(this.nameWidget, doGetVisibleState(this));
       String id = getId();

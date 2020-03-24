@@ -32,13 +32,13 @@ public class FxButton extends FxClickableWidget<Button> implements UiButton {
   }
 
   @Override
-  public String getLabel() {
+  public String getText() {
 
     return this.widget.getText();
   }
 
   @Override
-  public void setLabel(String label) {
+  public void setText(String label) {
 
     this.widget.setText(label);
   }

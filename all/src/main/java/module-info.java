@@ -9,8 +9,14 @@ module io.github.mmm.ui.fx.all {
 
   requires transitive io.github.mmm.ui.fx.chart;
 
+  requires transitive io.github.mmm.ui.fx.icon;
+
   requires transitive io.github.mmm.ui.fx.media;
 
+  requires transitive io.github.mmm.ui.fx.menu;
+
   requires transitive io.github.mmm.ui.fx.text;
+
+  requires transitive io.github.mmm.ui.fx.window;
 
 }

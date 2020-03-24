@@ -76,13 +76,13 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
   }
 
   @Override
-  public String getLabel() {
+  public String getText() {
 
     return this.widget.getText();
   }
 
   @Override
-  public void setLabel(String label) {
+  public void setText(String label) {
 
     this.widget.setText(label);
   }

@@ -25,7 +25,10 @@
     <module>core</module>
     <module>chart</module>
     <module>media</module>
+    <module>icon</module>
     <module>text</module>
+    <module>menu</module>
+    <module>window</module>
     <module>all</module>
   </modules>
 
@@ -59,6 +62,21 @@
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-media</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-menu</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-window</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-icon</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
