@@ -5,7 +5,9 @@ package io.github.mmm.ui.fx.widget.panel;
 import java.util.Iterator;
 
 import javafx.scene.Node;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 /**
  * Extends {@link GridPane} to fill gaps of JavaFx.
@@ -18,6 +20,10 @@ public class AdvancedGridPane extends GridPane {
   public AdvancedGridPane() {
 
     super();
+    ColumnConstraints column1 = new ColumnConstraints(100, 100, Double.MAX_VALUE);
+    ColumnConstraints column2 = new ColumnConstraints(100, 100, Double.MAX_VALUE);
+    column2.setHgrow(Priority.ALWAYS);
+    getColumnConstraints().addAll(column1, column2);
   }
 
   /**
@@ -52,9 +58,13 @@ public class AdvancedGridPane extends GridPane {
         setRowIndex(node, Integer.valueOf(row + 1));
       }
     }
-    int columnIndex = 0;
-    for (Node child : children) {
-      add(child, columnIndex++, rowIndex);
+    if (children.length == 1) {
+      add(children[0], 0, rowIndex, 2, 1);
+    } else {
+      int columnIndex = 0;
+      for (Node child : children) {
+        add(child, columnIndex++, rowIndex);
+      }
     }
   }
 

@@ -8,6 +8,8 @@ import java.util.List;
 import io.github.mmm.ui.UiContext;
 import io.github.mmm.ui.attribute.AttributeWriteMaximized;
 import io.github.mmm.ui.attribute.AttributeWriteMinimized;
+import io.github.mmm.ui.attribute.AttributeWritePositionRange;
+import io.github.mmm.ui.attribute.AttributeWriteSizeRange;
 import io.github.mmm.ui.datatype.UiEnabledFlags;
 import io.github.mmm.ui.event.UiHideEvent;
 import io.github.mmm.ui.event.UiShowEvent;
@@ -42,6 +44,8 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
   /** @see #getChild(int) */
   protected final List<UiRegularWidget> children;
 
+  private final FxAbstractWindowPositionAndSize positionAndSize;
+
   private String id;
 
   /**
@@ -54,6 +58,7 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
 
     super(context, widget);
     this.children = new ArrayList<>();
+    this.positionAndSize = new FxAbstractWindowPositionAndSize(widget, context.getScreen());
     this.composite = new VBox();
     if (isScrollable()) {
       this.scrollPane = new ScrollPane(this.composite);
@@ -136,6 +141,18 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
     } else {
       this.widget.hide();
     }
+  }
+
+  @Override
+  public AttributeWritePositionRange getPosition() {
+
+    return this.positionAndSize;
+  }
+
+  @Override
+  public AttributeWriteSizeRange getSize() {
+
+    return this.positionAndSize;
   }
 
   @Override
@@ -224,54 +241,6 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
     this.composite.getChildren().remove(index + getChildOffset());
     setParent(child, null);
     return child;
-  }
-
-  @Override
-  public double getX() {
-
-    return this.widget.getX();
-  }
-
-  @Override
-  public void setX(double x) {
-
-    this.widget.setX(x);
-  }
-
-  @Override
-  public double getY() {
-
-    return this.widget.getY();
-  }
-
-  @Override
-  public void setY(double y) {
-
-    this.widget.setY(y);
-  }
-
-  @Override
-  public double getWidthInPixel() {
-
-    return this.widget.getWidth();
-  }
-
-  @Override
-  public void setWidthInPixel(double width) {
-
-    this.widget.setWidth(width);
-  }
-
-  @Override
-  public double getHeightInPixel() {
-
-    return this.widget.getHeight();
-  }
-
-  @Override
-  public void setHeightInPixel(double height) {
-
-    this.widget.setHeight(height);
   }
 
   @Override

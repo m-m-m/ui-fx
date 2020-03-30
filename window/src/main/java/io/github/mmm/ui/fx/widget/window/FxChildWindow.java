@@ -3,7 +3,6 @@
 package io.github.mmm.ui.fx.widget.window;
 
 import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.UiSize;
 import io.github.mmm.ui.event.UiHideEvent;
 import io.github.mmm.ui.event.UiShowEvent;
 import io.github.mmm.ui.widget.composite.UiComposite;
@@ -11,7 +10,6 @@ import io.github.mmm.ui.widget.window.UiAbstractWindow;
 import io.github.mmm.ui.widget.window.UiChildWindow;
 import io.github.mmm.ui.widget.window.UiPopup;
 import javafx.scene.control.ScrollPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -83,18 +81,6 @@ public abstract class FxChildWindow extends FxAbstractWindow implements UiChildW
   private void onShown(WindowEvent event) {
 
     fireEvent(new UiShowEvent(this, getProgrammaticEventType() == UiShowEvent.TYPE));
-  }
-
-  @Override
-  public void setWidth(UiSize width) {
-
-    this.widget.setWidth(width.toPixel(Screen.getPrimary().getVisualBounds().getWidth()));
-  }
-
-  @Override
-  public void setHeight(UiSize height) {
-
-    this.widget.setHeight(height.toPixel(Screen.getPrimary().getVisualBounds().getHeight()));
   }
 
   @Override

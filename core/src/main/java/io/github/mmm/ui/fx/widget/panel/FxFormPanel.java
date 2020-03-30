@@ -33,18 +33,24 @@ public class FxFormPanel<V> extends FxValuedComposite<AdvancedGridPane, UiAbstra
   protected void addChildWidget(UiAbstractInput<?> child, int index) {
 
     int rows = this.children.size();
-    Node[] childNodes;
+    Node[] childNodes = null;
     if (child instanceof UiInput) {
       UiInput<?> input = (UiInput<?>) child;
       UiLabel label = input.getNameWidget();
       childNodes = new Node[] { getTopNode(label), getTopNode(child) };
-    } else {
-      childNodes = new Node[] { getTopNode(child) };
     }
     if ((index == -1) || (index == rows)) {
-      this.widget.addRow(rows, childNodes);
+      if (childNodes == null) {
+        this.widget.add(getTopNode(child), 0, rows, 2, 1);
+      } else {
+        this.widget.addRow(rows, childNodes);
+      }
     } else if (index < rows) {
-      this.widget.insertRow(index, childNodes);
+      if (childNodes == null) {
+        this.widget.insertRow(index, getTopNode(child));
+      } else {
+        this.widget.insertRow(index, childNodes);
+      }
     }
   }
 

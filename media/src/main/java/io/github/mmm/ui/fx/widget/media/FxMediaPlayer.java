@@ -8,6 +8,8 @@ import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerControlBar;
 import io.github.mmm.ui.widget.media.UiMediaPlayer;
 import io.github.mmm.ui.widget.media.UiMediaWidget;
 import javafx.scene.Node;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaView;
 
@@ -28,7 +30,15 @@ public class FxMediaPlayer extends FxMediaWidget<MediaView> implements UiMediaPl
   public FxMediaPlayer(UiContext context) {
 
     super(context, new MediaView());
-    this.topWidget = new VBox();
+    this.topWidget = new VBox() {
+      @Override
+      protected void layoutChildren() {
+
+        super.layoutChildren();
+        FxMediaPlayer.this.widget.setFitWidth(getWidth());
+      }
+    };
+    HBox.setHgrow(this.topWidget, Priority.ALWAYS);
     this.topWidget.getChildren().add(this.widget);
     this.topWidget.getChildren().add(this.mediaPlayerAdapter.getControls());
   }

@@ -3,8 +3,8 @@
 package io.github.mmm.ui.fx.widget;
 
 import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.attribute.AttributeWriteTooltip;
 import io.github.mmm.ui.widget.UiWidget;
-import io.github.mmm.ui.widget.attribute.UiWidgetWithTooltip;
 import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 
@@ -14,7 +14,7 @@ import javafx.scene.control.Tooltip;
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxWidgetWithTooltip<W extends Node> extends FxWidgetNode<W> implements UiWidgetWithTooltip {
+public abstract class FxWidgetWithTooltip<W extends Node> extends FxWidgetNode<W> implements AttributeWriteTooltip {
 
   private Tooltip fxTooltip;
 
