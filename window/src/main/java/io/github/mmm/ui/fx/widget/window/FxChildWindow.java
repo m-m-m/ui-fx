@@ -107,4 +107,10 @@ public abstract class FxChildWindow extends FxAbstractWindow implements UiChildW
     this.movable = movable;
   }
 
+  @Override
+  public void centerOnScreen() {
+
+    this.positionAndSize.centerOnScreen(true);
+  }
+
 }

@@ -44,7 +44,11 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
   /** @see #getChild(int) */
   protected final List<UiRegularWidget> children;
 
-  private final FxAbstractWindowPositionAndSize positionAndSize;
+  /**
+   * @see #getPosition()
+   * @see #getSize()
+   */
+  protected final FxAbstractWindowPositionAndSize positionAndSize;
 
   private String id;
 
@@ -137,6 +141,7 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
   protected void setVisibleNative(boolean visible) {
 
     if (visible) {
+      this.positionAndSize.centerOnScreen(false);
       this.widget.show();
     } else {
       this.widget.hide();

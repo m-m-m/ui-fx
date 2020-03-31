@@ -33,25 +33,35 @@ public class FxAbstractWindowPositionAndSize extends UiWindowPositionAndSize {
   @Override
   public double getX() {
 
-    return this.stage.getX();
+    double xPos = this.stage.getX();
+    if ((xPos == 0) && (this.x == -1)) {
+      return -1;
+    }
+    return xPos;
   }
 
   @Override
   public void setX(double x) {
 
-    this.stage.setX(x);
+    super.setX(x);
+    this.stage.setX(clipZero(x));
   }
 
   @Override
   public double getY() {
 
-    return this.stage.getY();
+    double yPos = this.stage.getY();
+    if ((yPos == 0) && (this.y == -1)) {
+      return -1;
+    }
+    return yPos;
   }
 
   @Override
   public void setY(double y) {
 
-    this.stage.setY(y);
+    super.setY(y);
+    this.stage.setY(clipZero(y));
   }
 
   @Override
