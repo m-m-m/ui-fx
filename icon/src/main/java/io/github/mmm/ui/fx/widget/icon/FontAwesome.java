@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import io.github.mmm.ui.datatype.UiSeverity;
 import javafx.scene.text.Font;
@@ -17,20 +18,31 @@ import javafx.scene.text.Font;
  */
 public final class FontAwesome {
 
+  private static final Font FONT;
+
   private static final Map<String, String> ICONS = new HashMap<>();
 
   static {
-    ICONS.put(UiSeverity.ERROR.getName(), "\f057");
-    ICONS.put(UiSeverity.WARNING.getName(), "\f071");
-    ICONS.put(UiSeverity.INFORMATION.getName(), "\f05a");
-    ICONS.put(UiSeverity.QUESTION.getName(), "\f059");
+    ICONS.put(UiSeverity.ERROR.getName(), "\uf057");
+    ICONS.put(UiSeverity.WARNING.getName(), "\uf071");
+    ICONS.put(UiSeverity.INFORMATION.getName(), "\uf05a");
+    ICONS.put(UiSeverity.QUESTION.getName(), "\uf059");
     ICONS.put("expand", "\f0fe");
     ICONS.put("collapse", "\f146");
     try (InputStream in = FontAwesome.class.getResource("fa-solid-900.ttf").openStream()) {
-      Font.loadFont(in, 10.0);
+      FONT = Font.loadFont(in, 10.0);
+      Objects.requireNonNull(FONT);
     } catch (IOException e) {
       throw new IllegalStateException("Failed to load Font.", e);
     }
+  }
+
+  /**
+   * @return the fontawesome {@link Font}.
+   */
+  public static Font getFont() {
+
+    return FONT;
   }
 
   /**
@@ -40,7 +52,8 @@ public final class FontAwesome {
    */
   public static String getUnicode(String iconId) {
 
-    return ICONS.get(iconId);
+    String unicode = ICONS.get(iconId);
+    return unicode;
   }
 
 }

@@ -27,6 +27,7 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
   public FxIcon(UiContext context) {
 
     super(context, new Text());
+    this.widget.setFont(FontAwesome.getFont());
     this.size = 1;
     updateSize();
   }
@@ -64,7 +65,7 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
 
   private void updateSize() {
 
-    this.widget.setStyle("-fx-font-family: FontAwesome; -fx-font-size: " + (this.size * 10) + ";");
+    this.widget.setStyle("-fx-font-size: " + (this.size * 10) + ";");
   }
 
 }
