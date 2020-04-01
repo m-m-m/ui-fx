@@ -89,15 +89,25 @@ public class FxAbstractWindowPositionAndSize extends UiWindowPositionAndSize {
   }
 
   @Override
-  protected double getMaxScreenWidth() {
+  protected double getScreenWidth() {
 
     return this.screen.getWidthInPixel();
   }
 
   @Override
-  protected double getMaxScreenHeight() {
+  protected double getScreenHeight() {
 
     return this.screen.getHeightInPixel();
+  }
+
+  @Override
+  public void centerOnScreen(boolean force) {
+
+    super.centerOnScreen(force);
+    this.stage.setX(this.x);
+    this.stage.setY(this.y);
+    this.stage.setWidth(this.width);
+    this.stage.setHeight(this.height);
   }
 
 }
