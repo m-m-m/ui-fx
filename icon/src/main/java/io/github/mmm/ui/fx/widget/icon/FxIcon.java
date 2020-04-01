@@ -3,6 +3,8 @@
 package io.github.mmm.ui.fx.widget.icon;
 
 import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.fx.icon.FxIconGlyph;
+import io.github.mmm.ui.fx.icon.FxIconGlyphFactory;
 import io.github.mmm.ui.fx.widget.img.FxAbstractImage;
 import io.github.mmm.ui.widget.img.UiIcon;
 import javafx.scene.image.ImageView;
@@ -17,6 +19,8 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
 
   private String iconId;
 
+  private FxIconGlyph glyph;
+
   private double size;
 
   /**
@@ -27,9 +31,7 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
   public FxIcon(UiContext context) {
 
     super(context, new Text());
-    this.widget.setFont(FontAwesome.getFont());
     this.size = 1;
-    updateSize();
   }
 
   @Override
@@ -41,13 +43,36 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
   @Override
   public void setIconId(String iconId) {
 
-    String unicode = FontAwesome.getUnicode(iconId);
-    if (unicode == null) {
-      // undefined icon... use default?
-      unicode = "";
+    this.glyph = FxIconGlyphFactory.get().getGlyph(iconId);
+    if (this.glyph == null) {
+      // TODO Logging
+      System.out.println("WARNING: undefined Icon: " + iconId);
+      this.widget.setText("");
+    } else {
+      this.widget.setFont(this.glyph.getFont());
+      this.widget.setText(this.glyph.getUnicode());
     }
-    this.widget.setText(unicode);
     this.iconId = iconId;
+    updateStyle();
+  }
+
+  private void updateStyle() {
+
+    StringBuilder style = new StringBuilder("-fx-font-size:");
+    style.append((int) (this.size * 10));
+    String fill = this.glyph.getFill();
+    if (fill != null) {
+      style.append(";-fx-fill:");
+      style.append(fill);
+    }
+    String stroke = this.glyph.getStroke();
+    if (stroke != null) {
+      style.append(";-fx-stroke:");
+      style.append(stroke);
+    }
+    style.append(";");
+
+    this.widget.setStyle(style.toString());
   }
 
   @Override
@@ -59,13 +84,11 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
   @Override
   public void setSize(double size) {
 
+    if (size <= 0) {
+      size = 1;
+    }
     this.size = size;
-    updateSize();
-  }
-
-  private void updateSize() {
-
-    this.widget.setStyle("-fx-font-size: " + (this.size * 10) + ";");
+    updateStyle();
   }
 
 }

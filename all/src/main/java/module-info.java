@@ -11,6 +11,8 @@ module io.github.mmm.ui.fx.all {
 
   requires transitive io.github.mmm.ui.fx.icon;
 
+  requires transitive io.github.mmm.ui.fx.icon.fontawesome;
+
   requires transitive io.github.mmm.ui.fx.media;
 
   requires transitive io.github.mmm.ui.fx.menu;

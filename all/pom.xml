@@ -35,7 +35,7 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-fx-icon</artifactId>
+      <artifactId>mmm-ui-fx-icon-fontawesome</artifactId>
     </dependency>
   </dependencies>
 </project>
