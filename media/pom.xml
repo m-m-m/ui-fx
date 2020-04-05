@@ -18,6 +18,10 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-api-media</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>mmm-ui-fx-core</artifactId>
     </dependency>
     <dependency>

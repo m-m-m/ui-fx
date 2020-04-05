@@ -18,7 +18,7 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui</artifactId>
+      <artifactId>mmm-ui-api-core</artifactId>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>

@@ -4,9 +4,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
-import io.github.mmm.ui.fx.factory.chart.FxFactoryBarChartVertical;
-import io.github.mmm.ui.fx.factory.chart.FxFactoryBarChartHorizontal;
-import io.github.mmm.ui.fx.factory.chart.FxFactoryPieChart;
 
 /**
  * Provides the implementation of UI media widgets based on JavaFx.
@@ -14,10 +11,15 @@ import io.github.mmm.ui.fx.factory.chart.FxFactoryPieChart;
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.chart {
 
+  requires transitive io.github.mmm.ui.api.chart;
+
   requires transitive io.github.mmm.ui.fx.core;
 
   provides UiSingleWidgetFactoryNative with //
-      FxFactoryBarChartVertical, FxFactoryBarChartHorizontal, FxFactoryPieChart;
+      io.github.mmm.ui.fx.factory.chart.FxFactoryBarChartVertical, //
+      io.github.mmm.ui.fx.factory.chart.FxFactoryBarChartHorizontal, //
+      io.github.mmm.ui.fx.factory.chart.FxFactoryLineChart, //
+      io.github.mmm.ui.fx.factory.chart.FxFactoryPieChart;
 
   exports io.github.mmm.ui.fx.factory.chart;
 

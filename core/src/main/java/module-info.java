@@ -11,7 +11,7 @@ import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.core {
 
-  requires transitive io.github.mmm.ui;
+  requires transitive io.github.mmm.ui.api.core;
 
   // TODO bug in JPMS or Eclipse as this is already a transitive dependency of ui
   requires transitive io.github.mmm.value;
@@ -36,6 +36,7 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryPasswordInput, //
       io.github.mmm.ui.fx.factory.core.FxFactoryRadioButton, //
       io.github.mmm.ui.fx.factory.core.FxFactoryRadioChoice, //
+      io.github.mmm.ui.fx.factory.core.FxFactorySlot, //
       io.github.mmm.ui.fx.factory.core.FxFactoryScrollPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryTab, //
       io.github.mmm.ui.fx.factory.core.FxFactoryTabPanel, //

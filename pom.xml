@@ -24,11 +24,12 @@
   <modules>
     <module>core</module>
     <module>chart</module>
-    <module>media</module>
     <module>icon</module>
     <module>icon-fontawesome</module>
-    <module>text</module>
+    <module>media</module>
     <module>menu</module>
+    <module>temporal</module>
+    <module>text</module>
     <module>window</module>
     <module>all</module>
   </modules>
@@ -37,8 +38,10 @@
     <dependencies>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui</artifactId>
+        <artifactId>mmm-ui-api-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.openjfx</groupId>
@@ -52,7 +55,7 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-core</artifactId>
+        <artifactId>mmm-ui-fx-all</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -62,17 +65,7 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-media</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-menu</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-window</artifactId>
+        <artifactId>mmm-ui-fx-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -87,12 +80,27 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-media</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-menu</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-temporal</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-text</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-all</artifactId>
+        <artifactId>mmm-ui-fx-window</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

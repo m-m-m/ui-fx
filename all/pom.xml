@@ -15,15 +15,11 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-fx-menu</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-fx-window</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
       <artifactId>mmm-ui-fx-chart</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-fx-icon-fontawesome</artifactId>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -31,11 +27,19 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-fx-menu</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-fx-temporal</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>mmm-ui-fx-text</artifactId>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-fx-icon-fontawesome</artifactId>
+      <artifactId>mmm-ui-fx-window</artifactId>
     </dependency>
   </dependencies>
 </project>

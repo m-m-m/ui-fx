@@ -45,15 +45,21 @@ public abstract class FxBarChart<W extends BarChart<X, Y> & AdvancedChart<Series
   public void setSeriesLabels(String... labels) {
 
     this.seriesLabels = labels;
-    for (Series<X, Y> series : this.widget.getData()) {
+    ObservableList<Series<X, Y>> list = this.widget.getData();
+    for (Series<X, Y> series : list) {
       int i = 0;
-      for (Data data : series.getData()) {
+      // workaround for JavaFx bug when updating labels...
+      ObservableList<Data<X, Y>> dataList = series.getData();
+      Data[] dataArray = new Data[dataList.size()];
+      for (Data data : dataList) {
         if (this.horizontal) {
-          data.setYValue(getSeriesLabel(i++));
+          dataArray[i] = new Data(data.getXValue(), getSeriesLabel(i));
         } else {
-          data.setXValue(getSeriesLabel(i++));
+          dataArray[i] = new Data(getSeriesLabel(i), data.getYValue());
         }
+        i++;
       }
+      dataList.setAll(dataArray);
     }
   }
 

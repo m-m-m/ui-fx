@@ -11,6 +11,8 @@ import io.github.mmm.ui.fx.factory.media.FxFactoryMediaPlayer;
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.media {
 
+  requires transitive io.github.mmm.ui.api.media;
+
   requires transitive io.github.mmm.ui.fx.core;
 
   requires javafx.web;
