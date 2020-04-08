@@ -2,11 +2,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.event.UiClickEvent;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.event.UiClickEvent;
+import io.github.mmm.ui.api.widget.menu.UiAbstractActiveMenuItem;
+import io.github.mmm.ui.api.widget.menu.UiMenuItemSeparator;
 import io.github.mmm.ui.fx.widget.FxWidgetStyleable;
-import io.github.mmm.ui.widget.menu.UiAbstractActiveMenuItem;
-import io.github.mmm.ui.widget.menu.UiMenuItemSeparator;
 import javafx.scene.control.MenuItem;
 
 /**

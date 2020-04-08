@@ -2,8 +2,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.menu.UiMenuItemRadioButton;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.menu.UiMenuItemRadioButton;
 import javafx.scene.control.RadioMenuItem;
 
 /**

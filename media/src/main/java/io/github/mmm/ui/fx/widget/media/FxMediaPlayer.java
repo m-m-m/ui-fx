@@ -2,11 +2,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.media;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.media.UiMediaPlayer;
+import io.github.mmm.ui.api.widget.media.UiMediaWidget;
 import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerAdapter;
 import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerControlBar;
-import io.github.mmm.ui.widget.media.UiMediaPlayer;
-import io.github.mmm.ui.widget.media.UiMediaWidget;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;

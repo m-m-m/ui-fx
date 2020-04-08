@@ -2,8 +2,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.UiLabel;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.UiLabel;
 import javafx.scene.control.Label;
 
 /**

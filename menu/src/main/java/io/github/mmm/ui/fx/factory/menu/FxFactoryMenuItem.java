@@ -2,10 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.menu;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.widget.menu.UiMenuItem;
 import io.github.mmm.ui.fx.widget.menu.FxMenuItem;
-import io.github.mmm.ui.widget.menu.UiMenuItem;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiMenuItem}.

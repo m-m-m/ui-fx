@@ -5,9 +5,9 @@ package io.github.mmm.ui.fx.widget.temporal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.temporal.UiTimeInput;
 import io.github.mmm.ui.fx.widget.input.FxInput;
-import io.github.mmm.ui.widget.temporal.UiTimeInput;
 
 /**
  * Implementation of {@link UiTimeInput} for JavaFx using {@link DateTimePicker}.

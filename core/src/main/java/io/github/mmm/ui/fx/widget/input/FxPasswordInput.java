@@ -2,8 +2,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.input.UiPasswordInput;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.input.UiPasswordInput;
 import javafx.scene.control.PasswordField;
 
 /**

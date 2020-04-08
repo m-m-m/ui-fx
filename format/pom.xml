@@ -7,12 +7,16 @@
     <artifactId>mmm-ui-fx-parent</artifactId>
     <version>${revision}${changelist}</version>
   </parent>
-  <artifactId>mmm-ui-fx-text</artifactId>
+  <artifactId>mmm-ui-fx-format</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
-  <description>Implementation of text widgets for JavaFx.</description>
+  <description>Implementation of format widgets (formatted text such as HTML or source-code) for JavaFx.</description>
   
   <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-api-format</artifactId>
+    </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>mmm-ui-fx-core</artifactId>

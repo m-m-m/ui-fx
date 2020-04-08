@@ -2,13 +2,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.UiRegularWidget;
+import io.github.mmm.ui.api.widget.composite.UiComposite;
+import io.github.mmm.ui.api.widget.composite.UiTab;
+import io.github.mmm.ui.api.widget.panel.UiTabPanel;
 import io.github.mmm.ui.fx.widget.FxWidgetStyleable;
 import io.github.mmm.ui.fx.widget.panel.FxTabPanel;
-import io.github.mmm.ui.widget.UiRegularWidget;
-import io.github.mmm.ui.widget.composite.UiComposite;
-import io.github.mmm.ui.widget.composite.UiTab;
-import io.github.mmm.ui.widget.panel.UiTabPanel;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Tab;
 

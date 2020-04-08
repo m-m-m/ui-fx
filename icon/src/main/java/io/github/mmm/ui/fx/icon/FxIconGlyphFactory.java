@@ -10,7 +10,7 @@ import io.github.mmm.ui.fx.icon.impl.FxIconGlyphFactoryProvider;
 public interface FxIconGlyphFactory {
 
   /**
-   * @param iconId the {@link io.github.mmm.ui.widget.img.UiIcon#setIconId(String) ID of the icon}.
+   * @param iconId the {@link io.github.mmm.ui.api.widget.img.UiIcon#setIconId(String) ID of the icon}.
    * @return the {@link FxIconGlyph} for the given {@code iconId}.
    */
   FxIconGlyph getGlyph(String iconId);

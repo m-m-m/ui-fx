@@ -3,7 +3,7 @@
  * Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  */
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 
 /**
  * Provides the implementation of UI media widgets based on JavaFx.

@@ -2,9 +2,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.event.UiValueChangeEvent;
-import io.github.mmm.ui.widget.input.UiTextualInput;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.event.UiValueChangeEvent;
+import io.github.mmm.ui.api.widget.input.UiTextualInput;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 

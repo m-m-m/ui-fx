@@ -2,9 +2,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.UiWidget;
-import io.github.mmm.ui.widget.composite.UiDynamicComposite;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.UiWidget;
+import io.github.mmm.ui.api.widget.composite.UiDynamicComposite;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;

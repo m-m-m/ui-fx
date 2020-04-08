@@ -2,11 +2,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.icon;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.img.UiIcon;
 import io.github.mmm.ui.fx.icon.FxIconGlyph;
 import io.github.mmm.ui.fx.icon.FxIconGlyphFactory;
 import io.github.mmm.ui.fx.widget.img.FxAbstractImage;
-import io.github.mmm.ui.widget.img.UiIcon;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 

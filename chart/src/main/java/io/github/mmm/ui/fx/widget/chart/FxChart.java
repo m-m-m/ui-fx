@@ -3,12 +3,12 @@
 package io.github.mmm.ui.fx.widget.chart;
 
 import io.github.mmm.base.placement.Direction;
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.chart.UiDataSet;
-import io.github.mmm.ui.datatype.color.Color;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.chart.UiDataSet;
+import io.github.mmm.ui.api.datatype.color.Color;
+import io.github.mmm.ui.api.widget.chart.UiChart;
 import io.github.mmm.ui.fx.widget.FxWidgetNode;
 import io.github.mmm.ui.fx.widget.chart.fx.AdvancedChart;
-import io.github.mmm.ui.widget.chart.UiChart;
 import javafx.collections.ObservableList;
 import javafx.geometry.Side;
 import javafx.scene.Node;
@@ -19,7 +19,7 @@ import javafx.scene.control.Label;
  * Implementation of {@link UiChart} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
- * @param <D> type of the chart {@link io.github.mmm.ui.datatype.chart.UiDataSet#getData() data}.
+ * @param <D> type of the chart {@link io.github.mmm.ui.api.datatype.chart.UiDataSet#getData() data}.
  * @param <J> type of JavaFx {@link Chart} data.
  * @since 1.0.0
  */

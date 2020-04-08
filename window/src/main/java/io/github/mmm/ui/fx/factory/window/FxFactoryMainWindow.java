@@ -2,10 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.window;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.widget.window.UiMainWindow;
 import io.github.mmm.ui.fx.widget.window.FxMainWindow;
-import io.github.mmm.ui.widget.window.UiMainWindow;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiMainWindow}.

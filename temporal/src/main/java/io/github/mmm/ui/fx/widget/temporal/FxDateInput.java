@@ -4,9 +4,9 @@ package io.github.mmm.ui.fx.widget.temporal;
 
 import java.time.LocalDate;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.temporal.UiDateInput;
 import io.github.mmm.ui.fx.widget.input.FxInput;
-import io.github.mmm.ui.widget.temporal.UiDateInput;
 import javafx.scene.control.DatePicker;
 
 /**

@@ -2,13 +2,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.UiVisibleFlags;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.UiVisibleFlags;
+import io.github.mmm.ui.api.widget.composite.UiTab;
+import io.github.mmm.ui.api.widget.panel.UiTabPanel;
 import io.github.mmm.ui.fx.widget.FxAtomicWidget;
 import io.github.mmm.ui.fx.widget.composite.FxDynamicComposite;
 import io.github.mmm.ui.fx.widget.composite.FxTab;
-import io.github.mmm.ui.widget.composite.UiTab;
-import io.github.mmm.ui.widget.panel.UiTabPanel;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;

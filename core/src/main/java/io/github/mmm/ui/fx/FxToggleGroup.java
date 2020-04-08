@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx;
 
-import io.github.mmm.ui.UiToggleGroup;
+import io.github.mmm.ui.api.UiToggleGroup;
 import javafx.scene.control.ToggleGroup;
 
 /**

@@ -4,9 +4,9 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
 import io.github.mmm.base.range.WritableRange;
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.input.UiNumberInput;
 import io.github.mmm.ui.spi.range.NumericRange;
-import io.github.mmm.ui.widget.input.UiNumberInput;
 import io.github.mmm.validation.Validator;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;

@@ -1,4 +1,4 @@
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.fx.factory.media.FxFactoryMediaPlayer;
 
 /*

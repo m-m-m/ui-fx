@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.media.fx;
 
-import io.github.mmm.ui.attribute.AttributeManageMedia;
+import io.github.mmm.ui.api.attribute.AttributeManageMedia;
 import javafx.scene.Node;
 import javafx.scene.media.MediaPlayer;
 

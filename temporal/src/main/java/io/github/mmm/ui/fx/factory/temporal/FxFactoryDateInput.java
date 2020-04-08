@@ -2,10 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.temporal;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.widget.temporal.UiDateInput;
 import io.github.mmm.ui.fx.widget.temporal.FxDateInput;
-import io.github.mmm.ui.widget.temporal.UiDateInput;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiDateInput}.

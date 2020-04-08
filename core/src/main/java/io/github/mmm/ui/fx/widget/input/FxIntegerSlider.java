@@ -3,8 +3,8 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.input.UiIntegerSlider;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.input.UiIntegerSlider;
 import javafx.scene.control.Slider;
 
 /**

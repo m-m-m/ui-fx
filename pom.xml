@@ -24,12 +24,12 @@
   <modules>
     <module>core</module>
     <module>chart</module>
+    <module>format</module>
     <module>icon</module>
     <module>icon-fontawesome</module>
     <module>media</module>
     <module>menu</module>
     <module>temporal</module>
-    <module>text</module>
     <module>window</module>
     <module>all</module>
   </modules>
@@ -95,7 +95,7 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-text</artifactId>
+        <artifactId>mmm-ui-fx-format</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

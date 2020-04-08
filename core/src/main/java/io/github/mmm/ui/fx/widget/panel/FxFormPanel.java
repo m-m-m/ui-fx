@@ -2,12 +2,12 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.UiLabel;
+import io.github.mmm.ui.api.widget.input.UiAbstractInput;
+import io.github.mmm.ui.api.widget.input.UiInput;
+import io.github.mmm.ui.api.widget.panel.UiFormPanel;
 import io.github.mmm.ui.fx.widget.composite.FxValuedComposite;
-import io.github.mmm.ui.widget.UiLabel;
-import io.github.mmm.ui.widget.input.UiAbstractInput;
-import io.github.mmm.ui.widget.input.UiInput;
-import io.github.mmm.ui.widget.panel.UiFormPanel;
 import javafx.scene.Node;
 
 /**

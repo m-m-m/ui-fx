@@ -2,9 +2,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.UiRegularWidget;
-import io.github.mmm.ui.widget.composite.UiSlot;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.UiRegularWidget;
+import io.github.mmm.ui.api.widget.composite.UiSlot;
 import javafx.scene.layout.StackPane;
 
 /**

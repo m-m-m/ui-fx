@@ -2,11 +2,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.UiScrollBarVisibility;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.UiScrollBarVisibility;
+import io.github.mmm.ui.api.widget.UiRegularWidget;
+import io.github.mmm.ui.api.widget.panel.UiScrollPanel;
 import io.github.mmm.ui.fx.widget.composite.FxComposite;
-import io.github.mmm.ui.widget.UiRegularWidget;
-import io.github.mmm.ui.widget.panel.UiScrollPanel;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 

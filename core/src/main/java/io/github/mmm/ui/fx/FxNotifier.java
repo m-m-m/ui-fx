@@ -2,12 +2,12 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.UiSeverity;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.UiSeverity;
 import io.github.mmm.ui.spi.AbstractUiNotifier;
 
 /**
- * Implementation of {@link io.github.mmm.ui.UiNotifier} for JavaFx.
+ * Implementation of {@link io.github.mmm.ui.api.UiNotifier} for JavaFx.
  *
  * @since 1.0.0
  */

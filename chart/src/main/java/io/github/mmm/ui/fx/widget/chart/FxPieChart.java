@@ -2,10 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.chart;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.chart.UiDataSet;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.chart.UiDataSet;
+import io.github.mmm.ui.api.widget.chart.UiPieChart;
 import io.github.mmm.ui.fx.widget.chart.fx.AdvancedPieChart;
-import io.github.mmm.ui.widget.chart.UiPieChart;
 import javafx.scene.chart.PieChart.Data;
 
 /**

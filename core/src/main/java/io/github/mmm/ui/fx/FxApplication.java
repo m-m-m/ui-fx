@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

@@ -2,13 +2,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.bitmask.BitMask;
-import io.github.mmm.ui.event.UiValueChangeEvent;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.bitmask.BitMask;
+import io.github.mmm.ui.api.event.UiValueChangeEvent;
+import io.github.mmm.ui.api.widget.UiRegularWidget;
+import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.FxActiveWidget;
 import io.github.mmm.ui.fx.widget.FxLabel;
-import io.github.mmm.ui.widget.UiRegularWidget;
-import io.github.mmm.ui.widget.input.UiInput;
 import io.github.mmm.validation.Validator;
 import javafx.scene.control.Control;
 import javafx.scene.layout.HBox;

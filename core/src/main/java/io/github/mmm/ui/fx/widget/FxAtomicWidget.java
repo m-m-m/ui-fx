@@ -2,8 +2,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
+import io.github.mmm.ui.api.widget.UiAtomicWidget;
 import io.github.mmm.ui.spi.widget.UiNativeWidgetWrapper;
-import io.github.mmm.ui.widget.UiAtomicWidget;
 import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
 

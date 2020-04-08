@@ -2,9 +2,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.event.UiFocusGainEvent;
-import io.github.mmm.ui.widget.UiActiveWidget;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.event.UiFocusGainEvent;
+import io.github.mmm.ui.api.widget.UiActiveWidget;
 import javafx.scene.control.Control;
 
 /**

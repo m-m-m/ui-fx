@@ -2,10 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.button.UiAbstractButton;
+import io.github.mmm.ui.api.widget.panel.UiButtonPanel;
 import io.github.mmm.ui.fx.widget.composite.FxDynamicCompositePane;
-import io.github.mmm.ui.widget.button.UiAbstractButton;
-import io.github.mmm.ui.widget.panel.UiButtonPanel;
 import javafx.scene.layout.HBox;
 
 /**

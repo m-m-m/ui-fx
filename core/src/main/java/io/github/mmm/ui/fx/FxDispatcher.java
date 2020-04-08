@@ -8,7 +8,7 @@ import io.github.mmm.ui.spi.AbstractUiDispatcher;
 import javafx.application.Platform;
 
 /**
- * Implementation of {@link io.github.mmm.ui.UiDispatcher} for JavaFx.
+ * Implementation of {@link io.github.mmm.ui.api.UiDispatcher} for JavaFx.
  *
  * @since 1.0.0
  */

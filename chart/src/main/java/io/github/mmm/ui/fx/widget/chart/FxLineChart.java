@@ -2,11 +2,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.chart;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.UiPoint;
-import io.github.mmm.ui.datatype.chart.UiDataSet;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.UiPoint;
+import io.github.mmm.ui.api.datatype.chart.UiDataSet;
+import io.github.mmm.ui.api.widget.chart.UiLineChart;
 import io.github.mmm.ui.fx.widget.chart.fx.AdvancedLineChart;
-import io.github.mmm.ui.widget.chart.UiLineChart;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Data;

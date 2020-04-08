@@ -5,7 +5,7 @@ package io.github.mmm.ui.fx.icon;
 import javafx.scene.text.Font;
 
 /**
- * Interface for the glyph of a {@link io.github.mmm.ui.widget.img.UiIcon} for JavaFx. As described in
+ * Interface for the glyph of a {@link io.github.mmm.ui.api.widget.img.UiIcon} for JavaFx. As described in
  * <a href="https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html#introlimitations">Limitations of
  * JavaFX CSS Reference Guide</a> there is no support for {@code :before} pseudoclass nor is there a possibility to load
  * fonts via CSS in JavaFx. Hence the flexibility to define icons as glyphs needs to be done what is exactly the purpose

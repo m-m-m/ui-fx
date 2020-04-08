@@ -2,13 +2,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.window;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.event.UiHideEvent;
-import io.github.mmm.ui.event.UiShowEvent;
-import io.github.mmm.ui.widget.composite.UiComposite;
-import io.github.mmm.ui.widget.window.UiAbstractWindow;
-import io.github.mmm.ui.widget.window.UiChildWindow;
-import io.github.mmm.ui.widget.window.UiPopup;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.event.UiHideEvent;
+import io.github.mmm.ui.api.event.UiShowEvent;
+import io.github.mmm.ui.api.widget.composite.UiComposite;
+import io.github.mmm.ui.api.widget.window.UiAbstractWindow;
+import io.github.mmm.ui.api.widget.window.UiChildWindow;
+import io.github.mmm.ui.api.widget.window.UiPopup;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;

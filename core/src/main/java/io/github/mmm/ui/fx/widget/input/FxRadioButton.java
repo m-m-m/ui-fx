@@ -2,11 +2,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.UiToggleGroup;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.UiToggleGroup;
+import io.github.mmm.ui.api.widget.input.UiRadioButton;
+import io.github.mmm.ui.api.widget.input.UiTextInput;
 import io.github.mmm.ui.fx.FxToggleGroup;
-import io.github.mmm.ui.widget.input.UiRadioButton;
-import io.github.mmm.ui.widget.input.UiTextInput;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 

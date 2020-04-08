@@ -2,23 +2,23 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.event.UiClickEvent;
-import io.github.mmm.ui.event.UiEvent;
-import io.github.mmm.ui.event.UiFocusGainEvent;
-import io.github.mmm.ui.event.UiFocusLossEvent;
-import io.github.mmm.ui.event.UiHideEvent;
-import io.github.mmm.ui.event.UiValueChangeEvent;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.event.UiClickEvent;
+import io.github.mmm.ui.api.event.UiEvent;
+import io.github.mmm.ui.api.event.UiFocusGainEvent;
+import io.github.mmm.ui.api.event.UiFocusLossEvent;
+import io.github.mmm.ui.api.event.UiHideEvent;
+import io.github.mmm.ui.api.event.UiValueChangeEvent;
+import io.github.mmm.ui.api.widget.UiCustomWidget;
+import io.github.mmm.ui.api.widget.UiWidget;
 import io.github.mmm.ui.spi.widget.AbstractUiNativeWidgetWrapper;
-import io.github.mmm.ui.widget.UiWidget;
-import io.github.mmm.ui.widget.custom.UiCustomWidget;
 import javafx.beans.value.ObservableValue;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 
 /**
- * Implementation of {@link io.github.mmm.ui.widget.UiNativeWidget} for JavaFx.
+ * Implementation of {@link io.github.mmm.ui.api.widget.UiNativeWidget} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
@@ -123,7 +123,7 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
 
   /**
    * Called from {@link #onValueChange(ObservableValue, Object, Object)} if triggered by end-user.
-   * 
+   *
    * @param programmatic - see {@link UiValueChangeEvent#isProgrammatic()}.
    */
   protected void onValueChanged(boolean programmatic) {

@@ -5,10 +5,10 @@ package io.github.mmm.ui.fx.widget.composite;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.mmm.ui.UiContext;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.UiWidget;
+import io.github.mmm.ui.api.widget.composite.UiComposite;
 import io.github.mmm.ui.fx.widget.FxWidgetNode;
-import io.github.mmm.ui.widget.UiWidget;
-import io.github.mmm.ui.widget.composite.UiComposite;
 import javafx.scene.Node;
 
 /**

@@ -2,11 +2,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.icon;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.widget.UiLabel;
+import io.github.mmm.ui.api.widget.img.UiIcon;
 import io.github.mmm.ui.fx.widget.icon.FxIcon;
-import io.github.mmm.ui.widget.UiLabel;
-import io.github.mmm.ui.widget.img.UiIcon;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiLabel}.

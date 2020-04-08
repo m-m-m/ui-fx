@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import io.github.mmm.base.exception.DuplicateObjectException;
-import io.github.mmm.ui.datatype.UiSeverity;
+import io.github.mmm.ui.api.datatype.UiSeverity;
 import io.github.mmm.ui.fx.icon.FxIconGlyph;
 import io.github.mmm.ui.fx.icon.FxIconGlyphFactory;
 import io.github.mmm.ui.fx.icon.FxIconGlyphType;

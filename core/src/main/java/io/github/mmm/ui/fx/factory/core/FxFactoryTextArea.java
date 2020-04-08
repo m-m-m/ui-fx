@@ -2,10 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
+import io.github.mmm.ui.api.widget.input.UiTextArea;
 import io.github.mmm.ui.fx.widget.input.FxTextArea;
-import io.github.mmm.ui.widget.input.UiTextArea;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiTextArea}.

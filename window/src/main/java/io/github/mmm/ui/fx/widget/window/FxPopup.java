@@ -2,10 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.window;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.datatype.UiEnabledFlags;
-import io.github.mmm.ui.widget.panel.UiButtonPanel;
-import io.github.mmm.ui.widget.window.UiPopup;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.datatype.UiEnabledFlags;
+import io.github.mmm.ui.api.widget.panel.UiButtonPanel;
+import io.github.mmm.ui.api.widget.window.UiPopup;
 import javafx.stage.Modality;
 import javafx.stage.Popup;
 import javafx.stage.Stage;

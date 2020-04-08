@@ -13,10 +13,11 @@ import javafx.scene.control.DatePicker;
 import javafx.util.StringConverter;
 
 /**
- *
+ * Extends {@link DatePicker} to also support time.
  */
 public class DateTimePicker extends DatePicker {
 
+  /** Default date/time format. */
   public static final String DefaultFormat = "yyyy-MM-dd HH:mm";
 
   private DateTimeFormatter formatter;

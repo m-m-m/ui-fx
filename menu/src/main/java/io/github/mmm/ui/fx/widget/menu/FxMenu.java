@@ -5,9 +5,9 @@ package io.github.mmm.ui.fx.widget.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.mmm.ui.UiContext;
-import io.github.mmm.ui.widget.menu.UiAbstractMenuItem;
-import io.github.mmm.ui.widget.menu.UiMenu;
+import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.api.widget.menu.UiAbstractMenuItem;
+import io.github.mmm.ui.api.widget.menu.UiMenu;
 import javafx.scene.control.Menu;
 
 /**

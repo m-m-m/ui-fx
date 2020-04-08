@@ -7,7 +7,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 
 /**
- * Implementation of {@link io.github.mmm.ui.UiScreen} for JavaFx.
+ * Implementation of {@link io.github.mmm.ui.api.UiScreen} for JavaFx.
  *
  * @since 1.0.0
  */
