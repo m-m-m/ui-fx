@@ -13,8 +13,8 @@ import javafx.stage.Stage;
  * <pre>
  * public class MyFxApp extends {@link FxApplication} {
  *
- *   protected abstract void start(UiContext context) {
- *     MyApp myApp = new MyApp(context);
+ *   protected abstract void start() {
+ *     MyApp myApp = new MyApp();
  *     myApp.run();
  *   }
  *
@@ -37,12 +37,12 @@ public abstract class FxApplication extends Application {
   }
 
   @Override
-  public final void start(Stage primaryStage) throws Exception {
+  public final void start(Stage fxPrimaryStage) throws Exception {
 
-    FxApplication.primaryStage = primaryStage;
+    primaryStage = fxPrimaryStage;
     FxContext context = (FxContext) UiContext.get();
-    context.setPrimaryStage(primaryStage);
-    start(context);
+    context.setPrimaryStage(fxPrimaryStage);
+    start();
   }
 
   /**
@@ -55,9 +55,7 @@ public abstract class FxApplication extends Application {
 
   /**
    * Starts this application.
-   *
-   * @param context the {@link UiContext}.
    */
-  protected abstract void start(UiContext context);
+  protected abstract void start();
 
 }
