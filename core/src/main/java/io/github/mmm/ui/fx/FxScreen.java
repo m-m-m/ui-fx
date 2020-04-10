@@ -17,6 +17,14 @@ public class FxScreen extends AbstractUiScreen {
 
   /**
    * The constructor.
+   */
+  public FxScreen() {
+
+    this(Screen.getPrimary());
+  }
+
+  /**
+   * The constructor.
    *
    * @param screen the ({@link Screen#getPrimary() primary}) {@link Screen}.
    */

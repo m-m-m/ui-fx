@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.UiStyles;
 import io.github.mmm.ui.api.widget.UiWidget;
 import javafx.collections.ObservableList;
@@ -18,13 +17,11 @@ public abstract class FxWidgetStyleable<W extends Styleable> extends FxWidgetObj
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxWidgetStyleable(UiContext context, W widget) {
+  public FxWidgetStyleable(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
   @Override

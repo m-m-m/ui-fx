@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.composite.UiComposite;
 import io.github.mmm.ui.api.widget.composite.UiTab;
@@ -23,12 +22,10 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxTab(UiContext context) {
+  public FxTab() {
 
-    super(context, new Tab());
+    super(new Tab());
     this.widget.setUserData(this);
     this.widget.setClosable(false);
   }

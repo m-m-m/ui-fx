@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.panel.UiDynamicPanel;
 import io.github.mmm.ui.fx.widget.composite.FxDynamicCompositePane;
@@ -19,13 +18,12 @@ public abstract class FxDynamicPanel<W extends Pane> extends FxDynamicCompositeP
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxDynamicPanel(UiContext context, W widget) {
+  public FxDynamicPanel(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
 }

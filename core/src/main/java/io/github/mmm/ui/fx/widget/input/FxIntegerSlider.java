@@ -3,7 +3,6 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiIntegerSlider;
 import javafx.scene.control.Slider;
 
@@ -16,12 +15,10 @@ public class FxIntegerSlider extends FxSlider<Integer> implements UiIntegerSlide
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxIntegerSlider(UiContext context) {
+  public FxIntegerSlider() {
 
-    super(context);
+    super();
   }
 
   @Override

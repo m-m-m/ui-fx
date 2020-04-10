@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.event.UiClickEvent;
 import io.github.mmm.ui.api.event.UiEvent;
 import io.github.mmm.ui.api.event.UiFocusGainEvent;
@@ -42,13 +41,11 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxWidgetObject(UiContext context, W widget) {
+  public FxWidgetObject(W widget) {
 
-    super(context);
+    super();
     this.widget = widget;
   }
 

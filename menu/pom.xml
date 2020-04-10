@@ -15,7 +15,11 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-fx-core</artifactId>
+      <artifactId>mmm-ui-api-menu</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-fx-window</artifactId>
     </dependency>
   </dependencies>
 </project>

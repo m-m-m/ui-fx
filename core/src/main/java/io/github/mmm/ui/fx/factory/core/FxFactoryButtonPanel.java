@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.button.UiButton;
 import io.github.mmm.ui.api.widget.panel.UiButtonPanel;
@@ -22,9 +21,9 @@ public class FxFactoryButtonPanel implements UiSingleWidgetFactoryNative<UiButto
   }
 
   @Override
-  public UiButtonPanel create(UiContext context) {
+  public UiButtonPanel create() {
 
-    return new FxButtonPanel(context);
+    return new FxButtonPanel();
   }
 
 }

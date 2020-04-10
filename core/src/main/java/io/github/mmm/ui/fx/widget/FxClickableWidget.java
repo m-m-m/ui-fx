@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.event.UiClickEvent;
 import io.github.mmm.ui.api.widget.UiActiveWidget;
 import io.github.mmm.ui.api.widget.UiClickableWidget;
@@ -18,13 +17,12 @@ public abstract class FxClickableWidget<W extends Control> extends FxActiveWidge
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxClickableWidget(UiContext context, W widget) {
+  public FxClickableWidget(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
   @Override

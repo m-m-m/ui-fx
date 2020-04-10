@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.UiVisibleFlags;
 import io.github.mmm.ui.api.widget.composite.UiTab;
 import io.github.mmm.ui.api.widget.panel.UiTabPanel;
@@ -22,12 +21,10 @@ public class FxTabPanel extends FxDynamicComposite<TabPane, UiTab> implements Ui
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxTabPanel(UiContext context) {
+  public FxTabPanel() {
 
-    super(context, new TabPane());
+    super(new TabPane());
   }
 
   private Tab getTab(UiTab child) {

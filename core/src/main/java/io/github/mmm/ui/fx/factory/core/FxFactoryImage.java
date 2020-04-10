@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.UiLabel;
 import io.github.mmm.ui.api.widget.img.UiImage;
@@ -22,9 +21,9 @@ public class FxFactoryImage implements UiSingleWidgetFactoryNative<UiImage> {
   }
 
   @Override
-  public UiImage create(UiContext context) {
+  public UiImage create() {
 
-    return new FxImage(context);
+    return new FxImage();
   }
 
 }

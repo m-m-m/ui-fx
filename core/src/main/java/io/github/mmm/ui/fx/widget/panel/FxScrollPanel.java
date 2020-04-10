@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.UiScrollBarVisibility;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.panel.UiScrollPanel;
@@ -25,12 +24,10 @@ public class FxScrollPanel extends FxComposite<ScrollPane, UiRegularWidget> impl
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxScrollPanel(UiContext context) {
+  public FxScrollPanel() {
 
-    super(context, new ScrollPane());
+    super(new ScrollPane());
     this.horizontalScrolling = UiScrollBarVisibility.AUTO;
     this.verticalScrolling = UiScrollBarVisibility.AUTO;
   }

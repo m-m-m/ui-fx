@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.icon;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.UiLabel;
 import io.github.mmm.ui.api.widget.img.UiIcon;
@@ -22,9 +21,9 @@ public class FxFactoryIcon implements UiSingleWidgetFactoryNative<UiIcon> {
   }
 
   @Override
-  public UiIcon create(UiContext context) {
+  public UiIcon create() {
 
-    return new FxIcon(context);
+    return new FxIcon();
   }
 
 }

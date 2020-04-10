@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.panel.UiCollapsiblePanel;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
@@ -19,12 +18,10 @@ public class FxCollapsiblePanel extends FxDynamicPanel<VBox> implements UiCollap
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxCollapsiblePanel(UiContext context) {
+  public FxCollapsiblePanel() {
 
-    super(context, new VBox());
+    super(new VBox());
     this.topWidget = new TitledPane();
     this.topWidget.setContent(this.widget);
   }

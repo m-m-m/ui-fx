@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.text;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.format.UiHtmlEditor;
 import io.github.mmm.ui.fx.widget.format.FxHtmlEditor;
@@ -21,9 +20,9 @@ public class FxFactoryHtmlEditor implements UiSingleWidgetFactoryNative<UiHtmlEd
   }
 
   @Override
-  public UiHtmlEditor create(UiContext context) {
+  public UiHtmlEditor create() {
 
-    return new FxHtmlEditor(context);
+    return new FxHtmlEditor();
   }
 
 }

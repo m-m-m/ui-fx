@@ -3,7 +3,6 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiIntegerInput;
 import javafx.scene.control.TextField;
 
@@ -16,12 +15,10 @@ public class FxIntegerInput extends FxNumberInput<Integer> implements UiIntegerI
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxIntegerInput(UiContext context) {
+  public FxIntegerInput() {
 
-    super(context);
+    super();
   }
 
   @Override

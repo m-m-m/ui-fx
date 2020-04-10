@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemCheckbox;
 import io.github.mmm.ui.fx.widget.menu.FxMenuItemCheckbox;
@@ -21,9 +20,9 @@ public class FxFactoryMenuItemCheckbox implements UiSingleWidgetFactoryNative<Ui
   }
 
   @Override
-  public UiMenuItemCheckbox create(UiContext context) {
+  public UiMenuItemCheckbox create() {
 
-    return new FxMenuItemCheckbox(context);
+    return new FxMenuItemCheckbox();
   }
 
 }

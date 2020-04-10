@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.panel.UiTabPanel;
 import io.github.mmm.ui.fx.widget.panel.FxTabPanel;
@@ -21,9 +20,9 @@ public class FxFactoryTabPanel implements UiSingleWidgetFactoryNative<UiTabPanel
   }
 
   @Override
-  public UiTabPanel create(UiContext context) {
+  public UiTabPanel create() {
 
-    return new FxTabPanel(context);
+    return new FxTabPanel();
   }
 
 }

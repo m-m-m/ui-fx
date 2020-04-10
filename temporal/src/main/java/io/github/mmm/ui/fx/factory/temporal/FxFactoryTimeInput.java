@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.temporal;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.temporal.UiTimeInput;
 import io.github.mmm.ui.fx.widget.temporal.FxTimeInput;
@@ -21,9 +20,9 @@ public class FxFactoryTimeInput implements UiSingleWidgetFactoryNative<UiTimeInp
   }
 
   @Override
-  public UiTimeInput create(UiContext context) {
+  public UiTimeInput create() {
 
-    return new FxTimeInput(context);
+    return new FxTimeInput();
   }
 
 }

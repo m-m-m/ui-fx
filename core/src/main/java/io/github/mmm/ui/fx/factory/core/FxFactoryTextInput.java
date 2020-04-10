@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.input.UiTextInput;
 import io.github.mmm.ui.fx.widget.input.FxTextInput;
@@ -21,9 +20,9 @@ public class FxFactoryTextInput implements UiSingleWidgetFactoryNative<UiTextInp
   }
 
   @Override
-  public UiTextInput create(UiContext context) {
+  public UiTextInput create() {
 
-    return new FxTextInput(context);
+    return new FxTextInput();
   }
 
 }

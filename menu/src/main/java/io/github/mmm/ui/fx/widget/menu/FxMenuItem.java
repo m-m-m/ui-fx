@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.menu.UiMenuItem;
 import javafx.scene.control.MenuItem;
 
@@ -15,12 +14,10 @@ public class FxMenuItem extends FxAbstractMenuItem<MenuItem> implements UiMenuIt
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxMenuItem(UiContext context) {
+  public FxMenuItem() {
 
-    super(context, new MenuItem());
+    super(new MenuItem());
   }
 
 }

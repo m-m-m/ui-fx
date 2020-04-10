@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.chart;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.UiPoint;
 import io.github.mmm.ui.api.datatype.chart.UiDataSet;
 import io.github.mmm.ui.api.widget.chart.UiLineChart;
@@ -21,12 +20,10 @@ public class FxLineChart extends FxChart<AdvancedLineChart, UiPoint[], Series<Nu
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxLineChart(UiContext context) {
+  public FxLineChart() {
 
-    super(context, new AdvancedLineChart(new NumberAxis(), new NumberAxis()));
+    super(new AdvancedLineChart(new NumberAxis(), new NumberAxis()));
   }
 
   @Override

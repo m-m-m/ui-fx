@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.window;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.event.UiHideEvent;
 import io.github.mmm.ui.api.event.UiShowEvent;
 import io.github.mmm.ui.api.widget.composite.UiComposite;
@@ -26,13 +25,12 @@ public abstract class FxChildWindow extends FxAbstractWindow implements UiChildW
 
   /**
    * The constructor.
-   *
-   * @param context the {@link UiContext}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxChildWindow(UiContext context, Stage widget) {
+  public FxChildWindow(Stage widget) {
 
-    super(context, widget);
+    super(widget);
     this.closable = true;
     this.movable = true;
   }

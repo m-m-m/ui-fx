@@ -2,15 +2,14 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiWidget;
-import io.github.mmm.ui.api.widget.composite.UiDynamicComposite;
+import io.github.mmm.ui.api.widget.composite.UiMutableComposite;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
 /**
- * Implementation of {@link UiDynamicComposite} using JavaFx {@link Pane}.
+ * Implementation of {@link UiMutableComposite} using JavaFx {@link Pane}.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @param <C> type of the {@link #getChild(int) child widgets}.
@@ -20,13 +19,12 @@ public abstract class FxDynamicCompositePane<W extends Pane, C extends UiWidget>
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxDynamicCompositePane(UiContext context, W widget) {
+  public FxDynamicCompositePane(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
   @Override

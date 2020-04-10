@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.input.UiIntegerInput;
 import io.github.mmm.ui.fx.widget.input.FxIntegerInput;
@@ -21,9 +20,9 @@ public class FxFactoryIntegerInput implements UiSingleWidgetFactoryNative<UiInte
   }
 
   @Override
-  public UiIntegerInput create(UiContext context) {
+  public UiIntegerInput create() {
 
-    return new FxIntegerInput(context);
+    return new FxIntegerInput();
   }
 
 }

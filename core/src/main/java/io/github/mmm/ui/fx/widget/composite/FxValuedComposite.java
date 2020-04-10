@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.binding.UiValueBinding;
 import io.github.mmm.ui.api.event.UiValueChangeEvent;
 import io.github.mmm.ui.api.widget.UiWidget;
@@ -29,13 +28,12 @@ public abstract class FxValuedComposite<W extends Pane, C extends UiWidget, V> e
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxValuedComposite(UiContext context, W widget) {
+  public FxValuedComposite(W widget) {
 
-    super(context, widget);
+    super(widget);
     this.validator = Validator.none();
   }
 

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.composite.UiSlot;
 import javafx.scene.layout.StackPane;
@@ -18,12 +17,10 @@ public class FxSlot extends FxComposite<StackPane, UiRegularWidget> implements U
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxSlot(UiContext context) {
+  public FxSlot() {
 
-    super(context, new StackPane());
+    super(new StackPane());
   }
 
   @Override

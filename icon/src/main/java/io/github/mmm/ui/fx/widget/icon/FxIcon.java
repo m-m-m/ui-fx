@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.icon;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.img.UiIcon;
 import io.github.mmm.ui.fx.icon.FxIconGlyph;
 import io.github.mmm.ui.fx.icon.FxIconGlyphFactory;
@@ -25,12 +24,10 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxIcon(UiContext context) {
+  public FxIcon() {
 
-    super(context, new Text());
+    super(new Text());
     this.size = 1;
   }
 

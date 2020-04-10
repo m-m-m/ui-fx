@@ -4,7 +4,6 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
 import io.github.mmm.base.range.WritableRange;
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiSlider;
 import io.github.mmm.ui.spi.range.NumericRange;
 import io.github.mmm.validation.Validator;
@@ -32,12 +31,10 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxSlider(UiContext context) {
+  public FxSlider() {
 
-    super(context, new Slider());
+    super(new Slider());
     this.topWidget = new HBox();
     this.textWidget = new TextField();
     this.textWidget.setEditable(false);

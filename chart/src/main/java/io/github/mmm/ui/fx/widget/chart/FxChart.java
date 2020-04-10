@@ -3,7 +3,6 @@
 package io.github.mmm.ui.fx.widget.chart;
 
 import io.github.mmm.base.placement.Direction;
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.chart.UiDataSet;
 import io.github.mmm.ui.api.datatype.color.Color;
 import io.github.mmm.ui.api.widget.chart.UiChart;
@@ -29,13 +28,11 @@ public abstract class FxChart<W extends Chart & AdvancedChart<J>, D, J> extends 
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxChart(UiContext context, W widget) {
+  public FxChart(W widget) {
 
-    super(context, widget);
+    super(widget);
     setLegendPlacement(Direction.DOWN);
   }
 

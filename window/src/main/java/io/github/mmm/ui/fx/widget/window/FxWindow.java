@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.window;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.window.UiWindow;
 import javafx.stage.Stage;
 
@@ -15,12 +14,10 @@ public class FxWindow extends FxChildWindow implements UiWindow {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link UiContext}.
    */
-  public FxWindow(UiContext context) {
+  public FxWindow() {
 
-    super(context, new Stage());
+    super(new Stage());
   }
 
 }

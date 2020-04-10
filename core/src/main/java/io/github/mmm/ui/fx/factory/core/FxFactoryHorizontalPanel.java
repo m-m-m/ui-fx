@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.panel.UiHorizontalPanel;
 import io.github.mmm.ui.fx.widget.panel.FxHorizontalPanel;
@@ -21,9 +20,9 @@ public class FxFactoryHorizontalPanel implements UiSingleWidgetFactoryNative<UiH
   }
 
   @Override
-  public UiHorizontalPanel create(UiContext context) {
+  public UiHorizontalPanel create() {
 
-    return new FxHorizontalPanel(context);
+    return new FxHorizontalPanel();
   }
 
 }

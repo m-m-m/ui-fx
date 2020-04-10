@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.panel.UiFormPanel;
 import io.github.mmm.ui.fx.widget.panel.FxFormPanel;
@@ -22,9 +21,9 @@ public class FxFactoryFormPanel implements UiSingleWidgetFactoryNative<UiFormPan
   }
 
   @Override
-  public UiFormPanel create(UiContext context) {
+  public UiFormPanel create() {
 
-    return new FxFormPanel(context);
+    return new FxFormPanel();
   }
 
 }

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.menu.UiMenuItem;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemCheckbox;
 import javafx.scene.control.CheckMenuItem;
@@ -17,12 +16,10 @@ public class FxMenuItemCheckbox extends FxAbstractMenuItem<CheckMenuItem> implem
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxMenuItemCheckbox(UiContext context) {
+  public FxMenuItemCheckbox() {
 
-    super(context, new CheckMenuItem());
+    super(new CheckMenuItem());
   }
 
   @Override

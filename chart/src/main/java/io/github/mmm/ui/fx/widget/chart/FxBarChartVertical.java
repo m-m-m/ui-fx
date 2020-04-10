@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.chart;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.chart.UiBarChartVertical;
 import io.github.mmm.ui.fx.widget.chart.fx.AdvancedBarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -18,12 +17,10 @@ public class FxBarChartVertical extends FxBarChart<AdvancedBarChart<String, Numb
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxBarChartVertical(UiContext context) {
+  public FxBarChartVertical() {
 
-    super(context, new AdvancedBarChart<>(new CategoryAxis(), new NumberAxis()));
+    super(new AdvancedBarChart<>(new CategoryAxis(), new NumberAxis()));
   }
 
 }

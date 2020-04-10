@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.media;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.media.UiMedia;
 import io.github.mmm.ui.api.datatype.media.UiMediaSource;
 import io.github.mmm.ui.api.datatype.media.UiMediaType;
@@ -30,12 +29,11 @@ public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> impl
   /**
    * The constructor.
    *
-   * @param context the {@link #getContext() context}.
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxMediaWidget(UiContext context, W widget) {
+  public FxMediaWidget(W widget) {
 
-    super(context, widget);
+    super(widget);
     this.mediaPlayerAdapter = createMediaPlayerAdapter();
   }
 

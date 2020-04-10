@@ -5,7 +5,6 @@ package io.github.mmm.ui.fx.widget.window;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.attribute.AttributeWriteMaximized;
 import io.github.mmm.ui.api.attribute.AttributeWriteMinimized;
 import io.github.mmm.ui.api.attribute.AttributeWritePositionRange;
@@ -54,15 +53,14 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
 
   /**
    * The constructor.
-   *
-   * @param context the {@link UiContext}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxAbstractWindow(UiContext context, Stage widget) {
+  public FxAbstractWindow(Stage widget) {
 
-    super(context, widget);
+    super(widget);
     this.children = new ArrayList<>();
-    this.positionAndSize = new FxAbstractWindowPositionAndSize(widget, context.getScreen());
+    this.positionAndSize = new FxAbstractWindowPositionAndSize(widget);
     this.composite = new VBox();
     if (isScrollable()) {
       this.scrollPane = new ScrollPane(this.composite);

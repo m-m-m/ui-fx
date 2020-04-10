@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.window;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.UiEnabledFlags;
 import io.github.mmm.ui.api.widget.panel.UiButtonPanel;
 import io.github.mmm.ui.api.widget.window.UiPopup;
@@ -21,14 +20,12 @@ public class FxPopup extends FxChildWindow implements UiPopup {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link UiContext}.
    */
-  public FxPopup(UiContext context) {
+  public FxPopup() {
 
-    super(context, new Stage());
+    super(new Stage());
     this.widget.initModality(Modality.APPLICATION_MODAL);
-    this.buttonPanel = UiButtonPanel.of(context);
+    this.buttonPanel = UiButtonPanel.of();
     this.composite.getChildren().add(getTopNode(this.buttonPanel));
   }
 

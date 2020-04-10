@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.event.UiFocusGainEvent;
 import io.github.mmm.ui.api.widget.UiActiveWidget;
 import javafx.scene.control.Control;
@@ -17,13 +16,12 @@ public abstract class FxActiveWidget<W extends Control> extends FxWidgetControl<
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxActiveWidget(UiContext context, W widget) {
+  public FxActiveWidget(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
   @Override

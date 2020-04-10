@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.media;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.media.UiMediaPlayer;
 import io.github.mmm.ui.api.widget.media.UiMediaWidget;
 import io.github.mmm.ui.fx.widget.media.fx.MediaPlayerAdapter;
@@ -24,12 +23,10 @@ public class FxMediaPlayer extends FxMediaWidget<MediaView> implements UiMediaPl
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxMediaPlayer(UiContext context) {
+  public FxMediaPlayer() {
 
-    super(context, new MediaView());
+    super(new MediaView());
     this.topWidget = new VBox() {
       @Override
       protected void layoutChildren() {

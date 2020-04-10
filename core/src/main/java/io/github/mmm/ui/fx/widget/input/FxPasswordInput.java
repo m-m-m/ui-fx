@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiPasswordInput;
 import javafx.scene.control.PasswordField;
 
@@ -15,12 +14,10 @@ public class FxPasswordInput extends FxStringInput<PasswordField> implements UiP
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxPasswordInput(UiContext context) {
+  public FxPasswordInput() {
 
-    super(context, new PasswordField());
+    super(new PasswordField());
   }
 
 }

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiCheckbox;
 import io.github.mmm.ui.api.widget.input.UiTextInput;
 import javafx.scene.control.CheckBox;
@@ -16,12 +15,10 @@ public class FxCheckbox extends FxInput<CheckBox, Boolean> implements UiCheckbox
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxCheckbox(UiContext context) {
+  public FxCheckbox() {
 
-    super(context, new CheckBox());
+    super(new CheckBox());
   }
 
   @Override

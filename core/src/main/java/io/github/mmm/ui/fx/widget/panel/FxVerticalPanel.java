@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.panel.UiVerticalPanel;
 import javafx.scene.layout.VBox;
 
@@ -15,12 +14,10 @@ public class FxVerticalPanel extends FxDynamicPanel<VBox> implements UiVerticalP
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxVerticalPanel(UiContext context) {
+  public FxVerticalPanel() {
 
-    super(context, new VBox());
+    super(new VBox());
   }
 
 }

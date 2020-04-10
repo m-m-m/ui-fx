@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.menu.UiMenu;
 import io.github.mmm.ui.fx.widget.menu.FxMenu;
@@ -21,9 +20,9 @@ public class FxFactoryMenu implements UiSingleWidgetFactoryNative<UiMenu> {
   }
 
   @Override
-  public UiMenu create(UiContext context) {
+  public UiMenu create() {
 
-    return new FxMenu(context);
+    return new FxMenu();
   }
 
 }

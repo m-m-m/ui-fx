@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.button;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.button.UiButton;
 import io.github.mmm.ui.fx.widget.FxClickableWidget;
 import javafx.scene.control.Button;
@@ -16,12 +15,10 @@ public class FxButton extends FxClickableWidget<Button> implements UiButton {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxButton(UiContext context) {
+  public FxButton() {
 
-    super(context, new Button());
+    super(new Button());
   }
 
   @Override

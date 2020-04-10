@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.attribute.AttributeWriteTooltip;
 import io.github.mmm.ui.api.widget.UiWidget;
 import javafx.scene.Node;
@@ -20,13 +19,12 @@ public abstract class FxWidgetWithTooltip<W extends Node> extends FxWidgetNode<W
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxWidgetWithTooltip(UiContext context, W widget) {
+  public FxWidgetWithTooltip(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
   @Override

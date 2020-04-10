@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.img;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.UiSize;
 import io.github.mmm.ui.api.datatype.UiSizeUnit;
 import io.github.mmm.ui.api.widget.img.UiImage;
@@ -24,12 +23,10 @@ public class FxImage extends FxAbstractImage<ImageView> implements UiImage {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxImage(UiContext context) {
+  public FxImage() {
 
-    super(context, new ImageView());
+    super(new ImageView());
     this.width = UiSize.AUTO;
     this.height = UiSize.AUTO;
   }

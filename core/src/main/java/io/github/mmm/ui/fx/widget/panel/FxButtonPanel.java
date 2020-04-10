@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.button.UiAbstractButton;
 import io.github.mmm.ui.api.widget.panel.UiButtonPanel;
 import io.github.mmm.ui.fx.widget.composite.FxDynamicCompositePane;
@@ -17,12 +16,10 @@ public class FxButtonPanel extends FxDynamicCompositePane<HBox, UiAbstractButton
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxButtonPanel(UiContext context) {
+  public FxButtonPanel() {
 
-    super(context, new HBox());
+    super(new HBox());
   }
 
 }

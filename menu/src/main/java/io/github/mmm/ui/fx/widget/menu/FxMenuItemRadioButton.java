@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemRadioButton;
 import javafx.scene.control.RadioMenuItem;
 
@@ -15,12 +14,10 @@ public class FxMenuItemRadioButton extends FxAbstractMenuItem<RadioMenuItem> imp
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxMenuItemRadioButton(UiContext context) {
+  public FxMenuItemRadioButton() {
 
-    super(context, new RadioMenuItem());
+    super(new RadioMenuItem());
   }
 
   @Override

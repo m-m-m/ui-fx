@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.bitmask.BitMask;
 import io.github.mmm.ui.api.event.UiValueChangeEvent;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
@@ -37,13 +36,12 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxInput(UiContext context, W widget) {
+  public FxInput(W widget) {
 
-    super(context, widget);
+    super(widget);
     HBox.setHgrow(this.widget, Priority.ALWAYS);
     this.validator = Validator.none();
     this.modificationTimestamp = -1;
@@ -79,7 +77,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
   public FxLabel getNameWidget() {
 
     if (this.nameWidget == null) {
-      this.nameWidget = new FxLabel(this.context);
+      this.nameWidget = new FxLabel();
       if (this.name != null) {
         this.nameWidget.setText(this.name);
       }

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.window;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.window.UiPopup;
 import io.github.mmm.ui.fx.widget.window.FxPopup;
@@ -21,9 +20,9 @@ public class FxFactoryPopup implements UiSingleWidgetFactoryNative<UiPopup> {
   }
 
   @Override
-  public UiPopup create(UiContext context) {
+  public UiPopup create() {
 
-    return new FxPopup(context);
+    return new FxPopup();
   }
 
 }

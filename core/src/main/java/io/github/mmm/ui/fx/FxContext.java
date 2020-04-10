@@ -3,11 +3,8 @@
 package io.github.mmm.ui.fx;
 
 import io.github.mmm.ui.api.UiDispatcher;
-import io.github.mmm.ui.api.UiNotifier;
-import io.github.mmm.ui.api.UiScreen;
 import io.github.mmm.ui.api.UiToggleGroup;
 import io.github.mmm.ui.spi.AbstractUiContext;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -17,11 +14,17 @@ import javafx.stage.Stage;
  */
 public class FxContext extends AbstractUiContext {
 
-  private final Stage primaryStage;
-
-  private final FxScreen screen;
+  private Stage primaryStage;
 
   private final FxDispatcher dispatcher;
+
+  /**
+   * The constructor.
+   */
+  public FxContext() {
+
+    this(null);
+  }
 
   /**
    * The constructor.
@@ -32,7 +35,6 @@ public class FxContext extends AbstractUiContext {
 
     super();
     this.primaryStage = primaryStage;
-    this.screen = new FxScreen(Screen.getPrimary());
     this.dispatcher = new FxDispatcher();
   }
 
@@ -44,10 +46,15 @@ public class FxContext extends AbstractUiContext {
     return this.primaryStage;
   }
 
-  @Override
-  public UiScreen getScreen() {
+  /**
+   * @param primaryStage new value of {@link #getPrimaryStage()}.
+   */
+  void setPrimaryStage(Stage primaryStage) {
 
-    return this.screen;
+    if (this.primaryStage != null) {
+      throw new IllegalStateException();
+    }
+    this.primaryStage = primaryStage;
   }
 
   @Override
@@ -60,12 +67,6 @@ public class FxContext extends AbstractUiContext {
   public UiToggleGroup createToggleGroup() {
 
     return new FxToggleGroup();
-  }
-
-  @Override
-  protected UiNotifier createDefaultNotifier() {
-
-    return new FxNotifier(this);
   }
 
 }

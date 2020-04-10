@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.media;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.media.UiMediaPlayer;
 import io.github.mmm.ui.fx.widget.media.FxMediaPlayer;
@@ -21,9 +20,9 @@ public class FxFactoryMediaPlayer implements UiSingleWidgetFactoryNative<UiMedia
   }
 
   @Override
-  public UiMediaPlayer create(UiContext context) {
+  public UiMediaPlayer create() {
 
-    return new FxMediaPlayer(context);
+    return new FxMediaPlayer();
   }
 
 }

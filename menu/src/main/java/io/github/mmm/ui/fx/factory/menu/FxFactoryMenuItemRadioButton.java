@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemRadioButton;
 import io.github.mmm.ui.fx.widget.menu.FxMenuItemRadioButton;
@@ -21,9 +20,9 @@ public class FxFactoryMenuItemRadioButton implements UiSingleWidgetFactoryNative
   }
 
   @Override
-  public UiMenuItemRadioButton create(UiContext context) {
+  public UiMenuItemRadioButton create() {
 
-    return new FxMenuItemRadioButton(context);
+    return new FxMenuItemRadioButton();
   }
 
 }

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.UiText;
 import io.github.mmm.ui.fx.widget.FxText;
@@ -21,9 +20,9 @@ public class FxFactoryText implements UiSingleWidgetFactoryNative<UiText> {
   }
 
   @Override
-  public UiText create(UiContext context) {
+  public UiText create() {
 
-    return new FxText(context);
+    return new FxText();
   }
 
 }

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.input.UiIntegerSlider;
 import io.github.mmm.ui.fx.widget.input.FxIntegerSlider;
@@ -21,9 +20,9 @@ public class FxFactoryIntegerSlider implements UiSingleWidgetFactoryNative<UiInt
   }
 
   @Override
-  public UiIntegerSlider create(UiContext context) {
+  public UiIntegerSlider create() {
 
-    return new FxIntegerSlider(context);
+    return new FxIntegerSlider();
   }
 
 }

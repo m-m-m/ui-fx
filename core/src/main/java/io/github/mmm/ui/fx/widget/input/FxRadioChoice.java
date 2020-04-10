@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiRadioChoice;
 import io.github.mmm.ui.spi.ToStringFormatter;
 import javafx.collections.ObservableList;
@@ -38,12 +37,10 @@ public class FxRadioChoice<V> extends FxInput<RadioButton, V> implements UiRadio
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxRadioChoice(UiContext context) {
+  public FxRadioChoice() {
 
-    super(context, new RadioButton());
+    super(new RadioButton());
     this.group = new ToggleGroup();
     this.widget.setToggleGroup(this.group);
     this.widget.setText("uninitialized");

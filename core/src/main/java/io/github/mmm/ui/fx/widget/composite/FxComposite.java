@@ -5,7 +5,6 @@ package io.github.mmm.ui.fx.widget.composite;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiWidget;
 import io.github.mmm.ui.api.widget.composite.UiComposite;
 import io.github.mmm.ui.fx.widget.FxWidgetNode;
@@ -26,13 +25,12 @@ public abstract class FxComposite<W extends Node, C extends UiWidget> extends Fx
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxComposite(UiContext context, W widget) {
+  public FxComposite(W widget) {
 
-    super(context, widget);
+    super(widget);
     this.children = new ArrayList<>();
   }
 

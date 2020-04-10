@@ -11,7 +11,9 @@ import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.menu {
 
-  requires transitive io.github.mmm.ui.fx.core;
+  requires transitive io.github.mmm.ui.api.menu;
+
+  requires transitive io.github.mmm.ui.fx.window;
 
   provides UiSingleWidgetFactoryNative with //
       io.github.mmm.ui.fx.factory.menu.FxFactoryMenu, //

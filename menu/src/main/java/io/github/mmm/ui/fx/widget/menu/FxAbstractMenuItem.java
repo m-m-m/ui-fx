@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.event.UiClickEvent;
 import io.github.mmm.ui.api.widget.menu.UiAbstractActiveMenuItem;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemSeparator;
@@ -20,13 +19,11 @@ public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetSty
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxAbstractMenuItem(UiContext context, W widget) {
+  public FxAbstractMenuItem(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
   @Override

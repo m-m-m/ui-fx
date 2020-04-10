@@ -3,10 +3,10 @@
 package io.github.mmm.ui.fx.widget.window;
 
 import io.github.mmm.ui.api.UiContext;
-import io.github.mmm.ui.api.widget.menu.UiMenuBar;
 import io.github.mmm.ui.api.widget.window.UiMainWindow;
 import io.github.mmm.ui.api.widget.window.UiWindow;
 import io.github.mmm.ui.fx.FxContext;
+import javafx.scene.control.MenuBar;
 import javafx.stage.Stage;
 
 /**
@@ -16,24 +16,24 @@ import javafx.stage.Stage;
  */
 public class FxMainWindow extends FxAbstractWindow implements UiMainWindow {
 
-  private UiMenuBar menuBar;
+  private MenuBar menuBar;
 
   /**
    * The constructor.
-   *
-   * @param context the {@link UiContext}.
    */
-  public FxMainWindow(UiContext context) {
+  public FxMainWindow() {
 
-    super(context, ((FxContext) context).getPrimaryStage());
+    super(((FxContext) UiContext.get()).getPrimaryStage());
   }
 
-  @Override
-  public UiMenuBar getMenuBar() {
+  /**
+   * @return the {@link MenuBar}.
+   */
+  public MenuBar getMenuBar() {
 
     if (this.menuBar == null) {
-      this.menuBar = this.context.create(UiMenuBar.class);
-      this.composite.getChildren().add(0, getTopNode(this.menuBar));
+      this.menuBar = new MenuBar();
+      this.composite.getChildren().add(0, this.menuBar);
     }
     return this.menuBar;
   }

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.panel.UiHorizontalPanel;
 import javafx.scene.layout.HBox;
 
@@ -15,12 +14,10 @@ public class FxHorizontalPanel extends FxDynamicPanel<HBox> implements UiHorizon
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxHorizontalPanel(UiContext context) {
+  public FxHorizontalPanel() {
 
-    super(context, new HBox());
+    super(new HBox());
   }
 
 }

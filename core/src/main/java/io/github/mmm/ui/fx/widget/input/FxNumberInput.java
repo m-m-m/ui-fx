@@ -4,7 +4,6 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
 import io.github.mmm.base.range.WritableRange;
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiNumberInput;
 import io.github.mmm.ui.spi.range.NumericRange;
 import io.github.mmm.validation.Validator;
@@ -25,12 +24,10 @@ public abstract class FxNumberInput<V extends Number> extends FxTextualInput<Tex
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxNumberInput(UiContext context) {
+  public FxNumberInput() {
 
-    super(context, new TextField());
+    super(new TextField());
     this.range = new NumericRange<>(getNumberType());
   }
 

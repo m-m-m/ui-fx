@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.datatype.UiTextAlignment;
 import io.github.mmm.ui.api.widget.UiText;
 import javafx.scene.text.Text;
@@ -19,12 +18,10 @@ public class FxText extends FxWidgetWithTooltip<Text> implements UiText {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxText(UiContext context) {
+  public FxText() {
 
-    super(context, new Text());
+    super(new Text());
     this.alignment = UiTextAlignment.LEFT;
   }
 

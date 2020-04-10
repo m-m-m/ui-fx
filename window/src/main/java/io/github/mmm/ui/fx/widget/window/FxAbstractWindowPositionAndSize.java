@@ -21,13 +21,12 @@ public class FxAbstractWindowPositionAndSize extends UiWindowPositionAndSize {
    * The constructor.
    *
    * @param stage the {@link Stage} (window).
-   * @param screen the {@link UiScreen}.
    */
-  public FxAbstractWindowPositionAndSize(Stage stage, UiScreen screen) {
+  public FxAbstractWindowPositionAndSize(Stage stage) {
 
     super();
     this.stage = stage;
-    this.screen = screen;
+    this.screen = UiScreen.get();
   }
 
   @Override

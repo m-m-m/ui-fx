@@ -20,7 +20,7 @@ public class FxInputContainer extends FxWidgetNode<HBox> implements UiRegularWid
    */
   public FxInputContainer(FxInput<?, ?> input) {
 
-    super(input.getContext(), new HBox());
+    super(new HBox());
     this.widget.getChildren().add(input.getNameWidget().getWidget());
     this.widget.getChildren().add(input.getWidget());
   }

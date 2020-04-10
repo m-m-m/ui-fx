@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiTextArea;
 import javafx.scene.control.TextArea;
 
@@ -15,12 +14,10 @@ public class FxTextArea extends FxStringInput<TextArea> implements UiTextArea {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxTextArea(UiContext context) {
+  public FxTextArea() {
 
-    super(context, new TextArea());
+    super(new TextArea());
   }
 
 }

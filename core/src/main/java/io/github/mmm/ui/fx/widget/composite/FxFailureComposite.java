@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.composite;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiWidget;
 import io.github.mmm.ui.api.widget.composite.UiFailureComposite;
 import javafx.scene.layout.Pane;
@@ -19,13 +18,12 @@ public abstract class FxFailureComposite<W extends Pane, C extends UiWidget> ext
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxFailureComposite(UiContext context, W widget) {
+  public FxFailureComposite(W widget) {
 
-    super(context, widget);
+    super(widget);
   }
 
   @Override

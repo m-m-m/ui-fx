@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.menu.UiMenuItem;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemSeparator;
 import javafx.scene.control.MenuItem;
@@ -17,12 +16,10 @@ public class FxMenuItemSeparator extends FxAbstractMenuItem<SeparatorMenuItem> i
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxMenuItemSeparator(UiContext context) {
+  public FxMenuItemSeparator() {
 
-    super(context, new SeparatorMenuItem());
+    super(new SeparatorMenuItem());
   }
 
 }

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiLabel;
 import io.github.mmm.ui.api.widget.input.UiAbstractInput;
 import io.github.mmm.ui.api.widget.input.UiInput;
@@ -21,12 +20,10 @@ public class FxFormPanel<V> extends FxValuedComposite<AdvancedGridPane, UiAbstra
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxFormPanel(UiContext context) {
+  public FxFormPanel() {
 
-    super(context, new AdvancedGridPane());
+    super(new AdvancedGridPane());
   }
 
   @Override

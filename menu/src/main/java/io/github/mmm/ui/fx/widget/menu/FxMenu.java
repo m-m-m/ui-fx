@@ -5,7 +5,6 @@ package io.github.mmm.ui.fx.widget.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.menu.UiAbstractMenuItem;
 import io.github.mmm.ui.api.widget.menu.UiMenu;
 import javafx.scene.control.Menu;
@@ -21,12 +20,10 @@ public class FxMenu extends FxAbstractMenuItem<Menu> implements UiMenu {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxMenu(UiContext context) {
+  public FxMenu() {
 
-    super(context, new Menu());
+    super(new Menu());
     this.children = new ArrayList<>();
   }
 

@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.core;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.composite.UiSlot;
 import io.github.mmm.ui.fx.widget.composite.FxSlot;
@@ -21,9 +20,9 @@ public class FxFactorySlot implements UiSingleWidgetFactoryNative<UiSlot> {
   }
 
   @Override
-  public UiSlot create(UiContext context) {
+  public UiSlot create() {
 
-    return new FxSlot(context);
+    return new FxSlot();
   }
 
 }

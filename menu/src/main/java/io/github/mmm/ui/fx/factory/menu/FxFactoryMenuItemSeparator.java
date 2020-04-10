@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.factory.menu;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemSeparator;
 import io.github.mmm.ui.fx.widget.menu.FxMenuItemSeparator;
@@ -21,9 +20,9 @@ public class FxFactoryMenuItemSeparator implements UiSingleWidgetFactoryNative<U
   }
 
   @Override
-  public UiMenuItemSeparator create(UiContext context) {
+  public UiMenuItemSeparator create() {
 
-    return new FxMenuItemSeparator(context);
+    return new FxMenuItemSeparator();
   }
 
 }

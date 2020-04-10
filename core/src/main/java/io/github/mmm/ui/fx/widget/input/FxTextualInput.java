@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.event.UiValueChangeEvent;
 import io.github.mmm.ui.api.widget.input.UiTextualInput;
 import javafx.scene.control.TextField;
@@ -21,13 +20,12 @@ public abstract class FxTextualInput<W extends TextInputControl, V> extends FxIn
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
+   * 
    * @param nativeWidget the {@link #getWidget() JavaFx widget}.
    */
-  public FxTextualInput(UiContext context, W nativeWidget) {
+  public FxTextualInput(W nativeWidget) {
 
-    super(context, nativeWidget);
+    super(nativeWidget);
   }
 
   @Override

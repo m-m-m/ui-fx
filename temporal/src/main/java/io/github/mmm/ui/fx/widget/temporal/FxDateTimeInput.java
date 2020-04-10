@@ -4,7 +4,6 @@ package io.github.mmm.ui.fx.widget.temporal;
 
 import java.time.LocalDateTime;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.temporal.UiDateTimeInput;
 import io.github.mmm.ui.fx.widget.input.FxInput;
 
@@ -19,12 +18,10 @@ public class FxDateTimeInput extends FxInput<DateTimePicker, LocalDateTime> impl
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxDateTimeInput(UiContext context) {
+  public FxDateTimeInput() {
 
-    super(context, new DateTimePicker());
+    super(new DateTimePicker());
   }
 
   @Override

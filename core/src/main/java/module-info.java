@@ -1,9 +1,7 @@
-
 /*
  * Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  */
-import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 
 /**
  * Provides the implementation of the UI framework based on JavaFx.
@@ -21,7 +19,13 @@ module io.github.mmm.ui.fx.core {
 
   requires transitive javafx.controls;
 
-  provides UiSingleWidgetFactoryNative with //
+  provides io.github.mmm.ui.api.UiContext with //
+      io.github.mmm.ui.fx.FxContext;
+
+  provides io.github.mmm.ui.api.UiScreen with //
+      io.github.mmm.ui.fx.FxScreen;
+
+  provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
       io.github.mmm.ui.fx.factory.core.FxFactoryButton, //
       io.github.mmm.ui.fx.factory.core.FxFactoryButtonPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox, //

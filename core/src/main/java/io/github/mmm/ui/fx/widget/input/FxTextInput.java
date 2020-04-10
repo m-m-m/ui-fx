@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.input.UiTextInput;
 import javafx.scene.control.TextField;
 
@@ -15,12 +14,10 @@ public class FxTextInput extends FxStringInput<TextField> implements UiTextInput
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxTextInput(UiContext context) {
+  public FxTextInput() {
 
-    super(context, new TextField());
+    super(new TextField());
   }
 
 }

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 /**
  * Base class for you main application to build your client with JavaFx.<br>
  * Example:
- * 
+ *
  * <pre>
  * public class MyFxApp extends {@link FxApplication} {
  *
@@ -26,6 +26,8 @@ import javafx.stage.Stage;
  */
 public abstract class FxApplication extends Application {
 
+  private static Stage primaryStage;
+
   /**
    * The constructor.
    */
@@ -37,8 +39,18 @@ public abstract class FxApplication extends Application {
   @Override
   public final void start(Stage primaryStage) throws Exception {
 
-    UiContext context = new FxContext(primaryStage);
+    FxApplication.primaryStage = primaryStage;
+    FxContext context = (FxContext) UiContext.get();
+    context.setPrimaryStage(primaryStage);
     start(context);
+  }
+
+  /**
+   * @return the primary {@link Stage}.
+   */
+  public static Stage getPrimaryStage() {
+
+    return primaryStage;
   }
 
   /**

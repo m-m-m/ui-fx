@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.UiLabel;
 import javafx.scene.control.Label;
 
@@ -15,12 +14,10 @@ public class FxLabel extends FxWidgetControl<Label> implements UiLabel {
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxLabel(UiContext context) {
+  public FxLabel() {
 
-    super(context, new Label());
+    super(new Label());
   }
 
   @Override

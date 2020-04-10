@@ -2,7 +2,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.UiToggleGroup;
 import io.github.mmm.ui.api.widget.input.UiRadioButton;
 import io.github.mmm.ui.api.widget.input.UiTextInput;
@@ -19,12 +18,10 @@ public class FxRadioButton extends FxInput<RadioButton, Boolean> implements UiRa
 
   /**
    * The constructor.
-   *
-   * @param context the {@link #getContext() context}.
    */
-  public FxRadioButton(UiContext context) {
+  public FxRadioButton() {
 
-    super(context, new RadioButton());
+    super(new RadioButton());
   }
 
   @Override
