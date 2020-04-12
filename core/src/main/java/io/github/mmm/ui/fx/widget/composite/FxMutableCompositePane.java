@@ -15,14 +15,14 @@ import javafx.scene.layout.Pane;
  * @param <C> type of the {@link #getChild(int) child widgets}.
  * @since 1.0.0
  */
-public abstract class FxDynamicCompositePane<W extends Pane, C extends UiWidget> extends FxDynamicComposite<W, C> {
+public abstract class FxMutableCompositePane<W extends Pane, C extends UiWidget> extends FxMutableComposite<W, C> {
 
   /**
    * The constructor.
    * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxDynamicCompositePane(W widget) {
+  public FxMutableCompositePane(W widget) {
 
     super(widget);
   }

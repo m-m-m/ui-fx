@@ -27,9 +27,9 @@ public class FxLabel extends FxWidgetControl<Label> implements UiLabel {
   }
 
   @Override
-  public void setText(String label) {
+  public void setText(String text) {
 
-    this.widget.setText(label);
+    this.widget.setText(text);
   }
 
 }

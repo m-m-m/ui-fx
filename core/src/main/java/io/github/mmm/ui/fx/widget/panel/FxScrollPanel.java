@@ -43,6 +43,7 @@ public class FxScrollPanel extends FxComposite<ScrollPane, UiRegularWidget> impl
     }
     this.widget.setContent(getTopNode(child));
     this.child = child;
+    setParent(this.child, this);
   }
 
   @Override

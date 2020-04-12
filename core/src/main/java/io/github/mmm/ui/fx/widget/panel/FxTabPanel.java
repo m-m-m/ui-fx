@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.datatype.UiVisibleFlags;
 import io.github.mmm.ui.api.widget.composite.UiTab;
 import io.github.mmm.ui.api.widget.panel.UiTabPanel;
 import io.github.mmm.ui.fx.widget.FxAtomicWidget;
-import io.github.mmm.ui.fx.widget.composite.FxDynamicComposite;
+import io.github.mmm.ui.fx.widget.composite.FxMutableComposite;
 import io.github.mmm.ui.fx.widget.composite.FxTab;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
@@ -17,7 +17,7 @@ import javafx.scene.control.TabPane;
  *
  * @since 1.0.0
  */
-public class FxTabPanel extends FxDynamicComposite<TabPane, UiTab> implements UiTabPanel, FxAtomicWidget<TabPane> {
+public class FxTabPanel extends FxMutableComposite<TabPane, UiTab> implements UiTabPanel, FxAtomicWidget<TabPane> {
 
   /**
    * The constructor.

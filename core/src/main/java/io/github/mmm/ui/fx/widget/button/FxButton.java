@@ -35,9 +35,9 @@ public class FxButton extends FxClickableWidget<Button> implements UiButton {
   }
 
   @Override
-  public void setText(String label) {
+  public void setText(String text) {
 
-    this.widget.setText(label);
+    this.widget.setText(text);
   }
 
 }

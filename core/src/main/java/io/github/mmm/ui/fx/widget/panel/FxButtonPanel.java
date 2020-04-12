@@ -4,7 +4,7 @@ package io.github.mmm.ui.fx.widget.panel;
 
 import io.github.mmm.ui.api.widget.button.UiAbstractButton;
 import io.github.mmm.ui.api.widget.panel.UiButtonPanel;
-import io.github.mmm.ui.fx.widget.composite.FxDynamicCompositePane;
+import io.github.mmm.ui.fx.widget.composite.FxMutableCompositePane;
 import javafx.scene.layout.HBox;
 
 /**
@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
  *
  * @since 1.0.0
  */
-public class FxButtonPanel extends FxDynamicCompositePane<HBox, UiAbstractButton> implements UiButtonPanel {
+public class FxButtonPanel extends FxMutableCompositePane<HBox, UiAbstractButton> implements UiButtonPanel {
 
   /**
    * The constructor.

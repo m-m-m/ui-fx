@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
  *
  * @since 1.0.0
  */
-public class FxVerticalPanel extends FxDynamicPanel<VBox> implements UiVerticalPanel {
+public class FxVerticalPanel extends FxMutablePanel<VBox> implements UiVerticalPanel {
 
   /**
    * The constructor.

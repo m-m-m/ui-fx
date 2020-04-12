@@ -7,6 +7,7 @@ import java.util.List;
 
 import io.github.mmm.ui.api.widget.menu.UiAbstractMenuItem;
 import io.github.mmm.ui.api.widget.menu.UiMenu;
+import io.github.mmm.ui.fx.FxToggleGroup;
 import javafx.scene.control.Menu;
 
 /**
@@ -17,6 +18,8 @@ import javafx.scene.control.Menu;
 public class FxMenu extends FxAbstractMenuItem<Menu> implements UiMenu {
 
   private final List<FxAbstractMenuItem<?>> children;
+
+  private FxToggleGroup toggleGroup;
 
   /**
    * The constructor.
@@ -78,6 +81,17 @@ public class FxMenu extends FxAbstractMenuItem<Menu> implements UiMenu {
       return null;
     }
     return this.children.get(index);
+  }
+
+  /**
+   * @return the {@link FxToggleGroup}.
+   */
+  public FxToggleGroup getToggleGroup() {
+
+    if (this.toggleGroup == null) {
+      this.toggleGroup = new FxToggleGroup();
+    }
+    return this.toggleGroup;
   }
 
 }

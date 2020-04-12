@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
  *
  * @since 1.0.0
  */
-public class FxCollapsiblePanel extends FxDynamicPanel<VBox> implements UiCollapsiblePanel {
+public class FxCollapsiblePanel extends FxMutablePanel<VBox> implements UiCollapsiblePanel {
 
   private final TitledPane topWidget;
 
@@ -39,9 +39,9 @@ public class FxCollapsiblePanel extends FxDynamicPanel<VBox> implements UiCollap
   }
 
   @Override
-  public void setText(String name) {
+  public void setText(String text) {
 
-    this.topWidget.setText(name);
+    this.topWidget.setText(text);
   }
 
   @Override

@@ -3,25 +3,25 @@
 package io.github.mmm.ui.fx.widget.panel;
 
 import io.github.mmm.ui.api.widget.UiRegularWidget;
-import io.github.mmm.ui.api.widget.panel.UiDynamicPanel;
-import io.github.mmm.ui.fx.widget.composite.FxDynamicCompositePane;
+import io.github.mmm.ui.api.widget.panel.UiMutablePanel;
+import io.github.mmm.ui.fx.widget.composite.FxMutableCompositePane;
 import javafx.scene.layout.Pane;
 
 /**
- * Implementation of {@link UiDynamicPanel} using JavaFx {@link Pane}.
+ * Implementation of {@link UiMutablePanel} using JavaFx {@link Pane}.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxDynamicPanel<W extends Pane> extends FxDynamicCompositePane<W, UiRegularWidget>
-    implements UiDynamicPanel {
+public abstract class FxMutablePanel<W extends Pane> extends FxMutableCompositePane<W, UiRegularWidget>
+    implements UiMutablePanel {
 
   /**
    * The constructor.
    * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxDynamicPanel(W widget) {
+  public FxMutablePanel(W widget) {
 
     super(widget);
   }

@@ -5,7 +5,7 @@ package io.github.mmm.ui.fx.widget.menu;
 import io.github.mmm.ui.api.widget.menu.UiMenu;
 import io.github.mmm.ui.api.widget.menu.UiMenuBar;
 import io.github.mmm.ui.api.widget.window.UiMainWindow;
-import io.github.mmm.ui.fx.widget.composite.FxDynamicComposite;
+import io.github.mmm.ui.fx.widget.composite.FxMutableComposite;
 import io.github.mmm.ui.fx.widget.window.FxMainWindow;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -15,7 +15,7 @@ import javafx.scene.control.MenuBar;
  *
  * @since 1.0.0
  */
-public class FxMenuBar extends FxDynamicComposite<MenuBar, UiMenu> implements UiMenuBar {
+public class FxMenuBar extends FxMutableComposite<MenuBar, UiMenu> implements UiMenuBar {
 
   /**
    * The constructor.

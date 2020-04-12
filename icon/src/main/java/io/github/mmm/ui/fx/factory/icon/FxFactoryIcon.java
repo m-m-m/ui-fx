@@ -3,12 +3,11 @@
 package io.github.mmm.ui.fx.factory.icon;
 
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
-import io.github.mmm.ui.api.widget.UiLabel;
 import io.github.mmm.ui.api.widget.img.UiIcon;
 import io.github.mmm.ui.fx.widget.icon.FxIcon;
 
 /**
- * {@link UiSingleWidgetFactoryNative} for {@link UiLabel}.
+ * {@link UiSingleWidgetFactoryNative} for {@link UiIcon}.
  *
  * @since 1.0.0
  */

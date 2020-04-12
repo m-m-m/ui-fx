@@ -8,7 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 
 /**
- * Implementation of {@link UiWidget} for JavaFx {@link Node}.
+ * Implementation of {@link UiWidget} with {@link #getTooltip() tooltip} for JavaFx {@link Node}.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
@@ -19,7 +19,7 @@ public abstract class FxWidgetWithTooltip<W extends Node> extends FxWidgetNode<W
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetWithTooltip(W widget) {

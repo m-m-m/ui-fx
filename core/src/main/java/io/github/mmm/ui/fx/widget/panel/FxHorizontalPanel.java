@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox;
  *
  * @since 1.0.0
  */
-public class FxHorizontalPanel extends FxDynamicPanel<HBox> implements UiHorizontalPanel {
+public class FxHorizontalPanel extends FxMutablePanel<HBox> implements UiHorizontalPanel {
 
   /**
    * The constructor.

@@ -4,17 +4,17 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.ui.api.UiToggleGroup;
 import io.github.mmm.ui.api.widget.input.UiRadioButton;
-import io.github.mmm.ui.api.widget.input.UiTextInput;
 import io.github.mmm.ui.fx.FxToggleGroup;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 
 /**
- * Implementation of {@link UiTextInput} using JavaFx {@link CheckBox}.
+ * Implementation of {@link UiRadioButton} using JavaFx {@link RadioButton}.
  *
  * @since 1.0.0
  */
 public class FxRadioButton extends FxInput<RadioButton, Boolean> implements UiRadioButton {
+
+  private FxToggleGroup toggleGroup;
 
   /**
    * The constructor.
@@ -39,9 +39,9 @@ public class FxRadioButton extends FxInput<RadioButton, Boolean> implements UiRa
   }
 
   @Override
-  public void setText(String label) {
+  public void setText(String text) {
 
-    this.widget.setText(label);
+    this.widget.setText(text);
   }
 
   @Override
@@ -57,9 +57,16 @@ public class FxRadioButton extends FxInput<RadioButton, Boolean> implements UiRa
   }
 
   @Override
+  public FxToggleGroup getToggleGroup() {
+
+    return this.toggleGroup;
+  }
+
+  @Override
   public void setToggleGroup(UiToggleGroup group) {
 
-    this.widget.setToggleGroup(((FxToggleGroup) group).getGroup());
+    this.toggleGroup = (FxToggleGroup) group;
+    this.widget.setToggleGroup(this.toggleGroup.getGroup());
   }
 
 }

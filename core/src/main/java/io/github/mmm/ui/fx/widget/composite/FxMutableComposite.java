@@ -14,7 +14,7 @@ import javafx.scene.layout.Pane;
  * @param <C> type of the {@link #getChild(int) child widgets}.
  * @since 1.0.0
  */
-public abstract class FxDynamicComposite<W extends Node, C extends UiWidget> extends FxComposite<W, C>
+public abstract class FxMutableComposite<W extends Node, C extends UiWidget> extends FxComposite<W, C>
     implements UiMutableComposite<C> {
 
   /**
@@ -22,7 +22,7 @@ public abstract class FxDynamicComposite<W extends Node, C extends UiWidget> ext
    * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxDynamicComposite(W widget) {
+  public FxMutableComposite(W widget) {
 
     super(widget);
   }

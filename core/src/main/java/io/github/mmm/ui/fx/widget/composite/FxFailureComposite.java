@@ -13,7 +13,7 @@ import javafx.scene.layout.Pane;
  * @param <C> type of the {@link #getChild(int) child widgets}.
  * @since 1.0.0
  */
-public abstract class FxFailureComposite<W extends Pane, C extends UiWidget> extends FxDynamicCompositePane<W, C>
+public abstract class FxFailureComposite<W extends Pane, C extends UiWidget> extends FxMutableCompositePane<W, C>
     implements UiFailureComposite<C> {
 
   /**
