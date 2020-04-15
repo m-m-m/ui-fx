@@ -6,16 +6,16 @@ import io.github.mmm.ui.api.widget.UiWidget;
 import javafx.scene.control.Control;
 
 /**
- * Implementation of {@link UiWidget} based on JavaFx {@link Control}.
+ * Implementation of {@link UiWidget} for JavaFx based on {@link Control}.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxWidgetControl<W extends Control> extends FxWidgetNode<W> implements FxAtomicWidget<W> {
+public abstract class FxWidgetControl<W extends Control> extends FxWidgetNode<W> implements FxAtomicWidgetMixin<W> {
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetControl(W widget) {

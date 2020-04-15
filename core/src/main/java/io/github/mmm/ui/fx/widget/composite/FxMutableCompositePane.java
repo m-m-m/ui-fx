@@ -9,7 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
 /**
- * Implementation of {@link UiMutableComposite} using JavaFx {@link Pane}.
+ * Implementation of {@link UiMutableComposite} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @param <C> type of the {@link #getChild(int) child widgets}.
@@ -19,7 +19,7 @@ public abstract class FxMutableCompositePane<W extends Pane, C extends UiWidget>
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxMutableCompositePane(W widget) {

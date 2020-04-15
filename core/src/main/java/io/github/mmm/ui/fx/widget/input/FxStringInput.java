@@ -3,12 +3,10 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.ui.api.widget.input.UiStringInput;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 
 /**
- * Implementation of {@link FxTextualInput} with {@link String} {@link #getValue() value} using JavaFx
- * {@link TextField}.
+ * Implementation of {@link UiStringInput} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
@@ -18,18 +16,12 @@ public abstract class FxStringInput<W extends TextInputControl> extends FxTextua
 
   /**
    * The constructor.
+   *
    * @param nativeWidget the {@link #getWidget() JavaFx widget}.
    */
   public FxStringInput(W nativeWidget) {
 
     super(nativeWidget);
-  }
-
-  @Override
-  protected void registerHandlers() {
-
-    super.registerHandlers();
-    this.widget.textProperty().addListener(this::onValueChange);
   }
 
   @Override

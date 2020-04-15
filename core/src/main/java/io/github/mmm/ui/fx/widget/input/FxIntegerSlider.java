@@ -4,10 +4,9 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
 import io.github.mmm.ui.api.widget.input.UiIntegerSlider;
-import javafx.scene.control.Slider;
 
 /**
- * Implementation of {@link UiIntegerSlider} using JavaFx {@link Slider}.
+ * Implementation of {@link UiIntegerSlider} for JavaFx.
  *
  * @since 1.0.0
  */

@@ -8,7 +8,7 @@ import io.github.mmm.ui.fx.widget.composite.FxMutableCompositePane;
 import javafx.scene.layout.Pane;
 
 /**
- * Implementation of {@link UiMutablePanel} using JavaFx {@link Pane}.
+ * Implementation of {@link UiMutablePanel} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
@@ -18,7 +18,7 @@ public abstract class FxMutablePanel<W extends Pane> extends FxMutableCompositeP
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxMutablePanel(W widget) {

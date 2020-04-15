@@ -10,7 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 
 /**
- * Implementation of {@link UiFormGroup} using JavaFx {@link TitledPane}.
+ * Implementation of {@link UiFormGroup} for JavaFx.
  *
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0

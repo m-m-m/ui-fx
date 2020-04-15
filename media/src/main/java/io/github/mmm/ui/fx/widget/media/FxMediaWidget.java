@@ -14,7 +14,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 /**
- * Implementation of {@link UiMediaWidget} using JavaFx.
+ * Implementation of {@link UiMediaWidget} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0

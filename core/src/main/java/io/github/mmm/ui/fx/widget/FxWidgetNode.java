@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.UiWidget;
 import javafx.scene.Node;
 
 /**
- * Implementation of {@link UiWidget} for JavaFx {@link Node}.
+ * Implementation of {@link UiWidget} for JavaFx based on {@link Node}.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
@@ -15,6 +15,7 @@ public abstract class FxWidgetNode<W extends Node> extends FxWidgetStyleable<W> 
 
   /**
    * The constructor.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetNode(W widget) {

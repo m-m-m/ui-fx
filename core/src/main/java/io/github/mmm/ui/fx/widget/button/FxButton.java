@@ -7,7 +7,7 @@ import io.github.mmm.ui.fx.widget.FxClickableWidget;
 import javafx.scene.control.Button;
 
 /**
- * Implementation of {@link UiButton} using JavaFx {@link Button}.
+ * Implementation of {@link UiButton} for JavaFx.
  *
  * @since 1.0.0
  */

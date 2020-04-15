@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.input.UiTextInput;
 import javafx.scene.control.TextField;
 
 /**
- * Implementation of {@link UiTextInput} using JavaFx {@link TextField}.
+ * Implementation of {@link UiTextInput} for JavaFx.
  *
  * @since 1.0.0
  */

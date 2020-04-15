@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.input.UiPasswordInput;
 import javafx.scene.control.PasswordField;
 
 /**
- * Implementation of {@link UiPasswordInput} using JavaFx {@link PasswordField}.
+ * Implementation of {@link UiPasswordInput} for JavaFx.
  *
  * @since 1.0.0
  */

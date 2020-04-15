@@ -9,7 +9,7 @@ import io.github.mmm.ui.fx.widget.FxWidgetStyleable;
 import javafx.scene.control.MenuItem;
 
 /**
- * Implementation of {@link UiAbstractActiveMenuItem} using JavaFx {@link MenuItem}.
+ * Implementation of {@link UiAbstractActiveMenuItem} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
@@ -19,6 +19,7 @@ public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetSty
 
   /**
    * The constructor.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxAbstractMenuItem(W widget) {

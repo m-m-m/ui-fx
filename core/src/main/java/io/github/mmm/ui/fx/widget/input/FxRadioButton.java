@@ -8,7 +8,7 @@ import io.github.mmm.ui.fx.FxToggleGroup;
 import javafx.scene.control.RadioButton;
 
 /**
- * Implementation of {@link UiRadioButton} using JavaFx {@link RadioButton}.
+ * Implementation of {@link UiRadioButton} for JavaFx.
  *
  * @since 1.0.0
  */

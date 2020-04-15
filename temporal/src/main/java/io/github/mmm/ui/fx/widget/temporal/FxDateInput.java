@@ -9,7 +9,7 @@ import io.github.mmm.ui.fx.widget.input.FxInput;
 import javafx.scene.control.DatePicker;
 
 /**
- * Implementation of {@link UiDateInput} for JavaFx using {@link DatePicker}.
+ * Implementation of {@link UiDateInput} for JavaFx.
  *
  * @since 1.0.0
  */

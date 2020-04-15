@@ -6,11 +6,10 @@ import io.github.mmm.ui.api.widget.img.UiIcon;
 import io.github.mmm.ui.fx.icon.FxIconGlyph;
 import io.github.mmm.ui.fx.icon.FxIconGlyphFactory;
 import io.github.mmm.ui.fx.widget.img.FxAbstractImage;
-import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 /**
- * Implementation of {@link UiIcon} for JavaFx using {@link ImageView}.
+ * Implementation of {@link UiIcon} for JavaFx.
  *
  * @since 1.0.0
  */

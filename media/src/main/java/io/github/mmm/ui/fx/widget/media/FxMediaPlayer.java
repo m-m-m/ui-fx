@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaView;
 
 /**
- * Implementation of {@link UiMediaWidget} using JavaFx.
+ * Implementation of {@link UiMediaWidget} for JavaFx.
  *
  * @since 1.0.0
  */

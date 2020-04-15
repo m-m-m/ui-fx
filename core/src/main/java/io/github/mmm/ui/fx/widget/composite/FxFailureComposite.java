@@ -7,7 +7,7 @@ import io.github.mmm.ui.api.widget.composite.UiFailureComposite;
 import javafx.scene.layout.Pane;
 
 /**
- * Implementation of {@link UiFailureComposite} using JavaFx.
+ * Implementation of {@link UiFailureComposite} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @param <C> type of the {@link #getChild(int) child widgets}.
@@ -18,7 +18,7 @@ public abstract class FxFailureComposite<W extends Pane, C extends UiWidget> ext
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxFailureComposite(W widget) {

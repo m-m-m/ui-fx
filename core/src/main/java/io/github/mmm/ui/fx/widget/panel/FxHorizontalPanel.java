@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.panel.UiHorizontalPanel;
 import javafx.scene.layout.HBox;
 
 /**
- * Implementation of {@link UiHorizontalPanel} using JavaFx {@link HBox}.
+ * Implementation of {@link UiHorizontalPanel} for JavaFx.
  *
  * @since 1.0.0
  */

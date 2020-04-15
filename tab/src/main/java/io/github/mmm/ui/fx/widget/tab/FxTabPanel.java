@@ -1,23 +1,25 @@
 /* Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0 */
-package io.github.mmm.ui.fx.widget.panel;
+package io.github.mmm.ui.fx.widget.tab;
+
+import java.util.function.Supplier;
 
 import io.github.mmm.ui.api.datatype.UiVisibleFlags;
-import io.github.mmm.ui.api.widget.composite.UiTab;
-import io.github.mmm.ui.api.widget.panel.UiTabPanel;
-import io.github.mmm.ui.fx.widget.FxAtomicWidget;
+import io.github.mmm.ui.api.widget.UiRegularWidget;
+import io.github.mmm.ui.api.widget.tab.UiTab;
+import io.github.mmm.ui.api.widget.tab.UiTabPanel;
+import io.github.mmm.ui.fx.widget.FxAtomicWidgetMixin;
 import io.github.mmm.ui.fx.widget.composite.FxMutableComposite;
-import io.github.mmm.ui.fx.widget.composite.FxTab;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
 /**
- * Implementation of {@link UiTabPanel} using JavaFx {@link TabPane}.
+ * Implementation of {@link UiTabPanel} for JavaFx.
  *
  * @since 1.0.0
  */
-public class FxTabPanel extends FxMutableComposite<TabPane, UiTab> implements UiTabPanel, FxAtomicWidget<TabPane> {
+public class FxTabPanel extends FxMutableComposite<TabPane, UiTab> implements UiTabPanel, FxAtomicWidgetMixin<TabPane> {
 
   /**
    * The constructor.
@@ -41,6 +43,28 @@ public class FxTabPanel extends FxMutableComposite<TabPane, UiTab> implements Ui
     } else {
       this.widget.getTabs().add(index, fxTab.getWidget());
     }
+  }
+
+  @Override
+  public UiTab addTab(String text, UiRegularWidget child) {
+
+    FxTab tab = new FxTab();
+    setParent(tab, this);
+    tab.setText(text);
+    tab.setChild(child);
+    addChild(tab);
+    return tab;
+  }
+
+  @Override
+  public UiTab addTab(String text, Supplier<UiRegularWidget> childSupplier) {
+
+    FxTab tab = new FxTab();
+    setParent(tab, this);
+    tab.setText(text);
+    tab.setChild(childSupplier);
+    addChild(tab);
+    return tab;
   }
 
   @Override

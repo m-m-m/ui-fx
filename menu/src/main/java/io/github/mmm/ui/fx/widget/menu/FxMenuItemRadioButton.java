@@ -9,7 +9,7 @@ import io.github.mmm.ui.fx.FxToggleGroup;
 import javafx.scene.control.RadioMenuItem;
 
 /**
- * Implementation of {@link UiMenuItemRadioButton} using JavaFx {@link RadioMenuItem}.
+ * Implementation of {@link UiMenuItemRadioButton} for JavaFx.
  *
  * @since 1.0.0
  */

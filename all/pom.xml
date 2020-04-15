@@ -35,6 +35,10 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-fx-tab</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>mmm-ui-fx-temporal</artifactId>
     </dependency>
     <dependency>

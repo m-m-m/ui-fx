@@ -11,14 +11,13 @@ import io.github.mmm.ui.api.widget.input.UiRadioChoice;
 import io.github.mmm.ui.spi.ToStringFormatter;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 
 /**
- * Implementation of {@link UiRadioChoice} using JavaFx {@link CheckBox}es.
+ * Implementation of {@link UiRadioChoice} for JavaFx.
  *
  * @param <V> type of the {@link #getValue() value} and {@link #getOptions() option}.
  * @since 1.0.0

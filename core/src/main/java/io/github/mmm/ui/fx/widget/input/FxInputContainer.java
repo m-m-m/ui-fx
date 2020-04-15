@@ -7,7 +7,7 @@ import io.github.mmm.ui.fx.widget.FxWidgetNode;
 import javafx.scene.layout.HBox;
 
 /**
- * {@link FxWidgetNode} for {@link FxInput#getContainerWidget()}.
+ * {@link FxInput#getContainerWidget() Input container widget} for JavaFx.
  *
  * @since 1.0.0
  */

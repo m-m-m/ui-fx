@@ -11,7 +11,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 
 /**
- * Implementation of {@link UiMenuBar} using JavaFx {@link MenuBar}.
+ * Implementation of {@link UiMenuBar} for JavaFx.
  *
  * @since 1.0.0
  */

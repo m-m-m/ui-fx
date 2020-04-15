@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.menu.UiMenuItem;
 import javafx.scene.control.MenuItem;
 
 /**
- * Implementation of {@link UiMenuItem} using JavaFx {@link MenuItem}.
+ * Implementation of {@link UiMenuItem} for JavaFx.
  *
  * @since 1.0.0
  */

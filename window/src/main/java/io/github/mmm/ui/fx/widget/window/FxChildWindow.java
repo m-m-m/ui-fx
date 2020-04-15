@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
- * Implementation of {@link UiChildWindow} using JavaFx {@link Stage}.
+ * Implementation of {@link UiChildWindow} for JavaFx.
  *
  * @since 1.0.0
  */
@@ -25,7 +25,7 @@ public abstract class FxChildWindow extends FxAbstractWindow implements UiChildW
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxChildWindow(Stage widget) {

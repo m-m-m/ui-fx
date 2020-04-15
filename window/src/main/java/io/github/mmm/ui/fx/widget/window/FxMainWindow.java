@@ -7,10 +7,9 @@ import io.github.mmm.ui.api.widget.window.UiMainWindow;
 import io.github.mmm.ui.api.widget.window.UiWindow;
 import io.github.mmm.ui.fx.FxContext;
 import javafx.scene.control.MenuBar;
-import javafx.stage.Stage;
 
 /**
- * Implementation of {@link UiWindow} using JavaFx {@link Stage}.
+ * Implementation of {@link UiWindow} for JavaFx.
  *
  * @since 1.0.0
  */

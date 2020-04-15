@@ -3,41 +3,47 @@
 package io.github.mmm.ui.fx.widget;
 
 import io.github.mmm.ui.api.widget.UiAtomicWidget;
-import io.github.mmm.ui.spi.widget.UiNativeWidgetWrapper;
-import javafx.scene.control.Control;
+import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 
 /**
- * {@link UiAtomicWidget} based on JavaFx {@link Control}.
+ * Implementation of {@link UiAtomicWidget} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public interface FxAtomicWidget<W extends Control> extends UiNativeWidgetWrapper<W>, UiAtomicWidget {
+public abstract class FxAtomicWidget<W extends Node> extends FxWidgetNode<W> implements UiAtomicWidget {
 
-  @Override
-  default String getTooltip() {
+  private Tooltip fxTooltip;
 
-    Tooltip tooltip = getWidget().getTooltip();
-    if (tooltip != null) {
-      String text = tooltip.getText();
-      if (text != null) {
-        return text;
-      }
-    }
-    return "";
+  /**
+   * The constructor.
+   *
+   * @param widget the {@link #getWidget() JavaFx widget}.
+   */
+  public FxAtomicWidget(W widget) {
+
+    super(widget);
   }
 
   @Override
-  default void setTooltip(String tooltip) {
+  public String getTooltip() {
 
-    Tooltip fxTooltip = getWidget().getTooltip();
-    if (fxTooltip == null) {
-      fxTooltip = new Tooltip(tooltip);
-      getWidget().setTooltip(fxTooltip);
+    if (this.fxTooltip == null) {
+      return "";
     } else {
-      fxTooltip.setText(tooltip);
+      return this.fxTooltip.getText();
     }
+  }
+
+  @Override
+  public void setTooltip(String tooltip) {
+
+    if (this.fxTooltip == null) {
+      this.fxTooltip = new Tooltip();
+      Tooltip.install(this.widget, this.fxTooltip);
+    }
+    this.fxTooltip.setText(tooltip);
   }
 
 }

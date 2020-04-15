@@ -5,10 +5,9 @@ package io.github.mmm.ui.fx.widget.composite;
 import io.github.mmm.ui.api.widget.UiWidget;
 import io.github.mmm.ui.api.widget.composite.UiMutableComposite;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 
 /**
- * Implementation of {@link UiMutableComposite} using JavaFx {@link Pane}.
+ * Implementation of {@link UiMutableComposite} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @param <C> type of the {@link #getChild(int) child widgets}.
@@ -19,7 +18,7 @@ public abstract class FxMutableComposite<W extends Node, C extends UiWidget> ext
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxMutableComposite(W widget) {

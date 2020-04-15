@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.UiLabel;
 import javafx.scene.control.Label;
 
 /**
- * Implementation of {@link UiLabel} using JavaFx {@link Label}.
+ * Implementation of {@link UiLabel} for JavaFx.
  *
  * @since 1.0.0
  */

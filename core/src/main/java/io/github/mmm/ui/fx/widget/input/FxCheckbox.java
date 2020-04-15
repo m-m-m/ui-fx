@@ -7,7 +7,7 @@ import io.github.mmm.ui.api.widget.input.UiTextInput;
 import javafx.scene.control.CheckBox;
 
 /**
- * Implementation of {@link UiTextInput} using JavaFx {@link CheckBox}.
+ * Implementation of {@link UiTextInput} for JavaFx.
  *
  * @since 1.0.0
  */

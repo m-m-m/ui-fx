@@ -16,6 +16,8 @@ import javafx.scene.media.MediaPlayer;
 
 /**
  * Controls for {@link FxMediaPlayer}.
+ *
+ * @since 1.0.0
  */
 public class MediaPlayerControlBar extends MediaPlayerWrapper {
 

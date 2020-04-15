@@ -8,11 +8,11 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Implementation of {@link UiText} using JavaFx {@link Text}.
+ * Implementation of {@link UiText} for JavaFx.
  *
  * @since 1.0.0
  */
-public class FxText extends FxWidgetWithTooltip<Text> implements UiText {
+public class FxText extends FxAtomicWidget<Text> implements UiText {
 
   private UiTextAlignment alignment;
 

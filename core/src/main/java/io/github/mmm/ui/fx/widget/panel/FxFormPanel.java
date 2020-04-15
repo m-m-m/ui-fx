@@ -10,7 +10,7 @@ import io.github.mmm.ui.fx.widget.composite.FxValuedComposite;
 import javafx.scene.Node;
 
 /**
- * Implementation of {@link UiFormPanel} using JavaFx.
+ * Implementation of {@link UiFormPanel} for JavaFx.
  *
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0

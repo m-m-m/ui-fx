@@ -7,7 +7,7 @@ import io.github.mmm.ui.fx.widget.input.FxInput;
 import javafx.scene.web.HTMLEditor;
 
 /**
- * Implementation of {@link UiHtmlEditor} using JavaFx {@link HTMLEditor}.
+ * Implementation of {@link UiHtmlEditor} for JavaFx.
  *
  * @since 1.0.0
  */

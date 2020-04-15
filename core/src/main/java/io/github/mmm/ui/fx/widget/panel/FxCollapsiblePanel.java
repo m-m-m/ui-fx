@@ -8,7 +8,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
 
 /**
- * Implementation of {@link UiCollapsiblePanel} using JavaFx {@link TitledPane}.
+ * Implementation of {@link UiCollapsiblePanel} for JavaFx.
  *
  * @since 1.0.0
  */

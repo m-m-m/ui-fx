@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.input.UiTextArea;
 import javafx.scene.control.TextArea;
 
 /**
- * Implementation of {@link UiTextArea} using JavaFx {@link TextArea}.
+ * Implementation of {@link UiTextArea} for JavaFx.
  *
  * @since 1.0.0
  */

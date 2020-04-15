@@ -11,7 +11,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 
 /**
- * Implementation of {@link UiNumberInput} using JavaFx {@link TextField}.
+ * Implementation of {@link UiNumberInput} for JavaFx.
  *
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0

@@ -5,7 +5,9 @@ package io.github.mmm.ui.fx.icon;
 import io.github.mmm.ui.fx.icon.impl.FxIconGlyphFactoryProvider;
 
 /**
- * Factory to define icons for
+ * Factory for {@link FxIconGlyph}.
+ *
+ * @since 1.0.0
  */
 public interface FxIconGlyphFactory {
 

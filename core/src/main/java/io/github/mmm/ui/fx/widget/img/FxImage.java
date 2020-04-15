@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Implementation of {@link UiImage} for JavaFx using {@link ImageView}.
+ * Implementation of {@link UiImage} for JavaFx.
  *
  * @since 1.0.0
  */

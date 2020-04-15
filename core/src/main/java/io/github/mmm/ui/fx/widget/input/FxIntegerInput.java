@@ -4,10 +4,9 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.base.number.NumberType;
 import io.github.mmm.ui.api.widget.input.UiIntegerInput;
-import javafx.scene.control.TextField;
 
 /**
- * Implementation of {@link UiIntegerInput} using JavaFx {@link TextField}.
+ * Implementation of {@link UiIntegerInput} for JavaFx.
  *
  * @since 1.0.0
  */

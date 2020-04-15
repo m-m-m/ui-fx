@@ -6,7 +6,7 @@ import io.github.mmm.ui.api.widget.panel.UiVerticalPanel;
 import javafx.scene.layout.VBox;
 
 /**
- * Implementation of {@link UiVerticalPanel} using JavaFx {@link VBox}.
+ * Implementation of {@link UiVerticalPanel} for JavaFx.
  *
  * @since 1.0.0
  */

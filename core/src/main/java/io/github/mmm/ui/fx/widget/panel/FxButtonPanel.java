@@ -8,7 +8,7 @@ import io.github.mmm.ui.fx.widget.composite.FxMutableCompositePane;
 import javafx.scene.layout.HBox;
 
 /**
- * Implementation of {@link UiButtonPanel} using JavaFx {@link HBox}.
+ * Implementation of {@link UiButtonPanel} for JavaFx.
  *
  * @since 1.0.0
  */

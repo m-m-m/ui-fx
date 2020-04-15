@@ -1,24 +1,27 @@
 /* Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0 */
-package io.github.mmm.ui.fx.widget.composite;
+package io.github.mmm.ui.fx.widget.tab;
+
+import java.util.function.Supplier;
 
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.composite.UiComposite;
-import io.github.mmm.ui.api.widget.composite.UiTab;
-import io.github.mmm.ui.api.widget.panel.UiTabPanel;
+import io.github.mmm.ui.api.widget.tab.UiTab;
+import io.github.mmm.ui.api.widget.tab.UiTabPanel;
 import io.github.mmm.ui.fx.widget.FxWidgetStyleable;
-import io.github.mmm.ui.fx.widget.panel.FxTabPanel;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Tab;
 
 /**
- * Implementation of {@link UiTab} using JavaFx {@link Tab}.
+ * Implementation of {@link UiTab} for JavaFx.
  *
  * @since 1.0.0
  */
 public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
 
   private UiRegularWidget child;
+
+  private Supplier<UiRegularWidget> childSupplier;
 
   /**
    * The constructor.
@@ -53,6 +56,17 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
   }
 
   @Override
+  public UiRegularWidget getChild() {
+
+    if ((this.child == null) && (this.childSupplier != null)) {
+      setChild(this.childSupplier.get());
+      assert (this.child != null);
+      this.childSupplier = null;
+    }
+    return this.child;
+  }
+
+  @Override
   public void setChild(UiRegularWidget child) {
 
     if (child == this.child) {
@@ -66,10 +80,12 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
     setParent(child, this);
   }
 
-  @Override
-  public UiRegularWidget getChild() {
+  /**
+   * @param childSupplier the {@link Supplier} {@link Supplier#get() providing} the {@link #getChild() child widget}.
+   */
+  public void setChild(Supplier<UiRegularWidget> childSupplier) {
 
-    return this.child;
+    this.childSupplier = childSupplier;
   }
 
   @Override
@@ -129,7 +145,6 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
   @Override
   public boolean setFocused() {
 
-    // TODO Auto-generated method stub
     return false;
   }
 

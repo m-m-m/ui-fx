@@ -22,6 +22,7 @@
   </properties>
 
   <modules>
+    <module>all</module>
     <module>core</module>
     <module>chart</module>
     <module>format</module>
@@ -29,9 +30,9 @@
     <module>icon-fontawesome</module>
     <module>media</module>
     <module>menu</module>
+    <module>tab</module>
     <module>temporal</module>
     <module>window</module>
-    <module>all</module>
   </modules>
 
   <dependencyManagement>
@@ -42,16 +43,6 @@
         <version>1.0.0-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-controls</artifactId>
-        <version>${javafx.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-web</artifactId>
-        <version>${javafx.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
@@ -90,6 +81,11 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-tab</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-temporal</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -107,6 +103,16 @@
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-validation-main</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>${javafx.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-web</artifactId>
+        <version>${javafx.version}</version>
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>

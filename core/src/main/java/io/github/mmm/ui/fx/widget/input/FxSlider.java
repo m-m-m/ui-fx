@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
- * Implementation of {@link UiSlider} using JavaFx {@link Slider}.
+ * Implementation of {@link UiSlider} for JavaFx.
  *
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0

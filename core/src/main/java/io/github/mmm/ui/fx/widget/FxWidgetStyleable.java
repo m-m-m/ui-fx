@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.css.Styleable;
 
 /**
- * Implementation of {@link UiWidget} for JavaFx {@link Styleable}.
+ * Implementation of {@link UiWidget} for JavaFx based on {@link Styleable}.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
@@ -17,6 +17,7 @@ public abstract class FxWidgetStyleable<W extends Styleable> extends FxWidgetObj
 
   /**
    * The constructor.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetStyleable(W widget) {

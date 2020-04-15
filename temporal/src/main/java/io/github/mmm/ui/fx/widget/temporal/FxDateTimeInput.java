@@ -8,7 +8,7 @@ import io.github.mmm.ui.api.widget.temporal.UiDateTimeInput;
 import io.github.mmm.ui.fx.widget.input.FxInput;
 
 /**
- * Implementation of {@link UiDateTimeInput} for JavaFx using {@link DateTimePicker}.
+ * Implementation of {@link UiDateTimeInput} for JavaFx.
  *
  * @since 1.0.0
  */

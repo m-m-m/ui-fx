@@ -4,11 +4,10 @@ package io.github.mmm.ui.fx.widget.menu;
 
 import io.github.mmm.ui.api.widget.menu.UiMenuItem;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemSeparator;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 
 /**
- * Implementation of {@link UiMenuItem} using JavaFx {@link MenuItem}.
+ * Implementation of {@link UiMenuItem} for JavaFx.
  *
  * @since 1.0.0
  */

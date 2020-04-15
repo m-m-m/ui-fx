@@ -11,7 +11,7 @@ import io.github.mmm.ui.fx.widget.FxWidgetNode;
 import javafx.scene.Node;
 
 /**
- * Implementation of {@link UiComposite} using JavaFx {@link Node}.
+ * Implementation of {@link UiComposite} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @param <C> type of the {@link #getChild(int) child widgets}.
@@ -25,7 +25,7 @@ public abstract class FxComposite<W extends Node, C extends UiWidget> extends Fx
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxComposite(W widget) {

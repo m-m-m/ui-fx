@@ -42,8 +42,6 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryRadioChoice, //
       io.github.mmm.ui.fx.factory.core.FxFactorySlot, //
       io.github.mmm.ui.fx.factory.core.FxFactoryScrollPanel, //
-      io.github.mmm.ui.fx.factory.core.FxFactoryTab, //
-      io.github.mmm.ui.fx.factory.core.FxFactoryTabPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryText, //
       io.github.mmm.ui.fx.factory.core.FxFactoryTextInput, //
       io.github.mmm.ui.fx.factory.core.FxFactoryTextArea, //

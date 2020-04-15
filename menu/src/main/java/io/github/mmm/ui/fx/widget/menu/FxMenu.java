@@ -11,7 +11,7 @@ import io.github.mmm.ui.fx.FxToggleGroup;
 import javafx.scene.control.Menu;
 
 /**
- * Implementation of {@link UiMenu} using JavaFx {@link Menu}.
+ * Implementation of {@link UiMenu} for JavaFx.
  *
  * @since 1.0.0
  */

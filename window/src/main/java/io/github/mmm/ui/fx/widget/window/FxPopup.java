@@ -6,11 +6,10 @@ import io.github.mmm.ui.api.datatype.UiEnabledFlags;
 import io.github.mmm.ui.api.widget.panel.UiButtonPanel;
 import io.github.mmm.ui.api.widget.window.UiPopup;
 import javafx.stage.Modality;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 /**
- * Implementation of {@link UiPopup} using JavaFx {@link Popup}.
+ * Implementation of {@link UiPopup} for JavaFx.
  *
  * @since 1.0.0
  */

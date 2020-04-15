@@ -14,7 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
 /**
- * Implementation of {@link UiInput} using JavaFx.
+ * Implementation of {@link UiInput} for JavaFx.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @param <V> type of {@link #getValue() value}.
@@ -36,7 +36,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveWidget<W> im
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxInput(W widget) {
