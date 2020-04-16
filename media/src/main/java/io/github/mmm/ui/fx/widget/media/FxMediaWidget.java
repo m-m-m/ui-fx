@@ -62,7 +62,6 @@ public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> impl
       checkMediaType(media.getType());
       UiMediaSource source = media.getSources().iterator().next();
       String url = source.getSource();
-      url = "file:///Users/hohwille/projects/mmm/workspaces/main/demo-ui/View_From_A_Blue_Moon_Trailer-576p.mp4";
       Media fxMedia = new Media(url);
       player = new MediaPlayer(fxMedia);
     }

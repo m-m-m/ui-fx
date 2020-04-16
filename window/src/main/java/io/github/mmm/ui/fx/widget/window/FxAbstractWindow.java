@@ -73,6 +73,12 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
   }
 
   @Override
+  protected boolean isInitiallyVisible() {
+
+    return false;
+  }
+
+  @Override
   protected boolean isVisibleWithoutRoot() {
 
     return true;
