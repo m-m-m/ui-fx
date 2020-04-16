@@ -41,6 +41,7 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
 
   /**
    * The constructor.
+   * 
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetObject(W widget) {
@@ -62,7 +63,7 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
   protected Node getTopNode(UiWidget uiWidget) {
 
     if (uiWidget instanceof UiCustomWidget) {
-      getTopNode(((UiCustomWidget<?>) uiWidget).getDelegate());
+      return getTopNode(((UiCustomWidget<?>) uiWidget).getDelegate());
     }
     return ((FxWidgetNode<?>) uiWidget).getTopWidget();
   }
