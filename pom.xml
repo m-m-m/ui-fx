@@ -25,6 +25,8 @@
     <module>all</module>
     <module>core</module>
     <module>chart</module>
+    <module>controller</module>
+    <module>data</module>
     <module>format</module>
     <module>icon</module>
     <module>icon-fontawesome</module>
@@ -39,7 +41,7 @@
     <dependencies>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-api-parent</artifactId>
+        <artifactId>mmm-ui-spi-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
@@ -57,6 +59,16 @@
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-controller</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-data</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

@@ -7,6 +7,8 @@
  */
 module io.github.mmm.ui.fx.all {
 
+  requires transitive io.github.mmm.ui.spi.all;
+
   requires transitive io.github.mmm.ui.fx.chart;
 
   requires transitive io.github.mmm.ui.fx.format;

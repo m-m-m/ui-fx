@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
+import io.github.mmm.base.lang.ToStringFormatter;
 import io.github.mmm.ui.api.widget.input.UiRadioChoice;
-import io.github.mmm.ui.spi.ToStringFormatter;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;

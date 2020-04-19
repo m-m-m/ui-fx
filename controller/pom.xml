@@ -7,22 +7,19 @@
     <artifactId>mmm-ui-fx-parent</artifactId>
     <version>${revision}${changelist}</version>
   </parent>
-  <artifactId>mmm-ui-fx-core</artifactId>
+  <artifactId>mmm-ui-fx-controller</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
-  <description>Implementation of user-interface framework based on JavaFx.</description>
+  <description>Controller management, routing and navigation for JavaFx.</description>
   
-  <properties>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-spi-core</artifactId>
+      <artifactId>mmm-ui-api-controller</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-controls</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-fx-core</artifactId>
     </dependency>
   </dependencies>
 </project>
