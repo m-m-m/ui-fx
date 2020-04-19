@@ -5,12 +5,19 @@ package io.github.mmm.ui.fx.widget.data;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
+import io.github.mmm.base.exception.ObjectMismatchException;
+import io.github.mmm.base.exception.ObjectNotFoundException;
 import io.github.mmm.base.sort.SortOrder;
+import io.github.mmm.bean.ReadableBean;
+import io.github.mmm.property.ReadableProperty;
+import io.github.mmm.ui.api.UiLocalizer;
 import io.github.mmm.ui.api.widget.data.UiColumn;
 import io.github.mmm.ui.api.widget.data.UiDataTable;
 import io.github.mmm.ui.fx.widget.FxActiveValidatableWidget;
 import io.github.mmm.value.PropertyPath;
+import io.github.mmm.value.ReadableTypedValue;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -27,6 +34,8 @@ import javafx.scene.control.TableView;
 public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<R>> implements UiDataTable<R> {
 
   private final List<FxTableColumn<R, ?>> columns;
+
+  private R rowTemplate;
 
   private TableColumn<R, Integer> rowNumberColumn;
 
@@ -54,25 +63,56 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
   }
 
   @Override
-  public <C> UiColumn<R, C> createColumn(PropertyPath<C> property) {
+  public void setRowTemplate(R rowTemplate) {
 
-    String title = property.getName();
-    // I18n
-    FxTableColumn<R, C> column = createColumn(title);
-    return column;
+    this.rowTemplate = rowTemplate;
   }
 
   @Override
-  public <C> UiColumn<R, C> createColumn(String title, ColumnAdapter<R, C> adapter) {
+  public <V> UiColumn<R, V> createColumn(PropertyPath<V> property) {
 
-    FxTableColumn<R, C> column = createColumn(title);
+    assert verifyProperty(property);
+    String title = UiLocalizer.get().localize(property.getName());
+    FxTableColumn<R, V> column = createColumn(title);
+    column.setProperty(property);
+    return column;
+  }
+
+  @SuppressWarnings("unchecked")
+  private <V> boolean verifyProperty(PropertyPath<V> property) {
+
+    Objects.requireNonNull(property, "property");
+    Objects.requireNonNull(this.rowTemplate, "rowTemplate");
+    if (this.rowTemplate instanceof ReadableBean) {
+      ReadableBean bean = (ReadableBean) this.rowTemplate;
+      String name = property.getName();
+      ReadableProperty<?> beanProperty = bean.getProperty(name);
+      if (beanProperty == null) {
+        throw new ObjectNotFoundException("rowTemplate.Property", name);
+      }
+      if (property instanceof ReadableTypedValue) {
+        Class<V> valueClass = ((ReadableTypedValue<V>) property).getValueClass();
+        if (!Objects.equals(valueClass, beanProperty.getValueClass())) {
+          throw new ObjectMismatchException(name + ".valueClass=" + beanProperty.getValueClass(), valueClass);
+        }
+      }
+    } else {
+      throw new IllegalStateException("Invalid rowTemplate: " + this.rowTemplate.getClass().getName());
+    }
+    return true;
+  }
+
+  @Override
+  public <V> UiColumn<R, V> createColumn(String title, ColumnAdapter<R, V> adapter) {
+
+    FxTableColumn<R, V> column = createColumn(title);
     column.setAdapter(adapter);
     return column;
   }
 
-  private <C> FxTableColumn<R, C> createColumn(String title) {
+  private <V> FxTableColumn<R, V> createColumn(String title) {
 
-    FxTableColumn<R, C> column = new FxTableColumn<>();
+    FxTableColumn<R, V> column = new FxTableColumn<>();
     column.setTitle(title);
     return column;
   }

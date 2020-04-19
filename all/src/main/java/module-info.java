@@ -11,6 +11,10 @@ module io.github.mmm.ui.fx.all {
 
   requires transitive io.github.mmm.ui.fx.chart;
 
+  requires transitive io.github.mmm.ui.fx.controller;
+
+  requires transitive io.github.mmm.ui.fx.data;
+
   requires transitive io.github.mmm.ui.fx.format;
 
   requires transitive io.github.mmm.ui.fx.icon;

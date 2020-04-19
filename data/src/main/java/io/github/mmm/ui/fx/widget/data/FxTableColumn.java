@@ -5,13 +5,14 @@ package io.github.mmm.ui.fx.widget.data;
 import java.util.Comparator;
 
 import io.github.mmm.base.sort.SortOrder;
+import io.github.mmm.bean.ReadableBean;
 import io.github.mmm.ui.api.widget.data.UiAbstractDataWidget.ColumnAdapter;
 import io.github.mmm.ui.api.widget.data.UiColumn;
 import io.github.mmm.ui.fx.widget.FxWidgetObject;
+import io.github.mmm.value.PropertyPath;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableColumn.SortType;
 
@@ -25,6 +26,8 @@ import javafx.scene.control.TableColumn.SortType;
 public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> implements UiColumn<R, V> {
 
   private ColumnAdapter<R, V> adapter;
+
+  private PropertyPath<V> property;
 
   private EventHandler<CellEditEvent<R, V>> editCommitter;
 
@@ -142,6 +145,24 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
     this.widget.setEditable(editable);
   }
 
+  @SuppressWarnings("unchecked")
+  public void setProperty(PropertyPath<V> property) {
+
+    this.property = property;
+    final String name = property.getName();
+    this.widget.setCellValueFactory(dataFeatures -> {
+      R data = dataFeatures.getValue();
+      V value = null;
+      if (data != null) {
+        value = (V) ((ReadableBean) data).get(name);
+      }
+      if (value == null) {
+        return null;
+      }
+      return new ReadOnlyObjectWrapper<>(value);
+    });
+  }
+
   /**
    * @param adapter the {@link io.github.mmm.ui.api.widget.data.UiAbstractDataWidget.ColumnAdapter}.
    */
@@ -149,8 +170,7 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
 
     this.adapter = adapter;
     this.widget.setCellValueFactory(dataFeatures -> {
-      CellDataFeatures<R, V> dataFeatures2 = dataFeatures;
-      R data = dataFeatures2.getValue();
+      R data = dataFeatures.getValue();
       if (data == null) {
         return null;
       }
