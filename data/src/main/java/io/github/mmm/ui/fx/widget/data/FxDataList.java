@@ -175,7 +175,7 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
       if (this.rowNumberColumn == null) {
         this.rowNumberColumn = createRowNumberColumn();
       }
-      this.widget.getColumns().set(0, this.rowNumberColumn);
+      this.widget.getColumns().add(0, this.rowNumberColumn);
     } else {
       this.widget.getColumns().remove(this.rowNumberColumn);
     }
@@ -230,13 +230,12 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
     rowNumberColumn.setSortable(false);
     rowNumberColumn.setCellFactory(col -> {
       return new TableCell<>() {
-
         @Override
         protected void updateItem(Integer item, boolean empty) {
 
           super.updateItem(item, empty);
           TableRow<R> row = getTableRow();
-          if ((row != null) && (item != null)) {
+          if (row != null) {
             setText(Integer.toString(row.getIndex() + 1));
           } else {
             setText("");
