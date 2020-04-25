@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx;
 
-import io.github.mmm.ui.api.UiContext;
+import io.github.mmm.ui.spi.UiApplication;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  * <pre>
  * public class MyFxApp extends {@link FxApplication} {
  *
- *   protected abstract void start() {
+ *   public void start() {
  *     MyApp myApp = new MyApp();
  *     myApp.run();
  *   }
@@ -23,8 +23,10 @@ import javafx.stage.Stage;
  *   }
  * }
  * </pre>
+ *
+ * @since 1.0.0
  */
-public abstract class FxApplication extends Application {
+public abstract class FxApplication extends Application implements UiApplication {
 
   private static Stage primaryStage;
 
@@ -40,8 +42,6 @@ public abstract class FxApplication extends Application {
   public final void start(Stage fxPrimaryStage) throws Exception {
 
     primaryStage = fxPrimaryStage;
-    FxContext context = (FxContext) UiContext.get();
-    context.setPrimaryStage(fxPrimaryStage);
     start();
   }
 
@@ -52,10 +52,5 @@ public abstract class FxApplication extends Application {
 
     return primaryStage;
   }
-
-  /**
-   * Starts this application.
-   */
-  protected abstract void start();
 
 }

@@ -137,8 +137,9 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
     this.widget.getColumns().add(fxColumn.getWidget());
   }
 
+  @SuppressWarnings("unchecked")
   @Override
-  public void sort(SortOrder order, UiColumn<R, ?>... columns) {
+  public void sort(SortOrder order, UiColumn<R, ?>... sortColumns) {
 
     SortType sortType = null;
     if (order == SortOrder.ASCENDING) {
@@ -146,8 +147,8 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
     } else if (order == SortOrder.DESCENDING) {
       sortType = SortType.DESCENDING;
     }
-    for (int i = columns.length - 1; i >= 0; i--) {
-      FxTableColumn<R, ?> column = (FxTableColumn<R, ?>) columns[i];
+    for (int i = sortColumns.length - 1; i >= 0; i--) {
+      FxTableColumn<R, ?> column = (FxTableColumn<R, ?>) sortColumns[i];
       column.getWidget().setSortType(sortType);
     }
   }

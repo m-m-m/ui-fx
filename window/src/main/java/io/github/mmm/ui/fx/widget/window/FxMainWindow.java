@@ -2,10 +2,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.window;
 
-import io.github.mmm.ui.api.UiContext;
 import io.github.mmm.ui.api.widget.window.UiMainWindow;
 import io.github.mmm.ui.api.widget.window.UiWindow;
-import io.github.mmm.ui.fx.FxContext;
+import io.github.mmm.ui.fx.FxApplication;
 import javafx.scene.control.MenuBar;
 
 /**
@@ -22,7 +21,7 @@ public class FxMainWindow extends FxAbstractWindow implements UiMainWindow {
    */
   public FxMainWindow() {
 
-    super(((FxContext) UiContext.get()).getPrimaryStage());
+    super(FxApplication.getPrimaryStage());
   }
 
   /**

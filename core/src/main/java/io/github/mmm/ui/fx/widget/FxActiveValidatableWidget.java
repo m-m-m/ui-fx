@@ -6,7 +6,10 @@ import io.github.mmm.ui.api.event.UiValueChangeEvent;
 import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.api.widget.value.UiValidatableWidget;
 import io.github.mmm.validation.Validator;
+import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.control.Control;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
@@ -25,6 +28,8 @@ public abstract class FxActiveValidatableWidget<W extends Control, V> extends Fx
   private V originalValue;
 
   private long modificationTimestamp;
+
+  private FxValidationFailureBox validationFailureBox;
 
   /**
    * The constructor.
@@ -55,7 +60,20 @@ public abstract class FxActiveValidatableWidget<W extends Control, V> extends Fx
   protected void doSetValidationFailure(String error) {
 
     this.widget.pseudoClassStateChanged(CLASS_INVALID, (error != null));
-    // TODO apply error to widget (popover/tooltip)
+    if (this.validationFailureBox == null) {
+      this.validationFailureBox = new FxValidationFailureBox();
+    }
+    Node topWidget = getTopWidget();
+    if (isEmpty(error)) {
+      this.validationFailureBox.hide();
+      Tooltip.uninstall(topWidget, this.validationFailureBox);
+      this.validationFailureBox.setText("");
+    } else {
+      Tooltip.install(topWidget, this.validationFailureBox);
+      Bounds bounds = topWidget.getBoundsInParent();
+      this.validationFailureBox.setText(error);
+      this.validationFailureBox.show(topWidget, bounds.getCenterX(), bounds.getMaxY());
+    }
   }
 
   @Override

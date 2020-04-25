@@ -6,6 +6,7 @@ import java.util.Comparator;
 
 import io.github.mmm.base.sort.SortOrder;
 import io.github.mmm.bean.ReadableBean;
+import io.github.mmm.bean.WritableBean;
 import io.github.mmm.ui.api.widget.data.UiAbstractDataWidget.ColumnAdapter;
 import io.github.mmm.ui.api.widget.data.UiColumn;
 import io.github.mmm.ui.fx.widget.FxWidgetObject;
@@ -30,6 +31,8 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
   private PropertyPath<V> property;
 
   private EventHandler<CellEditEvent<R, V>> editCommitter;
+
+  private boolean filtering;
 
   /**
    * The constructor.
@@ -78,15 +81,17 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
   @Override
   public boolean isFiltering() {
 
-    // TODO Auto-generated method stub
-    return false;
+    return this.filtering;
   }
 
   @Override
   public void setFiltering(boolean filtering) {
 
-    // TODO Auto-generated method stub
-
+    if (this.filtering == filtering) {
+      return;
+    }
+    // TODO: implement filter and show/hide here...
+    this.filtering = filtering;
   }
 
   @Override
@@ -145,6 +150,9 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
     this.widget.setEditable(editable);
   }
 
+  /**
+   * @param property the {@link PropertyPath property} to bind to this column.
+   */
   @SuppressWarnings("unchecked")
   public void setProperty(PropertyPath<V> property) {
 
@@ -161,6 +169,13 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
       }
       return new ReadOnlyObjectWrapper<>(value);
     });
+    if (this.editCommitter != null) {
+      if (isSortable()) {
+        newEditCommitter();
+      } else {
+        this.editCommitter = null;
+      }
+    }
   }
 
   /**
@@ -188,11 +203,19 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
 
   private void newEditCommitter() {
 
-    this.editCommitter = event -> {
-      V value = event.getNewValue();
-      this.adapter.set(event.getRowValue(), value);
-      // event.getTableView().refresh();
-    };
+    if (this.adapter != null) {
+      this.editCommitter = event -> {
+        V value = event.getNewValue();
+        this.adapter.set(event.getRowValue(), value);
+        // event.getTableView().refresh();
+      };
+    } else if (this.property != null) {
+      this.editCommitter = event -> {
+        V value = event.getNewValue();
+        R row = event.getRowValue();
+        ((WritableBean) row).set(this.property.getName(), value);
+      };
+    }
     this.widget.setOnEditCommit(this.editCommitter);
   }
 

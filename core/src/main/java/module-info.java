@@ -19,11 +19,14 @@ module io.github.mmm.ui.fx.core {
 
   requires transitive javafx.controls;
 
-  provides io.github.mmm.ui.api.UiContext with //
-      io.github.mmm.ui.fx.FxContext;
-
   provides io.github.mmm.ui.api.UiScreen with //
       io.github.mmm.ui.fx.FxScreen;
+
+  provides io.github.mmm.ui.api.UiDispatcher with //
+      io.github.mmm.ui.fx.FxDispatcher;
+
+  provides io.github.mmm.ui.api.factory.UiToggleGroupFactory with //
+      io.github.mmm.ui.fx.FxToggleGroupFactory;
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
       io.github.mmm.ui.fx.factory.core.FxFactoryButton, //

@@ -3,12 +3,10 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.ui.api.datatype.bitmask.BitMask;
-import io.github.mmm.ui.api.event.UiValueChangeEvent;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.FxActiveValidatableWidget;
 import io.github.mmm.ui.fx.widget.FxLabel;
-import io.github.mmm.validation.Validator;
 import javafx.scene.control.Control;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -28,12 +26,6 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
 
   private FxInputContainer containerWidget;
 
-  private Validator<? super V> validator;
-
-  private V originalValue;
-
-  private long modificationTimestamp;
-
   /**
    * The constructor.
    *
@@ -43,8 +35,6 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
 
     super(widget);
     HBox.setHgrow(this.widget, Priority.ALWAYS);
-    this.validator = Validator.none();
-    this.modificationTimestamp = -1;
   }
 
   @Override
@@ -114,80 +104,10 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
     }
   }
 
-  @Override
-  public V getOriginalValue() {
-
-    return this.originalValue;
-  }
-
-  @Override
-  public void setOriginalValue(V originalValue) {
-
-    this.originalValue = originalValue;
-  }
-
-  @Override
-  protected void doSetValidationFailure(String error) {
-
-    this.widget.pseudoClassStateChanged(CLASS_INVALID, (error != null));
-    // TODO apply error to widget (popover/tooltip)
-  }
-
-  @Override
-  public Validator<? super V> getValidator() {
-
-    return this.validator;
-  }
-
-  @Override
-  public void setValidator(Validator<? super V> validator) {
-
-    if (validator == null) {
-      this.validator = Validator.none();
-    } else {
-      this.validator = validator;
-    }
-  }
-
-  @Override
-  public long getModificationTimestamp() {
-
-    return this.modificationTimestamp;
-  }
-
-  private void updateModificationTimestamp(boolean reset) {
-
-    if (reset) {
-      this.modificationTimestamp = -1;
-    } else {
-      this.modificationTimestamp = System.currentTimeMillis();
-    }
-  }
-
-  @Override
-  public void setValue(V value, boolean forUser) {
-
-    updateModificationTimestamp(!forUser);
-    if (!forUser) {
-      setOriginalValue(value);
-    }
-    setProgrammaticEventType(UiValueChangeEvent.TYPE);
-    setValueNative(value);
-  }
-
   /**
    * @param value the new {@link #getValue() value} to set in the native widget.
    */
   @Override
   protected abstract void setValueNative(V value);
-
-  @Override
-  protected void onValueChanged(boolean programmatic) {
-
-    super.onValueChanged(programmatic);
-    if (!programmatic) {
-      updateModificationTimestamp(false);
-    }
-  }
 
 }
