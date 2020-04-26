@@ -9,7 +9,6 @@ import io.github.mmm.validation.Validator;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
@@ -63,16 +62,34 @@ public abstract class FxActiveValidatableWidget<W extends Control, V> extends Fx
     if (this.validationFailureBox == null) {
       this.validationFailureBox = new FxValidationFailureBox();
     }
-    Node topWidget = getTopWidget();
-    if (isEmpty(error)) {
-      this.validationFailureBox.hide();
-      Tooltip.uninstall(topWidget, this.validationFailureBox);
-      this.validationFailureBox.setText("");
-    } else {
-      Tooltip.install(topWidget, this.validationFailureBox);
-      Bounds bounds = topWidget.getBoundsInParent();
-      this.validationFailureBox.setText(error);
+    this.validationFailureBox.setText(error);
+    showValidationFailureBox();
+  }
+
+  private void showValidationFailureBox() {
+
+    if (this.validationFailureBox == null) {
+      return;
+    }
+    if (this.validationFailureBox.hasValidationFailure()) {
+      Node topWidget = getTopWidget();
+      Bounds bounds = topWidget.localToScreen(topWidget.getBoundsInLocal());
       this.validationFailureBox.show(topWidget, bounds.getCenterX(), bounds.getMaxY());
+    } else {
+      this.validationFailureBox.hide();
+    }
+  }
+
+  @Override
+  protected void onFocusChanged(boolean focusGain) {
+
+    super.onFocusChanged(focusGain);
+    if (focusGain) {
+      showValidationFailureBox();
+    } else {
+      if (this.validationFailureBox != null) {
+        this.validationFailureBox.hide();
+      }
     }
   }
 

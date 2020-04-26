@@ -14,6 +14,8 @@ module io.github.mmm.ui.fx.window {
 
   requires transitive io.github.mmm.ui.fx.core;
 
+  requires java.logging;
+
   provides io.github.mmm.ui.api.notifier.UiNotifier with //
       io.github.mmm.ui.fx.notifier.FxNotifier;
 

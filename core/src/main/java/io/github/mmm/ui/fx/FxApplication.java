@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx;
 
-import io.github.mmm.ui.spi.UiApplication;
+import io.github.mmm.ui.api.UiApplication;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -27,6 +27,12 @@ import javafx.stage.Stage;
  * @since 1.0.0
  */
 public abstract class FxApplication extends Application implements UiApplication {
+
+  /**
+   * Location of the stylesheet (CSS file) to style all JavaFx stages. Add this to you app and declare it as open module
+   * so it can be properly loaded and resolved.
+   */
+  public static final String CSS_LOCATION = "css/site.css";
 
   private static Stage primaryStage;
 

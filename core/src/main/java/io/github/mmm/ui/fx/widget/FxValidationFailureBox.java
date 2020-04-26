@@ -25,4 +25,12 @@ public class FxValidationFailureBox extends Tooltip {
     setAnchorLocation(AnchorLocation.WINDOW_TOP_RIGHT);
   }
 
+  /**
+   * @return {@code true} if validation failure text is present and box may be shown, {@code false} otherwise.
+   */
+  public boolean hasValidationFailure() {
+
+    return !getText().isEmpty();
+  }
+
 }

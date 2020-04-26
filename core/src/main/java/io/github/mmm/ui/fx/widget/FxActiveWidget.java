@@ -4,6 +4,7 @@ package io.github.mmm.ui.fx.widget;
 
 import io.github.mmm.ui.api.event.UiFocusGainEvent;
 import io.github.mmm.ui.api.widget.UiActiveWidget;
+import io.github.mmm.ui.api.widget.composite.UiComposite;
 import javafx.scene.control.Control;
 
 /**
@@ -16,7 +17,7 @@ public abstract class FxActiveWidget<W extends Control> extends FxWidgetControl<
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxActiveWidget(W widget) {
@@ -29,6 +30,15 @@ public abstract class FxActiveWidget<W extends Control> extends FxWidgetControl<
 
     super.registerHandlers();
     this.widget.focusedProperty().addListener(this::onFocusChange);
+  }
+
+  @Override
+  protected void setParent(UiComposite<?> parent) {
+
+    if (parent != null) {
+      ensureHandlers();
+    }
+    super.setParent(parent);
   }
 
   @Override

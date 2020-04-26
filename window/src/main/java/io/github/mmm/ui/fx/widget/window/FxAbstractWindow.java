@@ -2,8 +2,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.window;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import io.github.mmm.ui.api.attribute.AttributeWriteMaximized;
 import io.github.mmm.ui.api.attribute.AttributeWriteMinimized;
@@ -16,6 +21,7 @@ import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.composite.UiComposite;
 import io.github.mmm.ui.api.widget.window.UiAbstractWindow;
 import io.github.mmm.ui.api.widget.window.UiPopup;
+import io.github.mmm.ui.fx.FxApplication;
 import io.github.mmm.ui.fx.widget.FxWidgetObject;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
@@ -30,6 +36,8 @@ import javafx.stage.WindowEvent;
  */
 public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
     implements UiAbstractWindow, AttributeWriteMinimized, AttributeWriteMaximized {
+
+  private static Logger LOG = Logger.getLogger(FxAbstractWindow.class.getName());
 
   /** The optional {@link ScrollPane} if {@link #isScrollable() scrollable}. */
   protected final ScrollPane scrollPane;
@@ -68,6 +76,22 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
     } else {
       this.scrollPane = null;
       this.scene = new Scene(this.composite);
+    }
+
+    try {
+      Enumeration<URL> stylesheets = ClassLoader.getSystemResources(FxApplication.CSS_LOCATION);
+      if (stylesheets.hasMoreElements()) {
+        while (stylesheets.hasMoreElements()) {
+          URL url = stylesheets.nextElement();
+          String stylesheetUri = url.toExternalForm();
+          this.scene.getStylesheets().add(stylesheetUri);
+        }
+      } else {
+        LOG.warning("Could not find stylesheet at " + FxApplication.CSS_LOCATION);
+      }
+    } catch (IOException e) {
+      LOG.log(Level.SEVERE, "Error while trying to load stylesheet from " + FxApplication.CSS_LOCATION, e);
+      e.printStackTrace();
     }
     widget.setScene(this.scene);
   }

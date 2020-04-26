@@ -41,7 +41,7 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetObject(W widget) {
@@ -101,7 +101,7 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
       event = UiFocusGainEvent.of(this, getProgrammaticEventType());
     } else {
       event = UiFocusLossEvent.of(this, getProgrammaticEventType());
-      validate();
+      validate(false);
     }
     fireEvent(event);
   }
