@@ -15,7 +15,7 @@ public abstract class FxWidgetNode<W extends Node> extends FxWidgetStyleable<W> 
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetNode(W widget) {
@@ -38,7 +38,9 @@ public abstract class FxWidgetNode<W extends Node> extends FxWidgetStyleable<W> 
   @Override
   protected void setVisibleNative(boolean visible) {
 
-    getTopWidget().setVisible(visible);
+    Node topWidget = getTopWidget();
+    topWidget.setVisible(visible);
+    topWidget.setManaged(visible);
   }
 
   @Override
