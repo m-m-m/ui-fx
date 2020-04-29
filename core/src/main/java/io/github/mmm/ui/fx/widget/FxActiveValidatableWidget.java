@@ -107,6 +107,14 @@ public abstract class FxActiveValidatableWidget<W extends Control, V> extends Fx
     } else {
       this.validator = validator;
     }
+    setMandatory(this.validator.isMandatory());
+  }
+
+  /**
+   * @param mandatory the new mandatory (required) flag.
+   */
+  protected void setMandatory(boolean mandatory) {
+
   }
 
   @Override

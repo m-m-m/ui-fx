@@ -2,12 +2,12 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.form;
 
+import io.github.mmm.ui.api.widget.UiLabel;
 import io.github.mmm.ui.api.widget.form.UiFormGroup;
 import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.composite.FxValuedComposite;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.VBox;
 
 /**
  * Implementation of {@link UiFormGroup} for JavaFx.
@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0
  */
-public class FxFormGroup<V> extends FxValuedComposite<VBox, UiInput<?>, V> implements UiFormGroup<V> {
+public class FxFormGroup<V> extends FxValuedComposite<AdvancedGridPane, UiInput<?>, V> implements UiFormGroup<V> {
 
   private final TitledPane topWidget;
 
@@ -24,7 +24,7 @@ public class FxFormGroup<V> extends FxValuedComposite<VBox, UiInput<?>, V> imple
    */
   public FxFormGroup() {
 
-    super(new VBox());
+    super(new AdvancedGridPane());
     this.topWidget = new TitledPane();
     this.topWidget.setContent(this.widget);
   }
@@ -75,18 +75,18 @@ public class FxFormGroup<V> extends FxValuedComposite<VBox, UiInput<?>, V> imple
   protected void addChildWidget(UiInput<?> child, int index) {
 
     int rows = this.children.size();
-    Node topNode = getTopNode(child.getContainerWidget());
+    UiLabel label = child.getNameWidget();
     if ((index == -1) || (index == rows)) {
-      this.widget.getChildren().add(topNode);
+      this.widget.addRow(rows, getTopNode(label), getTopNode(child));
     } else if (index < rows) {
-      this.widget.getChildren().add(index, topNode);
+      this.widget.insertRow(index, getTopNode(label), getTopNode(child));
     }
   }
 
   @Override
   protected void removeChildWidget(UiInput<?> child, int index) {
 
-    this.widget.getChildren().remove(index);
+    this.widget.removeRow(index);
   }
 
 }

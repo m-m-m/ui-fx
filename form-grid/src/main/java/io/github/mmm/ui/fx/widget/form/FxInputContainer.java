@@ -7,7 +7,7 @@ import io.github.mmm.ui.api.widget.UiLabel;
 import io.github.mmm.ui.api.widget.form.UiInputContainer;
 import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.FxWidgetNode;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 /**
  * Implementation of {@link UiInputContainer} for JavaFx.
@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
  * @param <V> type of the {@link UiInput#getValue() input value}.
  * @since 1.0.0
  */
-public class FxInputContainer<V> extends FxWidgetNode<VBox> implements UiInputContainer<V> {
+public class FxInputContainer<V> extends FxWidgetNode<HBox> implements UiInputContainer<V> {
 
   private UiInput<V> child;
 
@@ -24,7 +24,7 @@ public class FxInputContainer<V> extends FxWidgetNode<VBox> implements UiInputCo
    */
   public FxInputContainer() {
 
-    super(new VBox());
+    super(new HBox());
   }
 
   @Override

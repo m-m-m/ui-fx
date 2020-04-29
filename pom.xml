@@ -28,6 +28,7 @@
     <module>controller</module>
     <module>data</module>
     <module>form</module>
+    <module>form-grid</module>
     <module>format</module>
     <module>icon</module>
     <module>icon-fontawesome</module>
@@ -75,6 +76,11 @@
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-form</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-form-grid</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

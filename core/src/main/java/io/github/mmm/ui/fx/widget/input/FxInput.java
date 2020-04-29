@@ -97,6 +97,19 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
   }
 
   @Override
+  protected void setMandatory(boolean mandatory) {
+
+    super.setMandatory(mandatory);
+    if (this.nameWidget != null) {
+      if (mandatory) {
+        this.nameWidget.getStyles().add(STYLE_MANDATORY);
+      } else {
+        this.nameWidget.getStyles().remove(STYLE_MANDATORY);
+      }
+    }
+  }
+
+  @Override
   public void setVisible(boolean visible, BitMask flagMode) {
 
     super.setVisible(visible, flagMode);
