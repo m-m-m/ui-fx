@@ -15,6 +15,8 @@ module io.github.mmm.ui.fx.all {
 
   requires transitive io.github.mmm.ui.fx.data;
 
+  requires transitive io.github.mmm.ui.fx.form;
+
   requires transitive io.github.mmm.ui.fx.format;
 
   requires transitive io.github.mmm.ui.fx.icon;

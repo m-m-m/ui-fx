@@ -7,26 +7,19 @@
     <artifactId>mmm-ui-fx-parent</artifactId>
     <version>${revision}${changelist}</version>
   </parent>
-  <artifactId>mmm-ui-fx-core</artifactId>
+  <artifactId>mmm-ui-fx-form</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
-  <description>Implementation of user-interface framework based on JavaFx.</description>
+  <description>Implementation of form widgets (input form layout) for JavaFx.</description>
   
-  <properties>
-  </properties>
-
   <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-spi-core</artifactId>
-    </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>mmm-ui-api-form</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-controls</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mmm-ui-fx-core</artifactId>
     </dependency>
   </dependencies>
 </project>

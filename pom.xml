@@ -27,6 +27,7 @@
     <module>chart</module>
     <module>controller</module>
     <module>data</module>
+    <module>form</module>
     <module>format</module>
     <module>icon</module>
     <module>icon-fontawesome</module>
@@ -73,6 +74,16 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-form</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>mmm-ui-fx-format</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-icon</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -99,11 +110,6 @@
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-temporal</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-format</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

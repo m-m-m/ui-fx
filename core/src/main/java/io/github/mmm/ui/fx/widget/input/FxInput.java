@@ -4,6 +4,7 @@ package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.ui.api.datatype.bitmask.BitMask;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
+import io.github.mmm.ui.api.widget.form.UiInputContainer;
 import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.FxActiveValidatableWidget;
 import io.github.mmm.ui.fx.widget.FxLabel;
@@ -24,7 +25,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
 
   private FxLabel nameWidget;
 
-  private FxInputContainer containerWidget;
+  private UiInputContainer<V> containerWidget;
 
   /**
    * The constructor.
@@ -90,7 +91,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
   public UiRegularWidget getContainerWidget() {
 
     if (this.containerWidget == null) {
-      this.containerWidget = new FxInputContainer(this);
+      this.containerWidget = UiInputContainer.of(this);
     }
     return this.containerWidget;
   }

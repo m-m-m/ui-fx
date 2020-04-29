@@ -11,6 +11,8 @@ module io.github.mmm.ui.fx.core {
 
   requires transitive io.github.mmm.ui.spi.core;
 
+  requires transitive io.github.mmm.ui.api.form;
+
   // TODO bug in JPMS or Eclipse as this is already a transitive dependency of ui
   requires transitive io.github.mmm.value;
 
@@ -33,8 +35,6 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryButtonPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCollapsiblePanel, //
-      io.github.mmm.ui.fx.factory.core.FxFactoryFormGroup, //
-      io.github.mmm.ui.fx.factory.core.FxFactoryFormPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryImage, //
       io.github.mmm.ui.fx.factory.core.FxFactoryIntegerInput, //
