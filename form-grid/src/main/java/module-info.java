@@ -7,7 +7,7 @@
  * Provides the implementation of UI form widgets for JavaFx.
  */
 @SuppressWarnings("rawtypes") //
-module io.github.mmm.ui.fx.form {
+module io.github.mmm.ui.fx.form.grid {
 
   requires transitive io.github.mmm.ui.api.form;
 
