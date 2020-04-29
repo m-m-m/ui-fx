@@ -72,6 +72,9 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
       if (this.name != null) {
         this.nameWidget.setText(this.name);
       }
+      if (getValidator().isMandatory()) {
+        this.nameWidget.getStyles().add(STYLE_MANDATORY);
+      }
       doSetVisibleState(this.nameWidget, doGetVisibleState(this));
       String id = getId();
       if (id != null) {
