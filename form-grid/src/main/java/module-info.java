@@ -14,11 +14,11 @@ module io.github.mmm.ui.fx.form.grid {
   requires transitive io.github.mmm.ui.fx.core;
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
-      io.github.mmm.ui.fx.factory.form.FxFactoryFormGroup, //
-      io.github.mmm.ui.fx.factory.form.FxFactoryFormPanel, //
-      io.github.mmm.ui.fx.factory.form.FxFactoryInputContainer //
+      io.github.mmm.ui.fx.factory.form.grid.FxFactoryFormGroup, //
+      io.github.mmm.ui.fx.factory.form.grid.FxFactoryFormPanel, //
+      io.github.mmm.ui.fx.factory.form.grid.FxFactoryInputContainer //
   ;
 
-  exports io.github.mmm.ui.fx.widget.form;
+  exports io.github.mmm.ui.fx.widget.form.grid;
 
 }
