@@ -2,17 +2,18 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.controller;
 
-import io.github.mmm.ui.api.controller.AbstractUiControllerManager;
+import io.github.mmm.ui.api.controller.AbstractUiNavigationManager;
+import io.github.mmm.ui.api.controller.UiControllerHistoryNode;
 import io.github.mmm.ui.api.controller.UiPlace;
 
 /**
- * Implementation of {@link io.github.mmm.ui.api.controller.UiControllerManager} for JavaFx.
+ * Implementation of {@link io.github.mmm.ui.api.controller.UiNavigationManager} for JavaFx.
  *
  * @since 1.0.0
  */
-public class FxControllerManager extends AbstractUiControllerManager {
+public class FxNavigationManager extends AbstractUiNavigationManager {
 
-  private HistoryNode current;
+  private UiControllerHistoryNode current;
 
   private int index;
 
@@ -21,7 +22,7 @@ public class FxControllerManager extends AbstractUiControllerManager {
   /**
    * The constructor.
    */
-  public FxControllerManager() {
+  public FxNavigationManager() {
 
     super();
   }
@@ -45,19 +46,19 @@ public class FxControllerManager extends AbstractUiControllerManager {
 
   private void addToHistory(UiPlace place) {
 
-    HistoryNode next = new HistoryNode(place);
+    UiControllerHistoryNode next = new UiControllerHistoryNode(place);
     if (this.current != null) {
-      clearTail(this.current.next);
+      clearTail(this.current.getNext());
       this.size = this.index;
-      this.current.next = next;
-      next.previous = this.current;
+      this.current.setNext(next);
+      next.setPrevious(this.current);
     }
     this.current = next;
     this.index++;
     this.size++;
   }
 
-  private void clearTail(HistoryNode node) {
+  private void clearTail(UiControllerHistoryNode node) {
 
     // clean controllers?
   }
@@ -68,14 +69,14 @@ public class FxControllerManager extends AbstractUiControllerManager {
     if (this.current == null) {
       return null;
     }
-    HistoryNode previous = this.current.previous;
+    UiControllerHistoryNode previous = this.current.getPrevious();
     if (previous == null) {
       return null;
     }
     this.current = previous;
     this.index--;
 
-    UiPlace place = this.current.place;
+    UiPlace place = this.current.getPlace();
     doNavigateTo(place);
     return place;
   }
@@ -86,13 +87,13 @@ public class FxControllerManager extends AbstractUiControllerManager {
     if (this.current == null) {
       return null;
     }
-    HistoryNode next = this.current.next;
+    UiControllerHistoryNode next = this.current.getNext();
     if (next == null) {
       return null;
     }
     this.current = next;
     this.index++;
-    UiPlace place = this.current.place;
+    UiPlace place = this.current.getPlace();
     doNavigateTo(place);
     return place;
   }

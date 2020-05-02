@@ -12,7 +12,7 @@ module io.github.mmm.ui.fx.controller {
 
   requires transitive io.github.mmm.ui.fx.core;
 
-  provides io.github.mmm.ui.api.controller.UiControllerManager with //
-      io.github.mmm.ui.fx.controller.FxControllerManager;
+  provides io.github.mmm.ui.api.controller.UiNavigationManager with //
+      io.github.mmm.ui.fx.controller.FxNavigationManager;
 
 }
