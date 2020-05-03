@@ -8,7 +8,7 @@
  */
 module io.github.mmm.ui.fx.controller {
 
-  requires transitive io.github.mmm.ui.api.controller;
+  requires transitive io.github.mmm.ui.spi.controller;
 
   requires transitive io.github.mmm.ui.fx.core;
 
