@@ -61,7 +61,7 @@ public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> impl
     if (media != null) {
       checkMediaType(media.getType());
       UiMediaSource source = media.getSources().iterator().next();
-      String url = source.getSource();
+      String url = source.getUrl();
       Media fxMedia = new Media(url);
       player = new MediaPlayer(fxMedia);
     }

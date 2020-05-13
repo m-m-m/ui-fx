@@ -40,12 +40,13 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryButtonPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCollapsiblePanel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryExternalLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryImage, //
       io.github.mmm.ui.fx.factory.core.FxFactoryIntegerInput, //
       io.github.mmm.ui.fx.factory.core.FxFactoryIntegerSlider, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryInternalLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryLabel, //
-      io.github.mmm.ui.fx.factory.core.FxFactoryLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryPasswordInput, //
       io.github.mmm.ui.fx.factory.core.FxFactoryRadioButton, //
       io.github.mmm.ui.fx.factory.core.FxFactoryRadioChoice, //

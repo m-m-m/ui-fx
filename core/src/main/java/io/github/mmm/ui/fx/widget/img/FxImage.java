@@ -15,7 +15,7 @@ import javafx.scene.image.ImageView;
  */
 public class FxImage extends FxAbstractImage<ImageView> implements UiImage {
 
-  private String source;
+  private String url;
 
   private UiSize width;
 
@@ -32,17 +32,17 @@ public class FxImage extends FxAbstractImage<ImageView> implements UiImage {
   }
 
   @Override
-  public String getSource() {
+  public String getUrl() {
 
-    return this.source;
+    return this.url;
   }
 
   @Override
-  public void setSource(String source) {
+  public void setUrl(String url) {
 
-    Image image = new Image(source);
+    Image image = new Image(url);
     this.widget.setImage(image);
-    this.source = source;
+    this.url = url;
   }
 
   @Override
