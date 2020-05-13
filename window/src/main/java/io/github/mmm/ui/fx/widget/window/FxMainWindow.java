@@ -21,7 +21,7 @@ public class FxMainWindow extends FxAbstractWindow implements UiMainWindow {
    */
   public FxMainWindow() {
 
-    super(FxApplication.getPrimaryStage());
+    super(FxApplication.get().getPrimaryStage());
   }
 
   /**

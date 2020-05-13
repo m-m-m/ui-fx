@@ -34,7 +34,9 @@ public abstract class FxApplication extends Application implements UiApplication
    */
   public static final String CSS_LOCATION = "css/site.css";
 
-  private static Stage primaryStage;
+  private static FxApplication app;
+
+  private Stage primaryStage;
 
   /**
    * The constructor.
@@ -42,21 +44,30 @@ public abstract class FxApplication extends Application implements UiApplication
   public FxApplication() {
 
     super();
+    app = this;
   }
 
   @Override
   public final void start(Stage fxPrimaryStage) throws Exception {
 
-    primaryStage = fxPrimaryStage;
+    this.primaryStage = fxPrimaryStage;
     start();
   }
 
   /**
    * @return the primary {@link Stage}.
    */
-  public static Stage getPrimaryStage() {
+  public Stage getPrimaryStage() {
 
-    return primaryStage;
+    return this.primaryStage;
+  }
+
+  /**
+   * @return the running {@link FxApplication} instance.
+   */
+  public static FxApplication get() {
+
+    return app;
   }
 
 }

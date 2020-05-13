@@ -3,7 +3,6 @@
 package io.github.mmm.ui.fx.widget.button;
 
 import io.github.mmm.ui.api.widget.button.UiButton;
-import io.github.mmm.ui.fx.widget.FxClickableWidget;
 import javafx.scene.control.Button;
 
 /**
@@ -11,7 +10,7 @@ import javafx.scene.control.Button;
  *
  * @since 1.0.0
  */
-public class FxButton extends FxClickableWidget<Button> implements UiButton {
+public class FxButton extends FxAbstractButton<Button> implements UiButton {
 
   /**
    * The constructor.
@@ -19,25 +18,6 @@ public class FxButton extends FxClickableWidget<Button> implements UiButton {
   public FxButton() {
 
     super(new Button());
-  }
-
-  @Override
-  protected void registerHandlers() {
-
-    super.registerHandlers();
-    this.widget.setOnAction(this::onAction);
-  }
-
-  @Override
-  public String getText() {
-
-    return this.widget.getText();
-  }
-
-  @Override
-  public void setText(String text) {
-
-    this.widget.setText(text);
   }
 
 }

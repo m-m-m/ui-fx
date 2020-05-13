@@ -5,6 +5,11 @@
 
 /**
  * Provides the implementation of the UI framework based on JavaFx.
+ *
+ * @provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative
+ * @provides io.github.mmm.ui.api.factory.UiToggleGroupFactory
+ * @provides io.github.mmm.ui.api.UiDispatcher
+ * @provides io.github.mmm.ui.api.UiScreen
  */
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.core {
@@ -40,6 +45,7 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryIntegerInput, //
       io.github.mmm.ui.fx.factory.core.FxFactoryIntegerSlider, //
       io.github.mmm.ui.fx.factory.core.FxFactoryLabel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryPasswordInput, //
       io.github.mmm.ui.fx.factory.core.FxFactoryRadioButton, //
       io.github.mmm.ui.fx.factory.core.FxFactoryRadioChoice, //
