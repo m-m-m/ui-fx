@@ -28,6 +28,7 @@ public class FxScrollPanel extends FxComposite<ScrollPane, UiRegularWidget> impl
   public FxScrollPanel() {
 
     super(new ScrollPane());
+    this.widget.setFitToWidth(true);
     this.horizontalScrolling = UiScrollBarVisibility.AUTO;
     this.verticalScrolling = UiScrollBarVisibility.AUTO;
   }
