@@ -13,6 +13,8 @@ import javafx.scene.control.Control;
  */
 public abstract class FxWidgetControl<W extends Control> extends FxWidgetNode<W> implements FxAtomicWidgetMixin<W> {
 
+  private String tooltip;
+
   /**
    * The constructor.
    *
@@ -21,6 +23,27 @@ public abstract class FxWidgetControl<W extends Control> extends FxWidgetNode<W>
   public FxWidgetControl(W widget) {
 
     super(widget);
+  }
+
+  @Override
+  public final String getTooltip() {
+
+    return this.tooltip;
+  }
+
+  @Override
+  public final void setTooltip(String tooltip) {
+
+    doSetTooltip(tooltip);
+    this.tooltip = tooltip;
+  }
+
+  /**
+   * @param newTooltip the new tooltip to apply.
+   */
+  protected void doSetTooltip(String newTooltip) {
+
+    FxAtomicWidgetMixin.super.setTooltip(newTooltip);
   }
 
 }

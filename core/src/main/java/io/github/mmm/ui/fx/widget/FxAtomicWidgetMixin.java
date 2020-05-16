@@ -31,10 +31,19 @@ public interface FxAtomicWidgetMixin<W extends Control> extends UiNativeWidgetWr
   @Override
   default void setTooltip(String tooltip) {
 
-    Tooltip fxTooltip = getWidget().getTooltip();
+    setTooltip(getWidget(), tooltip);
+  }
+
+  /**
+   * @param widget the {@link Control} where to apply the tooltip to.
+   * @param tooltip the tooltip text to apply.
+   */
+  static void setTooltip(Control widget, String tooltip) {
+
+    Tooltip fxTooltip = widget.getTooltip();
     if (fxTooltip == null) {
       fxTooltip = new Tooltip(tooltip);
-      getWidget().setTooltip(fxTooltip);
+      widget.setTooltip(fxTooltip);
     } else {
       fxTooltip.setText(tooltip);
     }
