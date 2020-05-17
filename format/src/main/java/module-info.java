@@ -4,6 +4,8 @@
  */
 /**
  * Provides the implementation of UI format widgets based on JavaFx.
+ * 
+ * @provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative
  */
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.format {

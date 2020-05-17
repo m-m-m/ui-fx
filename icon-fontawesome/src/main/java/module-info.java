@@ -6,6 +6,8 @@
 
 /**
  * Provides the implementation of UI media widgets based on JavaFx.
+ * 
+ * @provides io.github.mmm.ui.fx.icon.FxIconGlyphFactory
  */
 module io.github.mmm.ui.fx.icon.fontawesome {
 

@@ -6,6 +6,8 @@
 
 /**
  * Provides the implementation of data widgets for JavaFx.
+ * 
+ * @provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative
  */
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.data {

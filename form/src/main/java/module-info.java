@@ -5,6 +5,8 @@
 
 /**
  * Provides the implementation of UI form widgets for JavaFx.
+ * 
+ * @provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative
  */
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.form {
