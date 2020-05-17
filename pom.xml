@@ -18,7 +18,7 @@
     <revision>1.0.0</revision>
     <changelist>-SNAPSHOT</changelist>
     <mmm.repository>ui-fx</mmm.repository>
-    <javafx.version>11.0.2</javafx.version>
+    <javafx.version>14.0.1</javafx.version>
   </properties>
 
   <modules>
