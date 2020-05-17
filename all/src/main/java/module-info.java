@@ -27,6 +27,8 @@ module io.github.mmm.ui.fx.all {
 
   requires transitive io.github.mmm.ui.fx.menu;
 
+  requires transitive io.github.mmm.ui.fx.number;
+
   requires transitive io.github.mmm.ui.fx.tab;
 
   requires transitive io.github.mmm.ui.fx.temporal;

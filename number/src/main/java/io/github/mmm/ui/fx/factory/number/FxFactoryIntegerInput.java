@@ -1,10 +1,10 @@
 /* Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0 */
-package io.github.mmm.ui.fx.factory.core;
+package io.github.mmm.ui.fx.factory.number;
 
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
-import io.github.mmm.ui.api.widget.input.UiIntegerInput;
-import io.github.mmm.ui.fx.widget.input.FxIntegerInput;
+import io.github.mmm.ui.api.widget.number.UiIntegerInput;
+import io.github.mmm.ui.fx.widget.number.FxIntegerInput;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiIntegerInput}.

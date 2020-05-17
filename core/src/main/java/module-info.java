@@ -43,8 +43,6 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryExternalLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryImage, //
-      io.github.mmm.ui.fx.factory.core.FxFactoryIntegerInput, //
-      io.github.mmm.ui.fx.factory.core.FxFactoryIntegerSlider, //
       io.github.mmm.ui.fx.factory.core.FxFactoryInternalLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryLabel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryPasswordInput, //
