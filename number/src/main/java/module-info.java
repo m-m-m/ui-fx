@@ -17,8 +17,13 @@ module io.github.mmm.ui.fx.number {
   requires transitive io.github.mmm.ui.fx.core;
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
+      io.github.mmm.ui.fx.factory.number.FxFactoryBigDecimalInput, //
+      io.github.mmm.ui.fx.factory.number.FxFactoryBigIntegerInput, //
+      io.github.mmm.ui.fx.factory.number.FxFactoryDoubleInput, //
       io.github.mmm.ui.fx.factory.number.FxFactoryIntegerInput, //
-      io.github.mmm.ui.fx.factory.number.FxFactoryIntegerSlider //
+      io.github.mmm.ui.fx.factory.number.FxFactoryIntegerSlider, //
+      io.github.mmm.ui.fx.factory.number.FxFactoryLongInput, //
+      io.github.mmm.ui.fx.factory.number.FxFactoryLongSlider //
   ;
 
 }
