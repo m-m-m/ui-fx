@@ -10,6 +10,7 @@ import io.github.mmm.ui.api.widget.tab.UiTab;
 import io.github.mmm.ui.api.widget.tab.UiTabPanel;
 import io.github.mmm.ui.fx.widget.FxAtomicWidgetMixin;
 import io.github.mmm.ui.fx.widget.composite.FxMutableComposite;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -27,6 +28,22 @@ public class FxTabPanel extends FxMutableComposite<TabPane, UiTab> implements Ui
   public FxTabPanel() {
 
     super(new TabPane());
+    this.widget.getSelectionModel().selectedIndexProperty().addListener(this::onTabSelection);
+  }
+
+  private void onTabSelection(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+
+    ObservableList<Tab> tabs = this.widget.getTabs();
+    int index = newValue.intValue();
+    if (index >= tabs.size()) {
+      return;
+    }
+    Tab tab = tabs.get(index);
+    FxTab fxTab = FxTab.get(tab);
+    if (fxTab == null) {
+      return;
+    }
+    fxTab.getChild(); // force lazy init
   }
 
   private Tab getTab(UiTab child) {
