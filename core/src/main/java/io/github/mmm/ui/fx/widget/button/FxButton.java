@@ -18,6 +18,7 @@ public class FxButton extends FxAbstractButton<Button> implements UiButton {
   public FxButton() {
 
     super(new Button());
+    getStyles().add(STYLE);
   }
 
 }

@@ -20,6 +20,7 @@ public class FxButtonPanel extends FxMutableCompositePane<HBox, UiAbstractButton
   public FxButtonPanel() {
 
     super(new HBox());
+    getStyles().add(STYLE);
   }
 
 }
