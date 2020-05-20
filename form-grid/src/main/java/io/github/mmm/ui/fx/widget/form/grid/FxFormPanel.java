@@ -24,6 +24,7 @@ public class FxFormPanel<V> extends FxValuedComposite<AdvancedGridPane, UiAbstra
   public FxFormPanel() {
 
     super(new AdvancedGridPane());
+    getStyles().add(STYLE);
   }
 
   @Override

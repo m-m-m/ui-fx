@@ -25,6 +25,7 @@ public class FxInputContainer<V> extends FxWidgetNode<VBox> implements UiInputCo
   public FxInputContainer() {
 
     super(new VBox());
+    getStyles().add(STYLE);
   }
 
   @Override

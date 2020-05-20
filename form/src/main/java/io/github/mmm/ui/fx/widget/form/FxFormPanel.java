@@ -23,6 +23,7 @@ public class FxFormPanel<V> extends FxValuedComposite<VBox, UiAbstractInput<?>, 
   public FxFormPanel() {
 
     super(new VBox());
+    getStyles().add(STYLE);
   }
 
   @Override
