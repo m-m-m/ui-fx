@@ -40,12 +40,16 @@ public interface FxAtomicWidgetMixin<W extends Control> extends UiNativeWidgetWr
    */
   static void setTooltip(Control widget, String tooltip) {
 
-    Tooltip fxTooltip = widget.getTooltip();
-    if (fxTooltip == null) {
-      fxTooltip = new Tooltip(tooltip);
-      widget.setTooltip(fxTooltip);
+    if ((tooltip == null) || tooltip.isEmpty()) {
+      widget.setTooltip(null);
     } else {
-      fxTooltip.setText(tooltip);
+      Tooltip fxTooltip = widget.getTooltip();
+      if (fxTooltip == null) {
+        fxTooltip = new Tooltip(tooltip);
+        widget.setTooltip(fxTooltip);
+      } else {
+        fxTooltip.setText(tooltip);
+      }
     }
   }
 
