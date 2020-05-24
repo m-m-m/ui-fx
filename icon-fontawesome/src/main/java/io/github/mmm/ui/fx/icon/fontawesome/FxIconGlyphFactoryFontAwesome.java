@@ -9,7 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 
 import io.github.mmm.base.exception.DuplicateObjectException;
-import io.github.mmm.ui.api.datatype.UiSeverity;
+import io.github.mmm.base.text.CaseHelper;
+import io.github.mmm.ui.api.widget.img.UiIcon;
 import io.github.mmm.ui.fx.icon.FxIconGlyph;
 import io.github.mmm.ui.fx.icon.FxIconGlyphFactory;
 import io.github.mmm.ui.fx.icon.FxIconGlyphType;
@@ -33,12 +34,16 @@ public final class FxIconGlyphFactoryFontAwesome implements FxIconGlyphFactory {
     } catch (IOException e) {
       throw new IllegalStateException("Failed to load Font.", e);
     }
-    register(UiSeverity.ERROR.getName(), "\uf057", "#FF0000");
-    register(UiSeverity.WARNING.getName(), "\uf071", "#C0C000");
-    register(UiSeverity.INFORMATION.getName(), "\uf05a", "#2070D0");
-    register(UiSeverity.QUESTION.getName(), "\uf059");
-    register("expand", "\f0fe");
-    register("collapse", "\f146");
+    register(UiIcon.ID_ERROR, "\uf057", "#FF0000");
+    register(UiIcon.ID_WARNING, "\uf071", "#C0C000");
+    register(UiIcon.ID_INFORMATION, "\uf05a", "#2070D0");
+    register(UiIcon.ID_QUESTION, "\uf059");
+    register(UiIcon.ID_PLAY, "\uf04b");
+    register(UiIcon.ID_PAUSE, "\uf04c");
+    register(UiIcon.ID_MUTE, "\uf6a9");
+    register(UiIcon.ID_UNMUTE, "\uf026");
+    register(UiIcon.ID_EXPAND, "\f0fe");
+    register(UiIcon.ID_COLLAPSE, "\f146");
   }
 
   /**
@@ -79,7 +84,7 @@ public final class FxIconGlyphFactoryFontAwesome implements FxIconGlyphFactory {
   @Override
   public FxIconGlyph getGlyph(String iconId) {
 
-    return ICONS.get(iconId);
+    return ICONS.get(CaseHelper.toLowerCase(iconId));
   }
 
 }
