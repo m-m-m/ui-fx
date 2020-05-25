@@ -72,6 +72,7 @@ public class FxAbstractWindowPositionAndSize extends UiWindowPositionAndSize {
   @Override
   public void setWidthInPixel(double width) {
 
+    super.setWidthInPixel(width);
     this.stage.setWidth(width);
   }
 
@@ -84,6 +85,7 @@ public class FxAbstractWindowPositionAndSize extends UiWindowPositionAndSize {
   @Override
   public void setHeightInPixel(double height) {
 
+    super.setHeightInPixel(height);
     this.stage.setHeight(height);
   }
 
