@@ -64,6 +64,8 @@ public abstract class FxMediaWidget<W extends Node> extends FxWidgetNode<W> impl
       String url = source.getUrl();
       Media fxMedia = new Media(url);
       player = new MediaPlayer(fxMedia);
+      player.play();
+      player.pause();
     }
     this.mediaPlayerAdapter.setMediaPlayer(player);
     this.media = media;

@@ -46,6 +46,7 @@ public class MediaPlayerWrapper implements MediaPlayerAdapter {
     if (this.mediaPlayer != null) {
       player.setVolume(this.volume);
     }
+    this.mediaPlayer.setOnEndOfMedia(this::onEndOfMedia);
   }
 
   @Override
@@ -63,11 +64,36 @@ public class MediaPlayerWrapper implements MediaPlayerAdapter {
     if (this.mediaPlayer == null) {
       return;
     }
+    Status status = this.mediaPlayer.getStatus();
+    if (status == Status.UNKNOWN || status == Status.HALTED) {
+      return;
+    }
     if (playing) {
+      Duration currentTime = this.mediaPlayer.getCurrentTime();
+      Duration startTime = this.mediaPlayer.getStartTime();
+      Duration totalDuration = this.mediaPlayer.getTotalDuration();
+      if (startTime.add(totalDuration).subtract(currentTime).toMillis() < 1000) {
+        rewind();
+      }
       this.mediaPlayer.play();
     } else {
       this.mediaPlayer.pause();
     }
+  }
+
+  /**
+   * Called when the end of the media has been reached.
+   */
+  protected void onEndOfMedia() {
+
+  }
+
+  /**
+   * Rewinds the meda player to the start position of the media.
+   */
+  protected void rewind() {
+
+    this.mediaPlayer.seek(this.mediaPlayer.getStartTime());
   }
 
   @Override
