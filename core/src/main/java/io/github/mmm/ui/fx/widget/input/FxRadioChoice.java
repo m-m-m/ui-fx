@@ -3,11 +3,8 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.function.Function;
 
-import io.github.mmm.base.lang.ToStringFormatter;
 import io.github.mmm.ui.api.widget.input.UiRadioChoice;
 import io.github.mmm.ui.fx.widget.FxAtomicWidgetMixin;
 import javafx.collections.ObservableList;
@@ -23,17 +20,13 @@ import javafx.scene.layout.HBox;
  * @param <V> type of the {@link #getValue() value} and {@link #getOptions() option}.
  * @since 1.0.0
  */
-public class FxRadioChoice<V> extends FxInput<RadioButton, V> implements UiRadioChoice<V> {
+public class FxRadioChoice<V> extends FxAbstractChoice<RadioButton, V, V> implements UiRadioChoice<V> {
 
   private final ToggleGroup group;
 
   private final HBox topWidget;
 
   private final List<RadioButton> radios;
-
-  private List<V> options;
-
-  private Function<V, String> formatter;
 
   /**
    * The constructor.
@@ -48,8 +41,6 @@ public class FxRadioChoice<V> extends FxInput<RadioButton, V> implements UiRadio
     this.topWidget.getChildren().add(this.widget);
     this.radios = new ArrayList<>();
     this.radios.add(this.widget);
-    this.options = Collections.emptyList();
-    this.formatter = ToStringFormatter.get();
   }
 
   @Override
@@ -68,19 +59,10 @@ public class FxRadioChoice<V> extends FxInput<RadioButton, V> implements UiRadio
   }
 
   @Override
-  public List<V> getOptions() {
-
-    return this.options;
-  }
-
-  @Override
   public void setOptions(List<V> options) {
 
-    if (options == null) {
-      options = Collections.emptyList();
-    }
-    this.options = options;
-    int optionCount = options.size();
+    super.setOptions(options);
+    int optionCount = this.options.size();
     ensureRadioButtonCount(optionCount);
     ObservableList<Node> children = this.topWidget.getChildren();
     List<RadioButton> rbs = this.radios;
@@ -89,10 +71,10 @@ public class FxRadioChoice<V> extends FxInput<RadioButton, V> implements UiRadio
     }
     children.setAll(rbs);
     for (int i = 0; i < optionCount; i++) {
-      V option = options.get(i);
+      V option = this.options.get(i);
       RadioButton rb = this.radios.get(i);
       rb.setUserData(option);
-      rb.setText(this.formatter.apply(option));
+      rb.setText(format(option));
     }
   }
 
@@ -123,22 +105,6 @@ public class FxRadioChoice<V> extends FxInput<RadioButton, V> implements UiRadio
       if (this.options.get(i) == value) {
         this.radios.get(i).setSelected(true);
       }
-    }
-  }
-
-  @Override
-  public Function<V, String> getFormatter() {
-
-    return this.formatter;
-  }
-
-  @Override
-  public void setFormatter(Function<V, String> formatter) {
-
-    if (formatter == null) {
-      this.formatter = ToStringFormatter.get();
-    } else {
-      this.formatter = formatter;
     }
   }
 
