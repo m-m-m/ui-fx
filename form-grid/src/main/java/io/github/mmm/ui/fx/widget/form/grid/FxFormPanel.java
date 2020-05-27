@@ -7,6 +7,7 @@ import io.github.mmm.ui.api.widget.form.UiFormPanel;
 import io.github.mmm.ui.api.widget.input.UiAbstractInput;
 import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.composite.FxValuedComposite;
+import io.github.mmm.ui.fx.widget.panel.AdvancedGridPane;
 import javafx.scene.Node;
 
 /**

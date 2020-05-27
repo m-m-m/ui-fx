@@ -6,6 +6,7 @@ import io.github.mmm.ui.api.widget.UiLabel;
 import io.github.mmm.ui.api.widget.form.UiFormGroup;
 import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.composite.FxValuedComposite;
+import io.github.mmm.ui.fx.widget.panel.AdvancedGridPane;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 

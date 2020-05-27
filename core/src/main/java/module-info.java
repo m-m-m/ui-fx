@@ -41,6 +41,7 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCollapsiblePanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryExternalLink, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryGridPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryImage, //
       io.github.mmm.ui.fx.factory.core.FxFactoryInternalLink, //
@@ -63,6 +64,8 @@ module io.github.mmm.ui.fx.core {
   exports io.github.mmm.ui.fx.widget.img;
 
   exports io.github.mmm.ui.fx.widget.composite;
+
+  exports io.github.mmm.ui.fx.widget.panel;
 
   exports io.github.mmm.ui.fx.widget.input;
 
