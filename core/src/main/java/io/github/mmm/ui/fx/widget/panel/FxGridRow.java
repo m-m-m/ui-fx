@@ -30,12 +30,32 @@ public class FxGridRow extends FxComposite<Group, UiRegularWidget> implements Ui
   @Override
   public void addChild(UiRegularWidget child, int index, int colspan, int rowspan) {
 
+    setOrAddChild(false, child, index, colspan, rowspan);
+  }
+
+  @Override
+  public void setChild(UiRegularWidget child, int index, int colspan, int rowspan) {
+
+    setOrAddChild(true, child, index, colspan, rowspan);
+  }
+
+  private void setOrAddChild(boolean set, UiRegularWidget child, int index, int colspan, int rowspan) {
+
+    int row = index;
+    if (row == -1) {
+      row = this.children.size();
+    }
+    boolean insert = set && (row < this.children.size());
+    this.grid.addChildWidget(child, insert, this, row, colspan, rowspan);
     setParent(child, this);
-    this.grid.addChildWidget(child, this, index, colspan, rowspan);
-    if (index == -1) {
-      this.children.add(child);
+    if (set) {
+      this.children.set(row, child);
     } else {
-      this.children.add(index, child);
+      if (index == -1) {
+        this.children.add(child);
+      } else {
+        this.children.add(index, child);
+      }
     }
   }
 

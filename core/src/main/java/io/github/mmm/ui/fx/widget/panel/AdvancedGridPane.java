@@ -68,4 +68,27 @@ public class AdvancedGridPane extends GridPane {
     }
   }
 
+  /**
+   * @param child the {@link Node} to insert and shift existing cells in this row to the right.
+   * @param rowIndex the {@link #getRowIndex(Node) index} of the row where to insert.
+   * @param columnIndex the {@link #getColumnIndex(Node) index} of the column where to insert.
+   * @param colspan the {@link #getColumnSpan(Node) column span}.
+   * @param rowspan the {@link #getRowSpan(Node) row span}.
+   */
+  public void insertCell(Node child, int rowIndex, int columnIndex, int colspan, int rowspan) {
+
+    for (Node node : getChildren()) {
+      Integer nodeRow = getRowIndex(node);
+      int row = (nodeRow == null) ? 0 : nodeRow.intValue();
+      if (row == rowIndex) {
+        Integer nodeColumn = getColumnIndex(node);
+        int column = (nodeColumn == null) ? 0 : nodeColumn.intValue();
+        if (column >= columnIndex) {
+          setColumnIndex(node, Integer.valueOf(column + 1));
+        }
+      }
+    }
+    add(child, columnIndex, rowIndex, colspan, rowspan);
+  }
+
 }

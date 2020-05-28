@@ -52,7 +52,7 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
     return child;
   }
 
-  void addChildWidget(UiRegularWidget child, UiGridRow row, int index, int colspan, int rowspan) {
+  void addChildWidget(UiRegularWidget child, boolean insert, UiGridRow row, int index, int colspan, int rowspan) {
 
     int rowIndex = this.children.indexOf(row);
     if (rowIndex < 0) {
@@ -74,7 +74,12 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
         colIndex += columnSpan.intValue();
       }
     }
-    this.widget.add(getTopNode(child), colIndex, rowIndex, colspan, rowspan);
+    Node node = getTopNode(child);
+    if (insert) {
+      this.widget.insertCell(node, colIndex, rowIndex, colspan, rowspan);
+    } else {
+      this.widget.add(node, colIndex, rowIndex, colspan, rowspan);
+    }
   }
 
   /**
