@@ -7,7 +7,6 @@ import io.github.mmm.ui.api.widget.panel.UiGridPanel;
 import io.github.mmm.ui.api.widget.panel.UiGridRow;
 import io.github.mmm.ui.fx.widget.composite.FxComposite;
 import javafx.scene.Node;
-import javafx.scene.layout.GridPane;
 
 /**
  * Implementation of {@link UiGridPanel} for JavaFx.
@@ -22,10 +21,11 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
   public FxGridPanel() {
 
     super(new AdvancedGridPane());
+    getStyles().add(STYLE);
   }
 
   @Override
-  public UiGridRow addRow(int rowIndex, UiRegularWidget... childWidgets) {
+  public UiGridRow addRow(int rowIndex) {
 
     FxGridRow row = new FxGridRow(this);
     setParent(row, this);
@@ -34,11 +34,6 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
     } else {
       this.children.add(rowIndex, row);
       this.widget.insertRow(rowIndex);
-    }
-    if (childWidgets != null) {
-      for (UiRegularWidget child : childWidgets) {
-        row.addChild(child);
-      }
     }
     return row;
   }
@@ -52,33 +47,21 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
     return child;
   }
 
-  void addChildWidget(UiRegularWidget child, boolean insert, UiGridRow row, int index, int colspan, int rowspan) {
+  void setChildWidget(UiRegularWidget child, UiGridRow row, int columnIndex, int colspan, int rowspan) {
 
     int rowIndex = this.children.indexOf(row);
     if (rowIndex < 0) {
       // grid row has already been removed...
       return;
     }
-    int colIndex = 0;
-    int colCount = row.getChildCount();
-    int colLimit = index;
-    if (colLimit == -1) {
-      colLimit = colCount;
+    UiRegularWidget oldChild = row.getChild(columnIndex);
+    if (oldChild != null) {
+      this.widget.getChildren().remove(getTopNode(oldChild));
+      setParent(oldChild, null);
     }
-    for (int i = 0; i < colLimit; i++) {
-      Node node = getTopNode(row.getChild(i));
-      Integer columnSpan = GridPane.getColumnSpan(node);
-      if (columnSpan == null) {
-        colIndex++;
-      } else {
-        colIndex += columnSpan.intValue();
-      }
-    }
-    Node node = getTopNode(child);
-    if (insert) {
-      this.widget.insertCell(node, colIndex, rowIndex, colspan, rowspan);
-    } else {
-      this.widget.add(node, colIndex, rowIndex, colspan, rowspan);
+    if (child != null) {
+      Node node = getTopNode(child);
+      this.widget.add(node, columnIndex, rowIndex, colspan, rowspan);
     }
   }
 

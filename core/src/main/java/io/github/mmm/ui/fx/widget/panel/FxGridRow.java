@@ -2,6 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.panel;
 
+import io.github.mmm.ui.api.datatype.UiVisibleFlags;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.panel.UiGridRow;
 import io.github.mmm.ui.fx.widget.composite.FxComposite;
@@ -23,39 +24,29 @@ public class FxGridRow extends FxComposite<Group, UiRegularWidget> implements Ui
    */
   public FxGridRow(FxGridPanel grid) {
 
-    super(new Group());
+    super(new Group()); // dummy parent - never really used
     this.grid = grid;
   }
 
   @Override
-  public void addChild(UiRegularWidget child, int index, int colspan, int rowspan) {
+  public void setChild(UiRegularWidget child, int column, int colspan, int rowspan) {
 
-    setOrAddChild(false, child, index, colspan, rowspan);
-  }
-
-  @Override
-  public void setChild(UiRegularWidget child, int index, int colspan, int rowspan) {
-
-    setOrAddChild(true, child, index, colspan, rowspan);
-  }
-
-  private void setOrAddChild(boolean set, UiRegularWidget child, int index, int colspan, int rowspan) {
-
-    int row = index;
-    if (row == -1) {
-      row = this.children.size();
-    }
-    boolean insert = set && (row < this.children.size());
-    this.grid.addChildWidget(child, insert, this, row, colspan, rowspan);
-    setParent(child, this);
-    if (set) {
-      this.children.set(row, child);
-    } else {
-      if (index == -1) {
-        this.children.add(child);
-      } else {
-        this.children.add(index, child);
+    this.grid.setChildWidget(child, this, column, colspan, rowspan);
+    int size = this.children.size();
+    if (child == null) {
+      if (column == (size - 1)) { // last column removed?
+        int i = column;
+        while ((i >= 0) && (this.children.get(i) == null)) {
+          this.children.remove(i);
+          i--;
+        }
       }
+    } else {
+      setParent(child, this);
+      for (int i = size; i <= column; i++) {
+        this.children.add(null);
+      }
+      this.children.set(column, child);
     }
   }
 
@@ -66,6 +57,16 @@ public class FxGridRow extends FxComposite<Group, UiRegularWidget> implements Ui
     this.grid.removeChildWidget(child, index);
     setParent(child, null);
     return child;
+  }
+
+  @Override
+  protected void setVisibleNative(boolean visible) {
+
+    for (UiRegularWidget child : this.children) {
+      if (child != null) {
+        child.setVisible(visible, UiVisibleFlags.PARENT);
+      }
+    }
   }
 
 }
