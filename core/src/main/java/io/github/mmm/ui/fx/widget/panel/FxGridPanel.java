@@ -47,22 +47,44 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
     return child;
   }
 
-  void setChildWidget(UiRegularWidget child, UiGridRow row, int columnIndex, int colspan, int rowspan) {
+  private int getColumnIndexWithRowspans(int columnIndex, int rowIndex) {
+
+    int columns = columnIndex;
+    for (int y = 0; y < rowIndex; y++) {
+      UiGridRow row = this.children.get(y);
+      int col = 0;
+      for (int x = 0; col <= columnIndex; x++) {
+        UiRegularWidget child = row.getChild(x);
+        if (child == null) {
+          break;
+        }
+        Node cell = getTopNode(child);
+        int rowSpan = AdvancedGridPane.getRowSpanning(cell);
+        if (rowSpan > (rowIndex - y)) {
+          int colSpan = AdvancedGridPane.getColumnSpanning(cell);
+          columns += colSpan;
+        }
+      }
+    }
+    return columns;
+  }
+
+  void addChildWidget(UiRegularWidget child, UiGridRow row, int index, int colspan, int rowspan) {
 
     int rowIndex = this.children.indexOf(row);
     if (rowIndex < 0) {
       // grid row has already been removed...
       return;
     }
-    UiRegularWidget oldChild = row.getChild(columnIndex);
-    if (oldChild != null) {
-      this.widget.getChildren().remove(getTopNode(oldChild));
-      setParent(oldChild, null);
+    Node node = getTopNode(child);
+    int columnIndex = 0;
+    for (int i = 0; i < index; i++) {
+      UiRegularWidget cellChild = row.getChild(i);
+      int colSpan = AdvancedGridPane.getColumnSpanning(getTopNode(cellChild));
+      columnIndex += colSpan;
     }
-    if (child != null) {
-      Node node = getTopNode(child);
-      this.widget.add(node, columnIndex, rowIndex, colspan, rowspan);
-    }
+    columnIndex = getColumnIndexWithRowspans(columnIndex, rowIndex);
+    this.widget.add(node, columnIndex, rowIndex, colspan, rowspan);
   }
 
   /**

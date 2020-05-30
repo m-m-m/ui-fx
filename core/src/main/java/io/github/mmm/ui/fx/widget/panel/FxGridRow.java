@@ -29,24 +29,17 @@ public class FxGridRow extends FxComposite<Group, UiRegularWidget> implements Ui
   }
 
   @Override
-  public void setChild(UiRegularWidget child, int column, int colspan, int rowspan) {
+  public void addChild(UiRegularWidget child, int index, int colspan, int rowspan) {
 
-    this.grid.setChildWidget(child, this, column, colspan, rowspan);
-    int size = this.children.size();
-    if (child == null) {
-      if (column == (size - 1)) { // last column removed?
-        int i = column;
-        while ((i >= 0) && (this.children.get(i) == null)) {
-          this.children.remove(i);
-          i--;
-        }
-      }
+    if (index == -1) {
+      index = this.children.size();
+    }
+    setParent(child, this);
+    this.grid.addChildWidget(child, this, index, colspan, rowspan);
+    if (index == -1) {
+      this.children.add(child);
     } else {
-      setParent(child, this);
-      for (int i = size; i <= column; i++) {
-        this.children.add(null);
-      }
-      this.children.set(column, child);
+      this.children.add(index, child);
     }
   }
 

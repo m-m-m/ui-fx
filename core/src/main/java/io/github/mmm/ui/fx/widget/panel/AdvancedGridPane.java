@@ -91,4 +91,30 @@ public class AdvancedGridPane extends GridPane {
     add(child, columnIndex, rowIndex, colspan, rowspan);
   }
 
+  /**
+   * @param child the child node.
+   * @return the row span of the given {@link Node}.
+   */
+  public static int getRowSpanning(Node child) {
+
+    Integer span = GridPane.getRowSpan(child);
+    if (span == null) {
+      return 1;
+    }
+    return span.intValue();
+  }
+
+  /**
+   * @param child the child node.
+   * @return the column span of the given {@link Node}.
+   */
+  public static int getColumnSpanning(Node child) {
+
+    Integer span = GridPane.getColumnSpan(child);
+    if (span == null) {
+      return 1;
+    }
+    return span.intValue();
+  }
+
 }
