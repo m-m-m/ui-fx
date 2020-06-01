@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.github.mmm.ui.api.widget.input.UiRadioChoice;
-import io.github.mmm.ui.fx.widget.FxAtomicWidgetMixin;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
@@ -84,7 +83,7 @@ public class FxRadioChoice<V> extends FxAbstractChoice<RadioButton, V, V> implem
       RadioButton rb = new RadioButton();
       rb.setToggleGroup(this.group);
       rb.focusedProperty().addListener(this::onFocusChange);
-      FxAtomicWidgetMixin.setTooltip(rb, getTooltip());
+      setTooltip(rb, getTooltip());
       this.radios.add(rb);
     }
   }
@@ -115,11 +114,11 @@ public class FxRadioChoice<V> extends FxAbstractChoice<RadioButton, V, V> implem
   }
 
   @Override
-  public void doSetTooltip(String tooltipText) {
+  public void setTooltipNative(String tooltipText) {
 
     int size = this.radios.size();
     for (int i = 0; i < size; i++) {
-      FxAtomicWidgetMixin.setTooltip(this.radios.get(i), tooltipText);
+      setTooltip(this.radios.get(i), tooltipText);
     }
   }
 

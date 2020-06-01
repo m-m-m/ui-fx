@@ -14,12 +14,11 @@ import javafx.scene.control.MenuItem;
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetStyleable<W>
-    implements UiAbstractActiveMenuItem {
+public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetStyleable<W> implements UiAbstractActiveMenuItem {
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxAbstractMenuItem(W widget) {
@@ -64,6 +63,12 @@ public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetSty
   public void setVisibleNative(boolean visible) {
 
     this.widget.setVisible(visible);
+  }
+
+  @Override
+  protected void setTooltipNative(String newTooltip) {
+
+    // not supported by JavaFx
   }
 
   @Override

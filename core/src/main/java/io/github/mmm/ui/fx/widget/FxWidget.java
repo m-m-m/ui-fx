@@ -15,6 +15,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.control.Control;
+import javafx.scene.control.Tooltip;
 
 /**
  * Implementation of {@link io.github.mmm.ui.api.widget.UiNativeWidget} for JavaFx.
@@ -22,7 +24,7 @@ import javafx.scene.Node;
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W> {
+public abstract class FxWidget<W> extends AbstractUiNativeWidgetWrapper<W> {
 
   /**
    * {@link PseudoClass} if JavaFx widget gets
@@ -44,7 +46,7 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
    *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxWidgetObject(W widget) {
+  public FxWidget(W widget) {
 
     super();
     this.widget = widget;
@@ -71,6 +73,25 @@ public abstract class FxWidgetObject<W> extends AbstractUiNativeWidgetWrapper<W>
   @Override
   protected void setReadOnlyNative(boolean readOnly) {
 
+  }
+
+  /**
+   * @param widget the {@link Control} where to apply the tooltip to.
+   * @param tooltip the tooltip text to apply.
+   */
+  public static void setTooltip(Control widget, String tooltip) {
+
+    if ((tooltip == null) || tooltip.isEmpty()) {
+      widget.setTooltip(null);
+    } else {
+      Tooltip fxTooltip = widget.getTooltip();
+      if (fxTooltip == null) {
+        fxTooltip = new Tooltip(tooltip);
+        widget.setTooltip(fxTooltip);
+      } else {
+        fxTooltip.setText(tooltip);
+      }
+    }
   }
 
   /**

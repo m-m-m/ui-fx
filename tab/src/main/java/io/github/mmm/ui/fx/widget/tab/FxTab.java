@@ -122,6 +122,12 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
   }
 
   @Override
+  protected void setTooltipNative(String newTooltip) {
+
+    // currently not supported...
+  }
+
+  @Override
   public char getAccessKey() {
 
     // TODO Auto-generated method stub

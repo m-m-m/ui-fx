@@ -22,7 +22,7 @@ import io.github.mmm.ui.api.widget.composite.UiComposite;
 import io.github.mmm.ui.api.widget.window.UiAbstractWindow;
 import io.github.mmm.ui.api.widget.window.UiPopup;
 import io.github.mmm.ui.fx.FxApplication;
-import io.github.mmm.ui.fx.widget.FxWidgetObject;
+import io.github.mmm.ui.fx.widget.FxWidget;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
@@ -34,7 +34,7 @@ import javafx.stage.WindowEvent;
  *
  * @since 1.0.0
  */
-public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
+public abstract class FxAbstractWindow extends FxWidget<Stage>
     implements UiAbstractWindow, AttributeWriteMinimized, AttributeWriteMaximized {
 
   private static Logger LOG = Logger.getLogger(FxAbstractWindow.class.getName());
@@ -174,6 +174,12 @@ public abstract class FxAbstractWindow extends FxWidgetObject<Stage>
     } else {
       this.widget.hide();
     }
+  }
+
+  @Override
+  protected void setTooltipNative(String newTooltip) {
+
+    // currently not supported...
   }
 
   @Override

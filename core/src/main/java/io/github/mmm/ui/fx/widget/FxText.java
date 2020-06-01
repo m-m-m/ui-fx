@@ -12,7 +12,7 @@ import javafx.scene.text.TextAlignment;
  *
  * @since 1.0.0
  */
-public class FxText extends FxAtomicWidget<Text> implements UiText {
+public class FxText extends FxWidgetNode<Text> implements UiText {
 
   private UiTextAlignment alignment;
 

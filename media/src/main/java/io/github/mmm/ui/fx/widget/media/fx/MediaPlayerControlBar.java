@@ -3,7 +3,7 @@
 package io.github.mmm.ui.fx.widget.media.fx;
 
 import io.github.mmm.ui.api.widget.img.UiIcon;
-import io.github.mmm.ui.fx.widget.FxWidgetObject;
+import io.github.mmm.ui.fx.widget.FxWidget;
 import io.github.mmm.ui.fx.widget.media.FxMediaPlayer;
 import javafx.application.Platform;
 import javafx.beans.Observable;
@@ -120,7 +120,7 @@ public class MediaPlayerControlBar extends MediaPlayerWrapper {
     } else {
       icon = this.playIcon;
     }
-    this.playButton.setGraphic(FxWidgetObject.getTopNode(icon));
+    this.playButton.setGraphic(FxWidget.getTopNode(icon));
   }
 
   private void onMute(ActionEvent event) {
@@ -145,7 +145,7 @@ public class MediaPlayerControlBar extends MediaPlayerWrapper {
     } else {
       icon = this.muteIcon;
     }
-    this.muteButton.setGraphic(FxWidgetObject.getTopNode(icon));
+    this.muteButton.setGraphic(FxWidget.getTopNode(icon));
     icon.setIconId(icon.getIconId());
   }
 

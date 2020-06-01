@@ -13,11 +13,11 @@ import javafx.css.Styleable;
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxWidgetStyleable<W extends Styleable> extends FxWidgetObject<W> {
+public abstract class FxWidgetStyleable<W extends Styleable> extends FxWidget<W> {
 
   /**
    * The constructor.
-   * 
+   *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
   public FxWidgetStyleable(W widget) {

@@ -9,13 +9,15 @@ import io.github.mmm.bean.ReadableBean;
 import io.github.mmm.bean.WritableBean;
 import io.github.mmm.ui.api.widget.data.UiAbstractDataWidget.ColumnAdapter;
 import io.github.mmm.ui.api.widget.data.UiColumn;
-import io.github.mmm.ui.fx.widget.FxWidgetObject;
+import io.github.mmm.ui.fx.widget.FxWidget;
 import io.github.mmm.value.PropertyPath;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableColumn.SortType;
+import javafx.scene.control.skin.TableColumnHeader;
 
 /**
  * Implementation of {@link UiColumn} for JavaFx.
@@ -24,13 +26,15 @@ import javafx.scene.control.TableColumn.SortType;
  * @param <V> type of the value for the cells in this column.
  * @since 1.0.0
  */
-public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> implements UiColumn<R, V> {
+public class FxTableColumn<R, V> extends FxWidget<TableColumn<R, V>> implements UiColumn<R, V> {
 
   private ColumnAdapter<R, V> adapter;
 
   private PropertyPath<V> property;
 
   private EventHandler<CellEditEvent<R, V>> editCommitter;
+
+  private Label headerLabel;
 
   private boolean filtering;
 
@@ -148,6 +152,18 @@ public class FxTableColumn<R, V> extends FxWidgetObject<TableColumn<R, V>> imple
       newEditCommitter();
     }
     this.widget.setEditable(editable);
+  }
+
+  @Override
+  protected void setTooltipNative(String newTooltip) {
+
+    if (this.headerLabel == null) {
+      // TableView<R> tableView = this.widget.getTableView();
+      TableColumnHeader header = null;
+    }
+    if (this.headerLabel != null) {
+      setTooltip(this.headerLabel, newTooltip);
+    }
   }
 
   /**

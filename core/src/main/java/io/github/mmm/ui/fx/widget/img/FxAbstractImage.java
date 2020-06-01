@@ -3,7 +3,7 @@
 package io.github.mmm.ui.fx.widget.img;
 
 import io.github.mmm.ui.api.widget.img.UiAbstractImage;
-import io.github.mmm.ui.fx.widget.FxAtomicWidget;
+import io.github.mmm.ui.fx.widget.FxWidgetNode;
 import javafx.scene.Node;
 
 /**
@@ -12,7 +12,7 @@ import javafx.scene.Node;
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxAbstractImage<W extends Node> extends FxAtomicWidget<W> implements UiAbstractImage {
+public abstract class FxAbstractImage<W extends Node> extends FxWidgetNode<W> implements UiAbstractImage {
 
   /**
    * The constructor.
