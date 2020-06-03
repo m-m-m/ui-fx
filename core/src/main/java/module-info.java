@@ -61,12 +61,16 @@ module io.github.mmm.ui.fx.core {
 
   exports io.github.mmm.ui.fx.widget;
 
-  exports io.github.mmm.ui.fx.widget.img;
+  exports io.github.mmm.ui.fx.widget.button;
 
   exports io.github.mmm.ui.fx.widget.composite;
 
-  exports io.github.mmm.ui.fx.widget.panel;
+  exports io.github.mmm.ui.fx.widget.img;
 
   exports io.github.mmm.ui.fx.widget.input;
+
+  exports io.github.mmm.ui.fx.widget.link;
+
+  exports io.github.mmm.ui.fx.widget.panel;
 
 }

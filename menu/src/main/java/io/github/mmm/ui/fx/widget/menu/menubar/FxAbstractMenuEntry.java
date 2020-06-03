@@ -1,27 +1,27 @@
 /* Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0 */
-package io.github.mmm.ui.fx.widget.menu;
+package io.github.mmm.ui.fx.widget.menu.menubar;
 
-import io.github.mmm.ui.api.event.UiClickEvent;
-import io.github.mmm.ui.api.widget.menu.UiAbstractActiveMenuItem;
+import io.github.mmm.ui.api.widget.menu.UiAbstractMenuEntry;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemSeparator;
 import io.github.mmm.ui.fx.widget.FxWidgetStyleable;
 import javafx.scene.control.MenuItem;
 
 /**
- * Implementation of {@link UiAbstractActiveMenuItem} for JavaFx.
+ * Implementation of {@link UiAbstractMenuEntry} for JavaFx and {@link FxMenuBar}.
  *
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetStyleable<W> implements UiAbstractActiveMenuItem {
+public abstract class FxAbstractMenuEntry<W extends MenuItem> extends FxWidgetStyleable<W>
+    implements UiAbstractMenuEntry {
 
   /**
    * The constructor.
    *
    * @param widget the {@link #getWidget() JavaFx widget}.
    */
-  public FxAbstractMenuItem(W widget) {
+  public FxAbstractMenuEntry(W widget) {
 
     super(widget);
   }
@@ -41,16 +41,20 @@ public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetSty
     this.widget.setId(id);
   }
 
-  @Override
+  /**
+   * @return {@link io.github.mmm.ui.api.attribute.AttributeWriteText#getText()}.
+   */
   public String getText() {
 
     return this.widget.getText();
   }
 
-  @Override
-  public void setText(String label) {
+  /**
+   * @param text {@link io.github.mmm.ui.api.attribute.AttributeWriteText#setText(String)}.
+   */
+  public void setText(String text) {
 
-    this.widget.setText(label);
+    this.widget.setText(text);
   }
 
   @Override
@@ -83,26 +87,6 @@ public abstract class FxAbstractMenuItem<W extends MenuItem> extends FxWidgetSty
 
     // TODO Auto-generated method stub
     return false;
-  }
-
-  @Override
-  public char getAccessKey() {
-
-    // TODO Auto-generated method stub
-    return 0;
-  }
-
-  @Override
-  public void setAccessKey(char accessKey) {
-
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void click() {
-
-    fireEvent(new UiClickEvent(this, true));
   }
 
   @Override

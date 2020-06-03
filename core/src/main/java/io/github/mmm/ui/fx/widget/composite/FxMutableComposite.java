@@ -13,7 +13,7 @@ import javafx.scene.Node;
  * @param <C> type of the {@link #getChild(int) child widgets}.
  * @since 1.0.0
  */
-public abstract class FxMutableComposite<W extends Node, C extends UiWidget> extends FxComposite<W, C>
+public abstract class FxMutableComposite<W extends Node, C extends UiWidget> extends FxRemovableComposite<W, C>
     implements UiMutableComposite<C> {
 
   /**
@@ -44,22 +44,5 @@ public abstract class FxMutableComposite<W extends Node, C extends UiWidget> ext
    * @see #addChild(UiWidget, int)
    */
   protected abstract void addChildWidget(C child, int index);
-
-  @Override
-  public C removeChild(int index) {
-
-    C child = this.children.remove(index);
-    removeChildWidget(child, index);
-    setParent(child, null);
-    return child;
-  }
-
-  /**
-   * @param child the child to remove.
-   * @param index the index of the child to remove.
-   * @see #removeChild(UiWidget)
-   * @see #removeChild(int)
-   */
-  protected abstract void removeChildWidget(C child, int index);
 
 }

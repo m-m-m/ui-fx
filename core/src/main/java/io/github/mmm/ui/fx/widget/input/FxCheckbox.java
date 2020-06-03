@@ -2,6 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
+import io.github.mmm.ui.api.event.UiClickEvent;
 import io.github.mmm.ui.api.widget.input.UiCheckbox;
 import io.github.mmm.ui.api.widget.input.UiTextInput;
 import javafx.scene.control.CheckBox;
@@ -51,6 +52,13 @@ public class FxCheckbox extends FxInput<CheckBox, Boolean> implements UiCheckbox
   public void setValueNative(Boolean selected) {
 
     this.widget.setSelected(Boolean.TRUE.equals(selected));
+  }
+
+  @Override
+  public void click() {
+
+    setValueForUser(Boolean.valueOf(!this.widget.isSelected()));
+    fireEvent(new UiClickEvent(this, true));
   }
 
 }

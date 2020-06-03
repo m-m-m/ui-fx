@@ -3,6 +3,7 @@
 package io.github.mmm.ui.fx.widget.input;
 
 import io.github.mmm.ui.api.UiToggleGroup;
+import io.github.mmm.ui.api.event.UiClickEvent;
 import io.github.mmm.ui.api.widget.input.UiRadioButton;
 import io.github.mmm.ui.fx.FxToggleGroup;
 import javafx.scene.control.RadioButton;
@@ -67,6 +68,13 @@ public class FxRadioButton extends FxInput<RadioButton, Boolean> implements UiRa
 
     this.toggleGroup = (FxToggleGroup) group;
     this.widget.setToggleGroup(this.toggleGroup.getGroup());
+  }
+
+  @Override
+  public void click() {
+
+    setValueForUser(Boolean.TRUE);
+    fireEvent(new UiClickEvent(this, true));
   }
 
 }

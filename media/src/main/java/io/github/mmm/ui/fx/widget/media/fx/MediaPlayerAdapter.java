@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.media.fx;
 
-import io.github.mmm.ui.api.attribute.AttributeManageMedia;
+import io.github.mmm.ui.api.attribute.AttributeFeatureMedia;
 import javafx.scene.Node;
 import javafx.scene.media.MediaPlayer;
 
@@ -11,7 +11,7 @@ import javafx.scene.media.MediaPlayer;
  *
  * @since 1.0.0
  */
-public interface MediaPlayerAdapter extends AttributeManageMedia {
+public interface MediaPlayerAdapter extends AttributeFeatureMedia {
 
   /**
    * @param player the new {@link MediaPlayer} (when the audio/video has changed).

@@ -4,7 +4,7 @@ package io.github.mmm.ui.fx.factory.menu;
 
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.menu.UiMenuBar;
-import io.github.mmm.ui.fx.widget.menu.FxMenuBar;
+import io.github.mmm.ui.fx.widget.menu.menubar.FxMenuBar;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiMenuBar}.
