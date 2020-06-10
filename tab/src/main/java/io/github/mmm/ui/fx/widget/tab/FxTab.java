@@ -9,7 +9,7 @@ import io.github.mmm.ui.api.widget.composite.UiComposite;
 import io.github.mmm.ui.api.widget.tab.UiTab;
 import io.github.mmm.ui.api.widget.tab.UiTabPanel;
 import io.github.mmm.ui.fx.widget.FxWidgetStyleable;
-import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.scene.control.Tab;
 
 /**
@@ -31,6 +31,7 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
     super(new Tab());
     this.widget.setUserData(this);
     this.widget.setClosable(false);
+    ensureHandlers();
   }
 
   private FxTabPanel getTabPanel() {
@@ -42,13 +43,13 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
   protected void registerHandlers() {
 
     super.registerHandlers();
-    this.widget.closableProperty().addListener(this::onClose);
+    this.widget.setOnCloseRequest(this::onClose);
   }
 
   @Override
-  protected void onClose(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+  protected void onClose(Event event) {
 
-    super.onClose(observable, oldValue, newValue);
+    super.onClose(event);
     UiComposite<?> parent = getParent();
     if (parent != null) {
       ((UiTabPanel) parent).removeChild(this);
@@ -101,7 +102,7 @@ public class FxTab extends FxWidgetStyleable<Tab> implements UiTab {
   }
 
   @Override
-  public void setId(String id) {
+  protected void setIdNative(String id) {
 
     this.widget.setId(id);
   }

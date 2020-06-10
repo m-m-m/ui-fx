@@ -2,15 +2,16 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu.navigationbar;
 
-import io.github.mmm.ui.api.event.UiEventListener;
+import io.github.mmm.ui.api.event.UiClickEventListener;
 import io.github.mmm.ui.api.widget.menu.UiAbstractMenuEntry;
 import io.github.mmm.ui.api.widget.menu.UiAbstractMenuWithItems;
 import io.github.mmm.ui.api.widget.menu.UiMenu;
 import io.github.mmm.ui.api.widget.menu.UiMenuItem;
 import io.github.mmm.ui.api.widget.menu.UiMenuItemSeparator;
+import io.github.mmm.ui.api.widget.menu.UiNavigationBar;
 import io.github.mmm.ui.fx.widget.composite.FxRemovableComposite;
 import javafx.scene.Node;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TreeItem;
 
 /**
  * Implementation of {@link UiAbstractMenuWithItems} for JavaFx and {@link FxNavigationBar}.
@@ -19,7 +20,9 @@ import javafx.scene.layout.VBox;
  * @since 1.0.0
  */
 public abstract class FxAbstractMenuWithItems<W extends Node> extends FxRemovableComposite<W, UiAbstractMenuEntry>
-    implements UiAbstractMenuWithItems {
+    implements UiAbstractMenuWithItems, FxNavigationEntry {
+
+  private final TreeItem<Node> treeItem;
 
   /**
    * The constructor.
@@ -29,12 +32,19 @@ public abstract class FxAbstractMenuWithItems<W extends Node> extends FxRemovabl
   public FxAbstractMenuWithItems(W widget) {
 
     super(widget);
+    if (this instanceof UiNavigationBar) {
+      this.treeItem = new TreeItem<>();
+    } else {
+      this.treeItem = new TreeItem<>(widget);
+    }
+    this.treeItem.setExpanded(true);
   }
 
-  /**
-   * @return the {@link VBox} as container for the children.
-   */
-  protected abstract VBox getVBox();
+  @Override
+  public TreeItem<Node> getTreeItem() {
+
+    return this.treeItem;
+  }
 
   @Override
   public UiMenu addMenu(String text, int index) {
@@ -46,7 +56,7 @@ public abstract class FxAbstractMenuWithItems<W extends Node> extends FxRemovabl
   }
 
   @Override
-  public UiMenuItem addItem(String text, UiEventListener listener, int index) {
+  public UiMenuItem addItem(String text, UiClickEventListener listener, int index) {
 
     FxNavigationItem item = new FxNavigationItem();
     if (text != null) {
@@ -69,13 +79,13 @@ public abstract class FxAbstractMenuWithItems<W extends Node> extends FxRemovabl
 
   private void addChild(UiAbstractMenuEntry child, int index) {
 
-    Node node = getTopNode(child);
     setParent(child, this);
+    TreeItem<Node> childItem = ((FxNavigationEntry) child).getTreeItem();
     if (index == -1) {
-      getVBox().getChildren().add(node);
+      this.treeItem.getChildren().add(childItem);
       this.children.add(child);
     } else {
-      getVBox().getChildren().add(index, node);
+      this.treeItem.getChildren().add(index, childItem);
       this.children.add(index, child);
     }
   }
@@ -83,7 +93,7 @@ public abstract class FxAbstractMenuWithItems<W extends Node> extends FxRemovabl
   @Override
   protected void removeChildWidget(UiAbstractMenuEntry child, int index) {
 
-    getVBox().getChildren().remove(index);
+    this.treeItem.getChildren().remove(index);
   }
 
 }

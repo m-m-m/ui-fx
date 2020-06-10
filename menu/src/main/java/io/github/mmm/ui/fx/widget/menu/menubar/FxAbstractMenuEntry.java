@@ -36,7 +36,7 @@ public abstract class FxAbstractMenuEntry<W extends MenuItem> extends FxWidgetSt
   }
 
   @Override
-  public void setId(String id) {
+  protected void setIdNative(String id) {
 
     this.widget.setId(id);
   }

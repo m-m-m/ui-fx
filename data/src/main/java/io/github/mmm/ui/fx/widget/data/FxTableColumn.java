@@ -47,13 +47,7 @@ public class FxTableColumn<R, V> extends FxWidget<TableColumn<R, V>> implements 
   }
 
   @Override
-  public String getId() {
-
-    return this.widget.getId();
-  }
-
-  @Override
-  public void setId(String id) {
+  protected void setIdNative(String id) {
 
     this.widget.setId(id);
   }

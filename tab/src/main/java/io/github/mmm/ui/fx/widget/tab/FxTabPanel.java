@@ -62,24 +62,24 @@ public class FxTabPanel extends FxMutableComposite<TabPane, UiTab> implements Ui
   }
 
   @Override
-  public UiTab addTab(String text, UiRegularWidget child) {
+  public UiTab addTab(String text, UiRegularWidget child, int index) {
 
     FxTab tab = new FxTab();
     setParent(tab, this);
     tab.setText(text);
     tab.setChild(child);
-    addChild(tab);
+    addChild(tab, index);
     return tab;
   }
 
   @Override
-  public UiTab addTab(String text, Supplier<UiRegularWidget> childSupplier) {
+  public UiTab addTab(String text, Supplier<UiRegularWidget> childSupplier, int index) {
 
     FxTab tab = new FxTab();
     setParent(tab, this);
     tab.setText(text);
     tab.setChild(childSupplier);
-    addChild(tab);
+    addChild(tab, index);
     return tab;
   }
 

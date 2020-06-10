@@ -36,6 +36,7 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.FxToggleGroupFactory;
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
+      io.github.mmm.ui.fx.factory.core.FxFactoryBorderPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryButton, //
       io.github.mmm.ui.fx.factory.core.FxFactoryButtonPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox, //

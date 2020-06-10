@@ -5,7 +5,7 @@ package io.github.mmm.ui.fx.widget.menu.menubar;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.mmm.ui.api.event.UiEventListener;
+import io.github.mmm.ui.api.event.UiClickEventListener;
 import io.github.mmm.ui.api.widget.menu.UiAbstractMenuEntry;
 import io.github.mmm.ui.api.widget.menu.UiAdvancedMenu;
 import io.github.mmm.ui.api.widget.menu.UiMenuItem;
@@ -45,7 +45,7 @@ public class FxMenu extends FxAbstractMenuEntry<Menu> implements UiAdvancedMenu 
   }
 
   @Override
-  public UiMenuItem addItem(String text, UiEventListener listener, int index) {
+  public UiMenuItem addItem(String text, UiClickEventListener listener, int index) {
 
     FxMenuItem item = new FxMenuItem();
     if (text != null) {
@@ -59,7 +59,7 @@ public class FxMenu extends FxAbstractMenuEntry<Menu> implements UiAdvancedMenu 
   }
 
   @Override
-  public UiMenuItemCheckbox addCheckbox(String text, UiEventListener listener, int index) {
+  public UiMenuItemCheckbox addCheckbox(String text, UiClickEventListener listener, int index) {
 
     FxMenuItemCheckbox item = new FxMenuItemCheckbox();
     item.setText(text);
@@ -69,7 +69,7 @@ public class FxMenu extends FxAbstractMenuEntry<Menu> implements UiAdvancedMenu 
   }
 
   @Override
-  public UiMenuItemRadioButton addRadioButton(String text, UiEventListener listener, int index) {
+  public UiMenuItemRadioButton addRadioButton(String text, UiClickEventListener listener, int index) {
 
     FxMenuItemRadioButton item = new FxMenuItemRadioButton();
     item.setText(text);

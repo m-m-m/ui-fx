@@ -54,7 +54,9 @@ public class FxIcon extends FxAbstractImage<Text> implements UiIcon {
 
   private void updateStyle() {
 
-    StringBuilder style = new StringBuilder("-fx-font-size:");
+    StringBuilder style = new StringBuilder("-fx-font-family:");
+    style.append(this.glyph.getFont());
+    style.append(";-fx-font-size:");
     style.append((int) (this.size * 10));
     String fill = this.glyph.getFill();
     if (fill != null) {

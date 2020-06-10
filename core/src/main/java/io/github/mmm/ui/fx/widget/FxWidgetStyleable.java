@@ -26,12 +26,6 @@ public abstract class FxWidgetStyleable<W extends Styleable> extends FxWidget<W>
   }
 
   @Override
-  public String getId() {
-
-    return getTopWidget().getId();
-  }
-
-  @Override
   public Styleable getTopWidget() {
 
     return this.widget;

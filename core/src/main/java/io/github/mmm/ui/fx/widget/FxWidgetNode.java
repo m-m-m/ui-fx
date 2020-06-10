@@ -34,7 +34,7 @@ public abstract class FxWidgetNode<W extends Node> extends FxWidgetStyleable<W> 
   }
 
   @Override
-  public void setId(String id) {
+  protected void setIdNative(String id) {
 
     getTopWidget().setId(id);
   }
@@ -44,7 +44,7 @@ public abstract class FxWidgetNode<W extends Node> extends FxWidgetStyleable<W> 
 
     if (this.widget instanceof Control) {
       setTooltip((Control) this.widget, newTooltip);
-    } else {
+    } else if (this.widget != null) {
       if (this.fxTooltip == null) {
         this.fxTooltip = new Tooltip();
         Tooltip.install(this.widget, this.fxTooltip);
@@ -57,20 +57,26 @@ public abstract class FxWidgetNode<W extends Node> extends FxWidgetStyleable<W> 
   protected void setVisibleNative(boolean visible) {
 
     Node topWidget = getTopWidget();
-    topWidget.setVisible(visible);
-    topWidget.setManaged(visible);
+    if (topWidget != null) {
+      topWidget.setVisible(visible);
+      topWidget.setManaged(visible);
+    }
   }
 
   @Override
   protected void setEnabledNative(boolean enabled) {
 
-    this.widget.setDisable(!enabled);
+    if (this.widget != null) {
+      this.widget.setDisable(!enabled);
+    }
   }
 
   @Override
   protected void setReadOnlyNative(boolean readOnly) {
 
-    this.widget.pseudoClassStateChanged(CLASS_READ_ONLY, readOnly);
+    if (this.widget != null) {
+      this.widget.pseudoClassStateChanged(CLASS_READ_ONLY, readOnly);
+    }
   }
 
 }

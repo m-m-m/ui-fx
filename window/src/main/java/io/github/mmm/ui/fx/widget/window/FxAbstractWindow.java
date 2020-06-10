@@ -57,8 +57,6 @@ public abstract class FxAbstractWindow extends FxWidget<Stage>
    */
   protected final FxAbstractWindowPositionAndSize positionAndSize;
 
-  private String id;
-
   /**
    * The constructor.
    *
@@ -154,15 +152,9 @@ public abstract class FxAbstractWindow extends FxWidget<Stage>
   }
 
   @Override
-  public String getId() {
+  protected void setIdNative(String id) {
 
-    return this.id;
-  }
-
-  @Override
-  public void setId(String id) {
-
-    this.id = id;
+    // not supported by Stage or Scene...
   }
 
   @Override

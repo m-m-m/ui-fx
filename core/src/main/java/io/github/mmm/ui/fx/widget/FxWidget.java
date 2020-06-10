@@ -2,6 +2,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget;
 
+import io.github.mmm.ui.api.datatype.UiEnabledFlags;
+import io.github.mmm.ui.api.datatype.UiVisibleFlags;
 import io.github.mmm.ui.api.event.UiClickEvent;
 import io.github.mmm.ui.api.event.UiEvent;
 import io.github.mmm.ui.api.event.UiFocusGainEvent;
@@ -14,6 +16,7 @@ import io.github.mmm.ui.spi.widget.AbstractUiNativeWidgetWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
@@ -39,7 +42,7 @@ public abstract class FxWidget<W> extends AbstractUiNativeWidgetWrapper<W> {
   public static final PseudoClass CLASS_READ_ONLY = PseudoClass.getPseudoClass("read-only");
 
   /** @see #getWidget() */
-  protected final W widget;
+  protected W widget;
 
   /**
    * The constructor.
@@ -59,6 +62,30 @@ public abstract class FxWidget<W> extends AbstractUiNativeWidgetWrapper<W> {
   }
 
   /**
+   * @param widget the JavaFx {@link #getWidget() widget} to initialize.
+   */
+  protected void setWidget(W widget) {
+
+    this.widget = widget;
+    if (this.widget == null) {
+      return;
+    }
+    if (!isVisible(UiVisibleFlags.ALL)) {
+      setVisibleNative(false);
+    }
+    if (!isEnabled(UiEnabledFlags.ALL)) {
+      setEnabledNative(false);
+    }
+    if (isReadOnly()) {
+      setReadOnlyNative(true);
+    }
+    String tooltip = getTooltip();
+    if (tooltip != null) {
+      setTooltipNative(tooltip);
+    }
+  }
+
+  /**
    * @param uiWidget the {@link UiWidget}.
    * @return the {@link #getWidget() containing} JavaFx {@link Node}.
    */
@@ -66,8 +93,10 @@ public abstract class FxWidget<W> extends AbstractUiNativeWidgetWrapper<W> {
 
     if (uiWidget instanceof UiCustomWidget) {
       return getTopNode(((UiCustomWidget<?>) uiWidget).getDelegate());
+    } else if (uiWidget != null) {
+      return ((FxWidgetNode<?>) uiWidget).getTopWidget();
     }
-    return ((FxWidgetNode<?>) uiWidget).getTopWidget();
+    return null;
   }
 
   @Override
@@ -150,11 +179,9 @@ public abstract class FxWidget<W> extends AbstractUiNativeWidgetWrapper<W> {
   }
 
   /**
-   * @param observable the observable (property) that changed.
-   * @param oldValue the old value.
-   * @param newValue the new value.
+   * @param event the close {@link Event}.
    */
-  protected void onClose(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+  protected void onClose(Event event) {
 
     boolean programmatic = getProgrammaticEventType() == UiHideEvent.TYPE;
     fireEvent(new UiHideEvent(this, programmatic));
