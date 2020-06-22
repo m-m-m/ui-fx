@@ -29,6 +29,14 @@ public abstract class FxActiveWidget<W extends Control> extends FxWidgetControl<
   protected void registerHandlers() {
 
     super.registerHandlers();
+    registerFocusChangeHandler();
+  }
+
+  /**
+   * @see #registerHandlers()
+   */
+  protected void registerFocusChangeHandler() {
+
     this.widget.focusedProperty().addListener(this::onFocusChange);
   }
 

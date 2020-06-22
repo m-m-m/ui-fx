@@ -41,6 +41,7 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryButtonPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCheckbox, //
       io.github.mmm.ui.fx.factory.core.FxFactoryCollapsiblePanel, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryComboBox, //
       io.github.mmm.ui.fx.factory.core.FxFactoryExternalLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryGridPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel, //
