@@ -93,7 +93,7 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
     }
   }
 
-  private void setValueAsText(V value) {
+  private void setValueAsText(Number value) {
 
     String newText = "";
     if (value != null) {
@@ -123,11 +123,13 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
   protected void setValueNative(V value) {
 
     double v = 0;
+    Number n = value;
     if (value != null) {
       v = this.range.clip(value).doubleValue();
+      n = Double.valueOf(v);
     }
     this.widget.setValue(v);
-    setValueAsText(value);
+    setValueAsText(n);
   }
 
   @Override
