@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.util.StringConverter;
 
 /**
  * Implementation of {@link UiSlider} for JavaFx.
@@ -24,9 +25,11 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
 
   private final HBox topWidget;
 
-  private final NumericRange<V> range;
+  private final Range<V> range;
 
   private final TextField textWidget;
+
+  private final TickLabelFormatter tickLabelFormatter;
 
   private String text;
 
@@ -41,7 +44,14 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
     this.textWidget.setEditable(false);
     this.topWidget.getChildren().add(this.widget);
     this.topWidget.getChildren().add(this.textWidget);
-    this.range = new NumericRange<>(getNumberType());
+    this.range = new Range<>(getNumberType());
+    this.widget.setMax(1);
+    this.widget.setShowTickMarks(true);
+    this.widget.setShowTickLabels(true);
+    this.widget.setMinorTickCount(10);
+    this.widget.setMajorTickUnit(0.1);
+    this.tickLabelFormatter = new TickLabelFormatter();
+    this.widget.setLabelFormatter(this.tickLabelFormatter);
     this.widget.valueProperty().addListener(this::onValueChange);
     this.textWidget.textProperty().addListener(this::onValueChange);
   }
@@ -63,7 +73,7 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
         }
         this.text = newText;
         V value = getNumberType().valueOf(this.text);
-        this.widget.setValue(value.doubleValue());
+        this.widget.setValue(this.range.toFactor(value));
       } catch (NumberFormatException e) {
         // TODO
         setValidationFailure("Invalid number");
@@ -106,7 +116,7 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
   @Override
   public V getValueOrThrow() {
 
-    return getNumberType().valueOf(Double.valueOf(this.widget.getValue()));
+    return this.range.fromFactor(this.widget.getValue());
   }
 
   @Override
@@ -149,6 +159,37 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
   public void setTextEditable(boolean textEditable) {
 
     this.textWidget.setEditable(textEditable);
+  }
+
+  private class TickLabelFormatter extends StringConverter<Double> {
+
+    @Override
+    public String toString(Double value) {
+
+      return FxSlider.this.range.fromFactor(value.doubleValue()).toString();
+    }
+
+    @Override
+    public Double fromString(String string) {
+
+      throw new UnsupportedOperationException();
+    }
+  }
+
+  private class Range<N extends Number> extends NumericRange<N> {
+
+    public Range(NumberType<N> type) {
+
+      super(type);
+    }
+
+    @Override
+    protected void onValueChange() {
+
+      super.onValueChange();
+      FxSlider.this.widget.setLabelFormatter(FxSlider.this.tickLabelFormatter);
+    }
+
   }
 
 }
