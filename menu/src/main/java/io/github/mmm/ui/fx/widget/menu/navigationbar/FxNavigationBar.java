@@ -4,7 +4,10 @@ package io.github.mmm.ui.fx.widget.menu.navigationbar;
 
 import io.github.mmm.ui.api.widget.menu.UiMenuBar;
 import io.github.mmm.ui.api.widget.menu.UiNavigationBar;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -26,6 +29,18 @@ public class FxNavigationBar extends FxAbstractMenuWithItems<TreeView<Node>> imp
     VBox.setVgrow(this.widget, Priority.ALWAYS);
     this.widget.setRoot(getTreeItem());
     this.widget.setShowRoot(false);
+    this.widget.getSelectionModel().selectedItemProperty().addListener(this::onSelection);
+  }
+
+  private void onSelection(ObservableValue<? extends TreeItem<Node>> observable, TreeItem<Node> oldValue,
+      TreeItem<Node> newValue) {
+
+    if (newValue != null) {
+      Node node = newValue.getValue();
+      if (node instanceof Hyperlink) {
+        ((Hyperlink) node).fire();
+      }
+    }
   }
 
 }
