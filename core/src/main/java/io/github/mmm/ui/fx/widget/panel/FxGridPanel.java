@@ -7,6 +7,7 @@ import io.github.mmm.ui.api.widget.panel.UiGridPanel;
 import io.github.mmm.ui.api.widget.panel.UiGridRow;
 import io.github.mmm.ui.fx.widget.composite.FxComposite;
 import javafx.scene.Node;
+import javafx.scene.layout.StackPane;
 
 /**
  * Implementation of {@link UiGridPanel} for JavaFx.
@@ -21,6 +22,7 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
   public FxGridPanel() {
 
     super(new AdvancedGridPane());
+    // this.widget.setGridLinesVisible(true);
     getStyles().add(STYLE);
   }
 
@@ -58,7 +60,7 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
         if (child == null) {
           break;
         }
-        Node cell = getTopNode(child);
+        Node cell = getCellNode(child);
         int rowSpan = AdvancedGridPane.getRowSpanning(cell);
         if (rowSpan > (rowIndex - y)) {
           int colSpan = AdvancedGridPane.getColumnSpanning(cell);
@@ -76,15 +78,39 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
       // grid row has already been removed...
       return;
     }
-    Node node = getTopNode(child);
     int columnIndex = 0;
     for (int i = 0; i < index; i++) {
       UiRegularWidget cellChild = row.getChild(i);
-      int colSpan = AdvancedGridPane.getColumnSpanning(getTopNode(cellChild));
+      int colSpan = AdvancedGridPane.getColumnSpanning(getCellNode(cellChild));
       columnIndex += colSpan;
     }
     columnIndex = getColumnIndexWithRowspans(columnIndex, rowIndex);
-    this.widget.add(node, columnIndex, rowIndex, colspan, rowspan);
+    this.widget.add(getCellNode(child), columnIndex, rowIndex, colspan, rowspan);
+  }
+
+  private static Node getCellNode(UiRegularWidget uiWidget) {
+
+    return getCellNode(uiWidget, false);
+  }
+
+  private static Node getCellNode(UiRegularWidget uiWidget, boolean remove) {
+
+    Node node = getTopNode(uiWidget);
+    Object data = node.getUserData();
+    StackPane pane;
+    if (data == null) {
+      if (remove) {
+        return null;
+      }
+      pane = new StackPane(node);
+      node.setUserData(pane);
+    } else {
+      pane = (StackPane) data;
+      if (remove) {
+        node.setUserData(null);
+      }
+    }
+    return pane;
   }
 
   /**
@@ -93,7 +119,10 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
    */
   public void removeChildWidget(UiRegularWidget child, int index) {
 
-    this.widget.getChildren().remove(getTopNode(child));
+    Node node = getCellNode(child, true);
+    if (node != null) {
+      this.widget.getChildren().remove(node);
+    }
   }
 
 }

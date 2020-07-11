@@ -4,7 +4,7 @@ package io.github.mmm.ui.fx.factory.data;
 
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.data.UiDataTable;
-import io.github.mmm.ui.fx.widget.data.FxDataList;
+import io.github.mmm.ui.fx.widget.data.FxDataTable;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiDataTable}.
@@ -12,7 +12,7 @@ import io.github.mmm.ui.fx.widget.data.FxDataList;
  * @since 1.0.0
  */
 @SuppressWarnings("rawtypes")
-public class FxFactoryDataList implements UiSingleWidgetFactoryNative<UiDataTable> {
+public class FxFactoryDataTable implements UiSingleWidgetFactoryNative<UiDataTable> {
 
   @Override
   public Class<UiDataTable> getType() {
@@ -23,7 +23,7 @@ public class FxFactoryDataList implements UiSingleWidgetFactoryNative<UiDataTabl
   @Override
   public UiDataTable create() {
 
-    return new FxDataList<>();
+    return new FxDataTable<>();
   }
 
 }

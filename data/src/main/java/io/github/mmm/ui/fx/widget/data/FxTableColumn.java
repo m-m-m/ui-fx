@@ -11,6 +11,7 @@ import io.github.mmm.ui.api.widget.data.UiAbstractDataWidget.ColumnAdapter;
 import io.github.mmm.ui.api.widget.data.UiColumn;
 import io.github.mmm.ui.fx.widget.FxWidget;
 import io.github.mmm.value.PropertyPath;
+import io.github.mmm.value.TypedPropertyPath;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
@@ -30,7 +31,7 @@ public class FxTableColumn<R, V> extends FxWidget<TableColumn<R, V>> implements 
 
   private ColumnAdapter<R, V> adapter;
 
-  private PropertyPath<V> property;
+  private TypedPropertyPath<V> property;
 
   private EventHandler<CellEditEvent<R, V>> editCommitter;
 
@@ -164,7 +165,7 @@ public class FxTableColumn<R, V> extends FxWidget<TableColumn<R, V>> implements 
    * @param property the {@link PropertyPath property} to bind to this column.
    */
   @SuppressWarnings("unchecked")
-  public void setProperty(PropertyPath<V> property) {
+  public void setProperty(TypedPropertyPath<V> property) {
 
     this.property = property;
     final String name = property.getName();

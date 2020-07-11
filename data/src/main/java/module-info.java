@@ -17,7 +17,7 @@ module io.github.mmm.ui.fx.data {
   requires transitive io.github.mmm.ui.fx.core;
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
-      io.github.mmm.ui.fx.factory.data.FxFactoryDataList;
+      io.github.mmm.ui.fx.factory.data.FxFactoryDataTable;
 
   exports io.github.mmm.ui.fx.widget.data;
 

@@ -91,7 +91,7 @@ public abstract class FxAbstractChoice<W extends Control, O, V> extends FxInput<
       } else {
         context = option.getClass();
       }
-      String localized = UiLocalizer.get().localize(string, context);
+      String localized = UiLocalizer.get().localizeOrNull(string, context);
       if (localized != null) {
         return localized;
       }

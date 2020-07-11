@@ -18,6 +18,7 @@ import io.github.mmm.ui.api.widget.data.UiDataTable;
 import io.github.mmm.ui.fx.widget.FxActiveValidatableWidget;
 import io.github.mmm.value.PropertyPath;
 import io.github.mmm.value.ReadableTypedValue;
+import io.github.mmm.value.TypedPropertyPath;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -31,7 +32,7 @@ import javafx.scene.control.TableView;
  * @param <R> type of the data for the rows displayed by this widget. Typically a {@link io.github.mmm.bean.Bean}.
  * @since 1.0.0
  */
-public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<R>> implements UiDataTable<R> {
+public class FxDataTable<R> extends FxActiveValidatableWidget<TableView<R>, List<R>> implements UiDataTable<R> {
 
   private final List<FxTableColumn<R, ?>> columns;
 
@@ -44,7 +45,7 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
   /**
    * The constructor.
    */
-  public FxDataList() {
+  public FxDataTable() {
 
     super(new TableView<>());
     this.columns = new ArrayList<>();
@@ -69,7 +70,7 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
   }
 
   @Override
-  public <V> UiColumn<R, V> createColumn(PropertyPath<V> property) {
+  public <V> UiColumn<R, V> createColumn(TypedPropertyPath<V> property) {
 
     assert verifyProperty(property);
     String title = UiLocalizer.get().localize(property.getName());
@@ -130,11 +131,16 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
   }
 
   @Override
-  public void addColumn(UiColumn<R, ?> column) {
+  public void addColumn(UiColumn<R, ?> column, int index) {
 
     FxTableColumn<R, ?> fxColumn = (FxTableColumn<R, ?>) column;
-    this.columns.add(fxColumn);
-    this.widget.getColumns().add(fxColumn.getWidget());
+    if (index == -1) {
+      this.columns.add(fxColumn);
+      this.widget.getColumns().add(fxColumn.getWidget());
+    } else {
+      this.columns.add(index, fxColumn);
+      this.widget.getColumns().add(index, fxColumn.getWidget());
+    }
   }
 
   @SuppressWarnings("unchecked")
@@ -227,7 +233,7 @@ public class FxDataList<R> extends FxActiveValidatableWidget<TableView<R>, List<
 
   static <R> TableColumn<R, Integer> createRowNumberColumn() {
 
-    TableColumn<R, Integer> rowNumberColumn = new TableColumn<>("#");
+    TableColumn<R, Integer> rowNumberColumn = new TableColumn<>(ROW_NUMBER_HEADER_TITLE);
     rowNumberColumn.setSortable(false);
     rowNumberColumn.setCellFactory(col -> {
       return new TableCell<>() {
