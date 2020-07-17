@@ -153,6 +153,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
       if (this.prefixLabel != null) {
         this.hBox.getChildren().remove(this.prefixLabel);
         this.prefixLabel = null;
+        getStyles().remove(STYLE_WITH_PREFIX);
       }
     } else {
       if (this.prefixLabel == null) {
@@ -162,6 +163,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
       } else {
         this.prefixLabel.setText(prefix);
       }
+      getStyles().add(STYLE_WITH_PREFIX);
     }
   }
 
@@ -189,6 +191,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
       if (this.suffixLabel != null) {
         this.hBox.getChildren().remove(this.suffixLabel);
         this.suffixLabel = null;
+        getStyles().remove(STYLE_WITH_SUFFIX);
       }
     } else {
       if (this.suffixLabel == null) {
@@ -198,6 +201,7 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
       } else {
         this.suffixLabel.setText(suffix);
       }
+      getStyles().add(STYLE_WITH_SUFFIX);
     }
   }
 
