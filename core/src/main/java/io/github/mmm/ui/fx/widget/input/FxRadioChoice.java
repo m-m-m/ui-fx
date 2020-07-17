@@ -8,6 +8,7 @@ import java.util.List;
 import io.github.mmm.ui.api.widget.input.UiRadioChoice;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
@@ -23,8 +24,6 @@ public class FxRadioChoice<V> extends FxAbstractChoice<RadioButton, V, V> implem
 
   private final ToggleGroup group;
 
-  private final HBox topWidget;
-
   private final List<RadioButton> radios;
 
   /**
@@ -36,10 +35,15 @@ public class FxRadioChoice<V> extends FxAbstractChoice<RadioButton, V, V> implem
     this.group = new ToggleGroup();
     this.widget.setToggleGroup(this.group);
     this.widget.setText("uninitialized");
-    this.topWidget = new HBox();
-    this.topWidget.getChildren().add(this.widget);
     this.radios = new ArrayList<>();
     this.radios.add(this.widget);
+    getHBox();
+  }
+
+  @Override
+  protected void initHBox(HBox box) {
+
+    // nothing by default, will be managed dynamically via setOptions method
   }
 
   @Override
@@ -62,18 +66,30 @@ public class FxRadioChoice<V> extends FxAbstractChoice<RadioButton, V, V> implem
 
     super.setOptions(options);
     int optionCount = this.options.size();
+    int radioCount = this.radios.size();
     ensureRadioButtonCount(optionCount);
-    ObservableList<Node> children = this.topWidget.getChildren();
-    List<RadioButton> rbs = this.radios;
-    if (optionCount < this.radios.size()) {
-      rbs = this.radios.subList(0, optionCount);
-    }
-    children.setAll(rbs);
     for (int i = 0; i < optionCount; i++) {
       V option = this.options.get(i);
       RadioButton rb = this.radios.get(i);
       rb.setUserData(option);
       rb.setText(format(option));
+    }
+    ObservableList<Node> children = getHBox().getChildren();
+    if (optionCount > radioCount) { // options/radios added?
+      Label suffixLabel = getSuffixLabel();
+      for (int i = radioCount; i < optionCount; i++) {
+        RadioButton rb = this.radios.get(i);
+        if (suffixLabel == null) {
+          children.add(rb);
+        } else {
+          children.add(children.size() - 1, rb);
+        }
+      }
+    } else if (optionCount < radioCount) { // options/radios removed?
+      for (int i = optionCount; i < radioCount; i++) {
+        RadioButton rb = this.radios.get(i);
+        children.remove(rb);
+      }
     }
   }
 
@@ -105,12 +121,6 @@ public class FxRadioChoice<V> extends FxAbstractChoice<RadioButton, V, V> implem
         this.radios.get(i).setSelected(true);
       }
     }
-  }
-
-  @Override
-  public Node getTopWidget() {
-
-    return this.topWidget;
   }
 
   @Override
