@@ -5,6 +5,8 @@
 
 /**
  * Provides the implementation of controller manager with routing and navigation for JavaFx.
+ * 
+ * @provides io.github.mmm.ui.api.controller.UiNavigationManager
  */
 module io.github.mmm.ui.fx.controller {
 

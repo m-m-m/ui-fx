@@ -33,7 +33,7 @@
     <module>icon</module>
     <module>icon-fontawesome</module>
     <module>media</module>
-    <module>menu</module>
+    <module>navigation</module>
     <module>number</module>
     <module>tab</module>
     <module>temporal</module>
@@ -106,7 +106,7 @@
       </dependency>
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-ui-fx-menu</artifactId>
+        <artifactId>mmm-ui-fx-navigation</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

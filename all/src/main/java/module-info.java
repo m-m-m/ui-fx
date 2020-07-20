@@ -25,7 +25,7 @@ module io.github.mmm.ui.fx.all {
 
   requires transitive io.github.mmm.ui.fx.media;
 
-  requires transitive io.github.mmm.ui.fx.menu;
+  requires transitive io.github.mmm.ui.fx.navigation;
 
   requires transitive io.github.mmm.ui.fx.number;
 
