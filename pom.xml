@@ -144,16 +144,6 @@
         <artifactId>javafx-web</artifactId>
         <version>${javafx.version}</version>
       </dependency>
-      <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-bean</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>mmm-entity-bean</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>
