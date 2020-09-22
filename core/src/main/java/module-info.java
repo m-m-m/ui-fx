@@ -18,12 +18,6 @@ module io.github.mmm.ui.fx.core {
 
   requires transitive io.github.mmm.ui.api.form;
 
-  // TODO bug in JPMS or Eclipse as this is already a transitive dependency of ui
-  requires transitive io.github.mmm.value;
-
-  // TODO bug in JPMS or Eclipse as this is already a transitive dependency of ui
-  requires transitive io.github.mmm.validation.main;
-
   requires transitive javafx.controls;
 
   provides io.github.mmm.ui.api.UiScreen with //
