@@ -9,10 +9,10 @@ import io.github.mmm.ui.api.widget.input.UiInput;
 import io.github.mmm.ui.fx.widget.FxActiveValidatableWidget;
 import io.github.mmm.ui.fx.widget.FxLabel;
 import javafx.scene.Node;
-import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 /**
  * Implementation of {@link UiInput} for JavaFx.
@@ -21,7 +21,7 @@ import javafx.scene.layout.Priority;
  * @param <V> type of {@link #getValue() value}.
  * @since 1.0.0
  */
-public abstract class FxInput<W extends Control, V> extends FxActiveValidatableWidget<W, V> implements UiInput<V> {
+public abstract class FxInput<W extends Region, V> extends FxActiveValidatableWidget<W, V> implements UiInput<V> {
 
   private HBox hBox;
 
@@ -123,8 +123,12 @@ public abstract class FxInput<W extends Control, V> extends FxActiveValidatableW
   protected HBox getHBox() {
 
     if (this.hBox == null) {
-      this.hBox = new HBox();
-      initHBox(this.hBox);
+      if (this.widget instanceof HBox) {
+        this.hBox = (HBox) this.widget;
+      } else {
+        this.hBox = new HBox();
+        initHBox(this.hBox);
+      }
     }
     return this.hBox;
   }

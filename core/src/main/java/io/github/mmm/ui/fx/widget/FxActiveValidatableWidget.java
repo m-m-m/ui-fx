@@ -8,9 +8,9 @@ import io.github.mmm.ui.api.widget.value.UiValidatableWidget;
 import io.github.mmm.validation.Validator;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
-import javafx.scene.control.Control;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 /**
  * Implementation of {@link UiInput} for JavaFx.
@@ -19,7 +19,7 @@ import javafx.scene.layout.Priority;
  * @param <V> type of {@link #getValue() value}.
  * @since 1.0.0
  */
-public abstract class FxActiveValidatableWidget<W extends Control, V> extends FxActiveWidget<W>
+public abstract class FxActiveValidatableWidget<W extends Region, V> extends FxActiveWidget<W>
     implements UiValidatableWidget<V> {
 
   private Validator<? super V> validator;

@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
  *
  * @since 1.0.0
  */
-public class FxLabel extends FxWidgetControl<Label> implements UiLabel {
+public class FxLabel extends FxWidgetNode<Label> implements UiLabel {
 
   /**
    * The constructor.

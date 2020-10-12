@@ -6,6 +6,7 @@ import io.github.mmm.ui.api.event.UiFocusGainEvent;
 import io.github.mmm.ui.api.widget.UiActiveWidget;
 import io.github.mmm.ui.api.widget.composite.UiComposite;
 import javafx.scene.control.Control;
+import javafx.scene.layout.Region;
 
 /**
  * Implementation of {@link UiActiveWidget} based on JavaFx {@link Control}.
@@ -13,7 +14,7 @@ import javafx.scene.control.Control;
  * @param <W> type of {@link #getWidget() JavaFx widget}.
  * @since 1.0.0
  */
-public abstract class FxActiveWidget<W extends Control> extends FxWidgetControl<W> implements UiActiveWidget {
+public abstract class FxActiveWidget<W extends Region> extends FxWidgetNode<W> implements UiActiveWidget {
 
   /**
    * The constructor.
