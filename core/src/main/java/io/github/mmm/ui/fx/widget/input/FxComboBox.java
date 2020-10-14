@@ -49,6 +49,7 @@ public class FxComboBox<V> extends FxAbstractChoice<ComboBox<String>, V, V> impl
     super.registerHandlers();
     this.widget.getEditor().setOnKeyPressed(this::onKeyPressed);
     this.widget.getEditor().textProperty().addListener(this::onTextChange);
+    this.widget.getSelectionModel().selectedItemProperty().addListener(this::onValueChange);
   }
 
   @Override
@@ -90,17 +91,26 @@ public class FxComboBox<V> extends FxAbstractChoice<ComboBox<String>, V, V> impl
       resetFilter();
     } else {
       String filterText = CaseHelper.toLowerCase(newValue);
-      ObservableList<String> items = this.widget.getItems();
-      items.clear();
-      for (String title : this.titles) {
-        if (CaseHelper.toLowerCase(title).contains(filterText)) {
+      filter(filterText);
+      // Platform.runLater(() -> filter(filterText));
+    }
+  }
+
+  private void filter(String filterText) {
+
+    ObservableList<String> items = this.widget.getItems();
+    for (String title : this.titles) {
+      if (CaseHelper.toLowerCase(title).contains(filterText)) {
+        if (!items.contains(title)) {
           items.add(title);
         }
+      } else {
+        items.remove(title);
       }
-      this.widget.show();
-      this.widget.autosize();
-      this.filtered = true;
     }
+    this.widget.show();
+    this.widget.autosize();
+    this.filtered = true;
   }
 
   private void resetFilter() {
