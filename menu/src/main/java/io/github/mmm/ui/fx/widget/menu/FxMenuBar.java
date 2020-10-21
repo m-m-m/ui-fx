@@ -2,6 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.menu;
 
+import io.github.mmm.ui.api.widget.UiWidget;
 import io.github.mmm.ui.api.widget.menu.UiAdvancedMenu;
 import io.github.mmm.ui.api.widget.menu.UiMenuBar;
 import io.github.mmm.ui.api.widget.window.UiMainWindow;
@@ -29,7 +30,7 @@ public class FxMenuBar extends FxRemovableComposite<MenuBar, UiAdvancedMenu> imp
 
     FxMenu menu = new FxMenu();
     setParent(menu, this);
-    menu.setText(text);
+    UiWidget.initText(menu, text);
     if (index == -1) {
       this.widget.getMenus().add(menu.getWidget());
       this.children.add(menu);

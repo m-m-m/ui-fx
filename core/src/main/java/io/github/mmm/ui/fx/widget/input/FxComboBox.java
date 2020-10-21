@@ -4,7 +4,6 @@ package io.github.mmm.ui.fx.widget.input;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 import io.github.mmm.base.text.CaseHelper;
 import io.github.mmm.ui.api.widget.input.UiComboBox;
@@ -115,9 +114,8 @@ public class FxComboBox<V> extends FxAbstractChoice<ComboBox<String>, V, V> impl
     ObservableList<String> items = this.widget.getItems();
     items.clear();
     if (options != null) {
-      Function<V, String> formatter = getFormatter();
       for (V option : options) {
-        String title = formatter.apply(option);
+        String title = format(option);
         items.add(title);
         this.titles.add(title);
       }

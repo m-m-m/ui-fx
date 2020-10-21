@@ -6,6 +6,7 @@ import java.util.function.Supplier;
 
 import io.github.mmm.ui.api.datatype.UiVisibleFlags;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
+import io.github.mmm.ui.api.widget.UiWidget;
 import io.github.mmm.ui.api.widget.tab.UiTab;
 import io.github.mmm.ui.api.widget.tab.UiTabPanel;
 import io.github.mmm.ui.fx.widget.composite.FxMutableComposite;
@@ -77,7 +78,7 @@ public class FxTabPanel extends FxMutableComposite<TabPane, UiTab> implements Ui
 
     FxTab tab = new FxTab();
     setParent(tab, this);
-    tab.setText(text);
+    UiWidget.initText(tab, text);
     tab.setChild(childSupplier);
     addChild(tab, index);
     return tab;
