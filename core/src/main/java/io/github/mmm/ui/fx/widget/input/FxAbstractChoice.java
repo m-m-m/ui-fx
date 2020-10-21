@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
-import io.github.mmm.ui.api.UiLocalizer;
 import io.github.mmm.ui.api.widget.input.UiAbstractChoice;
 import io.github.mmm.ui.api.widget.input.UiRadioChoice;
 import io.github.mmm.ui.spi.DefaultFormatter;
@@ -69,31 +68,6 @@ public abstract class FxAbstractChoice<W extends Control, O, V> extends FxInput<
     } else {
       this.formatter = formatter;
     }
-  }
-
-  /**
-   * @param option the option to format.
-   * @return the formatted and localized {@link String}.
-   */
-  protected String format(O option) {
-
-    String string = this.formatter.apply(option);
-    if (string != null) {
-      Class<?> context = null;
-      if (option == null) {
-        int size = this.options.size();
-        for (int i = 0; i < size; i++) {
-          context = this.options.get(i).getClass();
-          if (context != null) {
-            break;
-          }
-        }
-      } else {
-        context = option.getClass();
-      }
-      string = UiLocalizer.get().localize(string, context);
-    }
-    return string;
   }
 
 }
