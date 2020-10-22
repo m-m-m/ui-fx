@@ -2,6 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.input;
 
+import io.github.mmm.ui.api.datatype.UiEnabledFlags;
 import io.github.mmm.ui.api.datatype.bitmask.BitMask;
 import io.github.mmm.ui.api.widget.UiRegularWidget;
 import io.github.mmm.ui.api.widget.form.UiInputContainer;
@@ -43,6 +44,7 @@ public abstract class FxInput<W extends Region, V> extends FxActiveValidatableWi
   public FxInput(W widget) {
 
     super(widget);
+    getStyles().add(STYLE_INPUT);
     HBox.setHgrow(this.widget, Priority.ALWAYS);
   }
 
@@ -244,5 +246,12 @@ public abstract class FxInput<W extends Region, V> extends FxActiveValidatableWi
    */
   @Override
   protected abstract void setValueNative(V value);
+
+  @Override
+  protected void setReadOnlyNative(boolean readOnly) {
+
+    super.setReadOnlyNative(readOnly);
+    setEnabled(!readOnly, UiEnabledFlags.READ_ONLY);
+  }
 
 }

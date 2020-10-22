@@ -33,7 +33,7 @@ public class FxComboBox<V> extends FxAbstractChoice<ComboBox<String>, V, V> impl
 
     super(new ComboBox<>());
     this.widget.setEditable(true);
-    this.widget.setVisibleRowCount(10);
+    // this.widget.setVisibleRowCount(100);
     this.titles = new ArrayList<>();
     ensureHandlers();
   }
@@ -103,7 +103,6 @@ public class FxComboBox<V> extends FxAbstractChoice<ComboBox<String>, V, V> impl
         items.remove(title);
       }
     }
-    // this.widget.show();
     // this.widget.autosize();
   }
 
@@ -180,4 +179,10 @@ public class FxComboBox<V> extends FxAbstractChoice<ComboBox<String>, V, V> impl
     }
   }
 
+  @Override
+  protected void setReadOnlyNative(boolean readOnly) {
+
+    super.setReadOnlyNative(readOnly);
+    this.widget.setEditable(!readOnly);
+  }
 }

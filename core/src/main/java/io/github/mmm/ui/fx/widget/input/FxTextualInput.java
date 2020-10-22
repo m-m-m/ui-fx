@@ -37,7 +37,8 @@ public abstract class FxTextualInput<W extends TextInputControl, V> extends FxIn
   @Override
   protected void setReadOnlyNative(boolean readOnly) {
 
-    this.widget.setEditable(readOnly);
+    super.setReadOnlyNative(readOnly);
+    this.widget.setEditable(!readOnly);
   }
 
   @Override
