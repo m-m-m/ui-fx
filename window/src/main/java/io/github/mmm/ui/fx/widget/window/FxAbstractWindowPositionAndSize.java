@@ -104,6 +104,15 @@ public class FxAbstractWindowPositionAndSize extends UiWindowPositionAndSize {
   @Override
   public void centerOnScreen(boolean force) {
 
+    // if ((this.width == 0) || (this.height == 0)) {
+    // this.stage.sizeToScene();
+    // if (this.width == 0) {
+    // this.width = this.stage.getWidth();
+    // }
+    // if (this.height == 0) {
+    // this.height = this.stage.getHeight();
+    // }
+    // }
     super.centerOnScreen(force);
     this.stage.setX(this.x);
     this.stage.setY(this.y);
