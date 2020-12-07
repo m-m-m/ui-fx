@@ -36,8 +36,8 @@ public class FxSlot extends FxComposite<StackPane, UiRegularWidget> implements U
       return;
     }
     if (this.child != null) {
-      setParent(this.child, null);
       this.widget.getChildren().clear();
+      setParent(this.child, null);
     }
     this.widget.getChildren().add(getTopNode(child));
     this.child = child;

@@ -30,13 +30,13 @@ public class FxGridPanel extends FxComposite<AdvancedGridPane, UiGridRow> implem
   public UiGridRow addRow(int rowIndex) {
 
     FxGridRow row = new FxGridRow(this);
-    setParent(row, this);
     if (rowIndex == -1) {
       this.children.add(row);
     } else {
       this.children.add(rowIndex, row);
       this.widget.insertRow(rowIndex);
     }
+    setParent(row, this);
     return row;
   }
 
