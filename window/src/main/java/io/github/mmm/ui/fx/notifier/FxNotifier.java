@@ -2,7 +2,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.notifier;
 
-import io.github.mmm.ui.api.datatype.UiSeverity;
+import io.github.mmm.ui.api.datatype.UiNotification;
 import io.github.mmm.ui.api.notifier.AbstractUiNotifier;
 
 /**
@@ -21,10 +21,10 @@ public class FxNotifier extends AbstractUiNotifier {
   }
 
   @Override
-  public void showNotification(String message, UiSeverity severity) {
+  public void showGrowl(UiNotification notification) {
 
-    // TODO
-    showPopupOk(message, severity);
+    // TODO implement growl for JavaFx
+    showPopupOk(notification);
   }
 
 }
