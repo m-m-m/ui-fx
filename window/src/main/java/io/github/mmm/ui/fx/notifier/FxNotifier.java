@@ -2,8 +2,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.notifier;
 
-import io.github.mmm.ui.api.datatype.UiNotification;
-import io.github.mmm.ui.api.notifier.AbstractUiNotifier;
+import io.github.mmm.ui.api.notify.UiNotification;
+import io.github.mmm.ui.api.window.notiy.AbstractUiNotifier;
 
 /**
  * Implementation of {@link io.github.mmm.ui.api.notifier.UiNotifier} for JavaFx.

@@ -6,9 +6,9 @@
 
 /**
  * Provides the implementation of the UI framework based on JavaFx.
- * 
+ *
  * @provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative
- * @provides io.github.mmm.ui.api.notifier.UiNotifier
+ * @provides io.github.mmm.ui.api.notify.UiNotifier
  */
 @SuppressWarnings("rawtypes") //
 module io.github.mmm.ui.fx.window {
@@ -19,7 +19,7 @@ module io.github.mmm.ui.fx.window {
 
   requires java.logging;
 
-  provides io.github.mmm.ui.api.notifier.UiNotifier with //
+  provides io.github.mmm.ui.api.notify.UiNotifier with //
       io.github.mmm.ui.fx.notifier.FxNotifier;
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
