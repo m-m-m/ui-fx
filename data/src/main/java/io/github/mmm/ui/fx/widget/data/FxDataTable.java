@@ -148,9 +148,9 @@ public class FxDataTable<R> extends FxActiveValidatableWidget<TableView<R>, List
   public void sort(SortOrder order, UiColumn<R, ?>... sortColumns) {
 
     SortType sortType = null;
-    if (order == SortOrder.ASCENDING) {
+    if (order == SortOrder.ASC) {
       sortType = SortType.ASCENDING;
-    } else if (order == SortOrder.DESCENDING) {
+    } else if (order == SortOrder.DESC) {
       sortType = SortType.DESCENDING;
     }
     for (int i = sortColumns.length - 1; i >= 0; i--) {

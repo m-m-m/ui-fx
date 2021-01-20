@@ -107,9 +107,9 @@ public class FxTableColumn<R, V> extends FxWidget<TableColumn<R, V>> implements 
     if (sortType != null) {
       switch (sortType) {
         case ASCENDING:
-          return SortOrder.ASCENDING;
+          return SortOrder.ASC;
         case DESCENDING:
-          return SortOrder.DESCENDING;
+          return SortOrder.DESC;
       }
     }
     return null;
