@@ -5,7 +5,7 @@
 
 /**
  * Provides the implementation of UI form widgets for JavaFx.
- * 
+ *
  * @provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative
  */
 @SuppressWarnings("rawtypes") //
@@ -17,8 +17,7 @@ module io.github.mmm.ui.fx.form.grid {
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
       io.github.mmm.ui.fx.factory.form.grid.FxFactoryFormGroup, //
-      io.github.mmm.ui.fx.factory.form.grid.FxFactoryFormPanel, //
-      io.github.mmm.ui.fx.factory.form.grid.FxFactoryInputContainer //
+      io.github.mmm.ui.fx.factory.form.grid.FxFactoryFormPanel //
   ;
 
   exports io.github.mmm.ui.fx.widget.form.grid;

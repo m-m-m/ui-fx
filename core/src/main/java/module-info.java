@@ -40,6 +40,7 @@ module io.github.mmm.ui.fx.core {
       io.github.mmm.ui.fx.factory.core.FxFactoryGridPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryHorizontalPanel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryImage, //
+      io.github.mmm.ui.fx.factory.core.FxFactoryInputContainer, //
       io.github.mmm.ui.fx.factory.core.FxFactoryInternalLink, //
       io.github.mmm.ui.fx.factory.core.FxFactoryLabel, //
       io.github.mmm.ui.fx.factory.core.FxFactoryPasswordInput, //

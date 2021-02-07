@@ -18,8 +18,7 @@ module io.github.mmm.ui.fx.form {
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
       io.github.mmm.ui.fx.factory.form.FxFactoryFormGroup, //
       io.github.mmm.ui.fx.factory.form.FxFactoryFormPanel, //
-      io.github.mmm.ui.fx.factory.form.FxFactoryHorizontalnput, //
-      io.github.mmm.ui.fx.factory.form.FxFactoryInputContainer //
+      io.github.mmm.ui.fx.factory.form.FxFactoryHorizontalnput //
   ;
 
   exports io.github.mmm.ui.fx.widget.form;
