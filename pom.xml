@@ -43,10 +43,21 @@
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-spi-parent</artifactId>
-        <version>0.2.0</version>
+        <version>${project.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>${javafx.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-web</artifactId>
+        <version>${javafx.version}</version>
+      </dependency>
+      <!-- own modules -->
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-all</artifactId>
@@ -126,16 +137,6 @@
         <groupId>${project.groupId}</groupId>
         <artifactId>mmm-ui-fx-window</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-controls</artifactId>
-        <version>${javafx.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-web</artifactId>
-        <version>${javafx.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
