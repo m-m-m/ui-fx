@@ -9,13 +9,14 @@
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
   <artifactId>mmm-ui-fx-parent</artifactId>
-  <version>${revision}${changelist}</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>Implementation of mmm-ui-api for JavaFx.</description>
 
   <properties>
     <mmm.repository>ui-fx</mmm.repository>
+    <revision>0-SNAPSHOT</revision>
     <javafx.version>15</javafx.version>
   </properties>
 
