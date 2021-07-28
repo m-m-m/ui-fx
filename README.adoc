@@ -8,11 +8,11 @@ image:https://github.com/m-m-m/ui-fx/actions/workflows/build.yml/badge.svg["Buil
 image:https://img.shields.io/maven-central/v/io.github.m-m-m/mmm-ui-fx.svg?label=Maven%20Central["Maven Central",link=https://search.maven.org/search?q=g:io.github.m-m-m]
 image:https://m-m-m.github.io/javadoc.svg?status=online["apidoc",link="https://m-m-m.github.io/docs/api/io.github.mmm.ui.fx/module-summary.html"]
 
-The module `mmm-ui-fx` provides the implementation of the UI API for JavaFx.
+The module `mmm-ui-fx` provides the implementation of the https://github.com/m-m-m/ui-api[UI API] for https://openjfx.io/[JavaFx].
 See the JavaDoc link for further details.
 
 === Usage
-
+[
 Maven Dependency:
 ```xml
 <dependency>
