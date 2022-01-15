@@ -17,7 +17,8 @@ import javafx.scene.control.TextField;
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0
  */
-public abstract class FxNumberInput<V extends Number> extends FxTextualInput<TextField, V> implements UiNumberInput<V> {
+public abstract class FxNumberInput<V extends Number & Comparable<?>> extends FxTextualInput<TextField, V>
+    implements UiNumberInput<V> {
 
   private final NumericRange<V> range;
 

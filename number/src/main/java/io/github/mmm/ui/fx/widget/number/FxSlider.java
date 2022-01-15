@@ -21,7 +21,7 @@ import javafx.util.StringConverter;
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0
  */
-public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> implements UiSlider<V> {
+public abstract class FxSlider<V extends Number & Comparable<?>> extends FxInput<Slider, V> implements UiSlider<V> {
 
   private final HBox topWidget;
 
@@ -178,7 +178,7 @@ public abstract class FxSlider<V extends Number> extends FxInput<Slider, V> impl
     }
   }
 
-  private class Range<N extends Number> extends NumericRange<N> {
+  private class Range<N extends Number & Comparable<?>> extends NumericRange<N> {
 
     public Range(NumberType<N> type) {
 
