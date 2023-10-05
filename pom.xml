@@ -5,7 +5,7 @@
   <parent>
     <groupId>io.github.m-m-m</groupId>
     <artifactId>mmm</artifactId>
-    <version>20</version>
+    <version>21</version>
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
   <artifactId>mmm-ui-fx-parent</artifactId>
@@ -16,7 +16,7 @@
 
   <properties>
     <mmm.repository>ui-fx</mmm.repository>
-    <javafx.version>15</javafx.version>
+    <javafx.version>21</javafx.version>
   </properties>
 
   <modules>
