@@ -51,7 +51,7 @@ public abstract class FxNumberInput<V extends Number & Comparable<?>> extends Fx
     if (value.isEmpty()) {
       return null;
     }
-    return getNumberType().valueOf(value);
+    return getNumberType().parse(value);
   }
 
   @Override

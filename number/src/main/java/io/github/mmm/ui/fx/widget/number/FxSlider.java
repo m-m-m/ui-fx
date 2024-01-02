@@ -72,7 +72,7 @@ public abstract class FxSlider<V extends Number & Comparable<?>> extends FxInput
           return;
         }
         this.text = newText;
-        V value = getNumberType().valueOf(this.text);
+        V value = getNumberType().parse(this.text);
         this.widget.setValue(this.range.toFactor(value));
       } catch (NumberFormatException e) {
         // TODO
