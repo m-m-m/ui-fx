@@ -4,7 +4,7 @@ package io.github.mmm.ui.fx.factory.number;
 
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.number.UiIntegerInput;
-import io.github.mmm.ui.fx.widget.number.FxIntegerInput;
+import io.github.mmm.ui.fx.widget.number.FxIntegerSpinner;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiIntegerInput}.
@@ -22,7 +22,7 @@ public class FxFactoryIntegerInput implements UiSingleWidgetFactoryNative<UiInte
   @Override
   public UiIntegerInput create() {
 
-    return new FxIntegerInput();
+    return new FxIntegerSpinner();
   }
 
 }

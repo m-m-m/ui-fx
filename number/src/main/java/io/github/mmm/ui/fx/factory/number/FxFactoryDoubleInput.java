@@ -4,7 +4,7 @@ package io.github.mmm.ui.fx.factory.number;
 
 import io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative;
 import io.github.mmm.ui.api.widget.number.UiDoubleInput;
-import io.github.mmm.ui.fx.widget.number.FxDoubleInput;
+import io.github.mmm.ui.fx.widget.number.FxDoubleSpinner;
 
 /**
  * {@link UiSingleWidgetFactoryNative} for {@link UiDoubleInput}.
@@ -22,7 +22,7 @@ public class FxFactoryDoubleInput implements UiSingleWidgetFactoryNative<UiDoubl
   @Override
   public UiDoubleInput create() {
 
-    return new FxDoubleInput();
+    return new FxDoubleSpinner();
   }
 
 }
