@@ -2,12 +2,10 @@
  * http://www.apache.org/licenses/LICENSE-2.0 */
 package io.github.mmm.ui.fx.widget.number;
 
-import io.github.mmm.base.number.NumberType;
 import io.github.mmm.base.range.WritableRange;
 import io.github.mmm.ui.api.widget.number.UiNumberInput;
 import io.github.mmm.ui.api.widget.number.UiSlider;
 import io.github.mmm.ui.fx.widget.input.FxInput;
-import io.github.mmm.ui.spi.range.NumericRange;
 import io.github.mmm.validation.Validator;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
@@ -18,10 +16,10 @@ import javafx.scene.control.SpinnerValueFactory;
  * @param <V> type of the {@link #getValue() value}.
  * @since 1.0.0
  */
-public abstract class FxSpinner<V extends Number & Comparable<?>> extends FxInput<Spinner<V>, V>
+public abstract class FxSpinner<V extends Number & Comparable<V>> extends FxInput<Spinner<V>, V>
     implements UiNumberInput<V> {
 
-  private final NumericRange<V> range;
+  private final FxNumberSpinnerValueFactory<V> factory;
 
   private String autocomplete;
 
@@ -30,22 +28,18 @@ public abstract class FxSpinner<V extends Number & Comparable<?>> extends FxInpu
    *
    * @param factory the {@link SpinnerValueFactory}.
    */
-  public FxSpinner(SpinnerValueFactory<V> factory) {
+  public FxSpinner(FxNumberSpinnerValueFactory<V> factory) {
 
     super(new Spinner<>(factory));
+    this.factory = factory;
+    this.widget.setEditable(true);
     this.widget.setMaxWidth(Double.MAX_VALUE);
-    this.range = new NumericRange<>(getNumberType());
   }
-
-  /**
-   * @return the {@link NumberType} for the underlying {@link Number}.
-   */
-  protected abstract NumberType<V> getNumberType();
 
   @Override
   public WritableRange<V> getRange() {
 
-    return this.range;
+    return this.factory.getRange();
   }
 
   @Override
@@ -58,6 +52,20 @@ public abstract class FxSpinner<V extends Number & Comparable<?>> extends FxInpu
   protected void setValueNative(V value) {
 
     this.widget.getValueFactory().setValue(value);
+  }
+
+  @Override
+  public V getStep() {
+
+    return this.factory.getAmountToStepBy();
+  }
+
+  @Override
+  public void setStep(V step) {
+
+    if (step != null) {
+      this.factory.setAmountToStepBy(step);
+    }
   }
 
   @Override
@@ -74,7 +82,7 @@ public abstract class FxSpinner<V extends Number & Comparable<?>> extends FxInpu
   public void setText(String text) {
 
     try {
-      V value = getNumberType().parse(text);
+      V value = this.factory.getConverter().fromString(text);
       setValueNative(value);
     } catch (NumberFormatException e) {
       setValidationFailure("Invalid number");
@@ -85,7 +93,7 @@ public abstract class FxSpinner<V extends Number & Comparable<?>> extends FxInpu
   public void setValidator(Validator<? super V> validator) {
 
     super.setValidator(validator);
-    this.range.setValidator(validator);
+    this.factory.getRange().setValidator(validator);
   }
 
   @Override

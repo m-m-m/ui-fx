@@ -91,7 +91,6 @@ public abstract class FxNumberInput<V extends Number & Comparable<?>> extends Fx
   public void setStep(V step) {
 
     this.step = step;
-    // TODO support increment/decrement buttons
   }
 
 }
