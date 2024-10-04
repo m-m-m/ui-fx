@@ -1,45 +1,39 @@
 /* Copyright (c) The m-m-m Team, Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0 */
-package io.github.mmm.ui.fx.widget.temporal;
+package io.github.mmm.ui.fx.widget.time;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
-import io.github.mmm.ui.api.widget.temporal.UiTimeInput;
+import io.github.mmm.ui.api.widget.time.UiDateTimeInput;
 import io.github.mmm.ui.fx.widget.input.FxInput;
 
 /**
- * Implementation of {@link UiTimeInput} for JavaFx.
+ * Implementation of {@link UiDateTimeInput} for JavaFx.
  *
  * @since 1.0.0
  */
-public class FxTimeInput extends FxInput<DateTimePicker, LocalTime> implements UiTimeInput {
+public class FxDateTimeInput extends FxInput<DateTimePicker, LocalDateTime> implements UiDateTimeInput {
 
   private String autocomplete;
 
   /**
    * The constructor.
    */
-  public FxTimeInput() {
+  public FxDateTimeInput() {
 
     super(new DateTimePicker());
-    this.widget.setFormat("HH:mm:ss");
   }
 
   @Override
-  public LocalTime getValueOrThrow() {
+  public LocalDateTime getValueOrThrow() {
 
-    return this.widget.getDateTimeValue().toLocalTime();
+    return this.widget.getDateTimeValue();
   }
 
   @Override
-  protected void setValueNative(LocalTime value) {
+  protected void setValueNative(LocalDateTime value) {
 
-    if (value == null) {
-      this.widget.setDateTimeValue(null);
-    } else {
-      this.widget.setDateTimeValue(value.atDate(LocalDate.now()));
-    }
+    this.widget.setDateTimeValue(value);
   }
 
   @Override

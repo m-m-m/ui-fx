@@ -17,8 +17,7 @@ import io.github.mmm.ui.api.widget.data.UiColumn;
 import io.github.mmm.ui.api.widget.data.UiDataTable;
 import io.github.mmm.ui.fx.widget.FxActiveValidatableWidget;
 import io.github.mmm.value.PropertyPath;
-import io.github.mmm.value.ReadableTypedValue;
-import io.github.mmm.value.TypedPropertyPath;
+import io.github.mmm.value.SimplePath;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -70,7 +69,7 @@ public class FxDataTable<R> extends FxActiveValidatableWidget<TableView<R>, List
   }
 
   @Override
-  public <V> UiColumn<R, V> createColumn(TypedPropertyPath<V> property) {
+  public <V> UiColumn<R, V> createColumn(PropertyPath<V> property) {
 
     assert verifyProperty(property);
     String title = UiLocalizer.get().localize(property.getName());
@@ -79,7 +78,6 @@ public class FxDataTable<R> extends FxActiveValidatableWidget<TableView<R>, List
     return column;
   }
 
-  @SuppressWarnings("unchecked")
   private <V> boolean verifyProperty(PropertyPath<V> property) {
 
     Objects.requireNonNull(property, "property");
@@ -91,8 +89,8 @@ public class FxDataTable<R> extends FxActiveValidatableWidget<TableView<R>, List
       if (beanProperty == null) {
         throw new ObjectNotFoundException("rowTemplate.Property", name);
       }
-      if (property instanceof ReadableTypedValue) {
-        Class<V> valueClass = ((ReadableTypedValue<V>) property).getValueClass();
+      if (!(property instanceof SimplePath)) {
+        Class<V> valueClass = property.getValueClass();
         if (!Objects.equals(valueClass, beanProperty.getValueClass())) {
           throw new ObjectMismatchException(name + ".valueClass=" + beanProperty.getValueClass(), valueClass);
         }

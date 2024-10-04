@@ -11,7 +11,7 @@
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
   <description>Combines all implementation for JavaFx.</description>
-  
+
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -59,7 +59,7 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>mmm-ui-fx-temporal</artifactId>
+      <artifactId>mmm-ui-fx-time</artifactId>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>

@@ -9,15 +9,15 @@
  * @provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative
  */
 @SuppressWarnings("rawtypes") //
-module io.github.mmm.ui.fx.temporal {
+module io.github.mmm.ui.fx.time {
 
-  requires transitive io.github.mmm.ui.api.temporal;
+  requires transitive io.github.mmm.ui.api.time;
 
   requires transitive io.github.mmm.ui.fx.core;
 
   provides io.github.mmm.ui.api.factory.UiSingleWidgetFactoryNative with //
-      io.github.mmm.ui.fx.factory.temporal.FxFactoryDateInput, //
-      io.github.mmm.ui.fx.factory.temporal.FxFactoryDateTimeInput, //
-      io.github.mmm.ui.fx.factory.temporal.FxFactoryTimeInput;
+      io.github.mmm.ui.fx.factory.time.FxFactoryDateInput, //
+      io.github.mmm.ui.fx.factory.time.FxFactoryDateTimeInput, //
+      io.github.mmm.ui.fx.factory.time.FxFactoryTimeInput;
 
 }

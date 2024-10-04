@@ -31,7 +31,7 @@ module io.github.mmm.ui.fx.all {
 
   requires transitive io.github.mmm.ui.fx.tab;
 
-  requires transitive io.github.mmm.ui.fx.temporal;
+  requires transitive io.github.mmm.ui.fx.time;
 
   requires transitive io.github.mmm.ui.fx.window;
 
