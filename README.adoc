@@ -6,9 +6,9 @@ image:https://github.com/m-m-m/ui-fx/actions/workflows/build.yml/badge.svg["Buil
 == mmm-ui-fx
 
 image:https://img.shields.io/maven-central/v/io.github.m-m-m/mmm-ui-fx-all.svg?label=Maven%20Central["Maven Central",link=https://search.maven.org/search?q=g:io.github.m-m-m%20a:mmm-ui-fx-*]
-image:https://javadoc.io/badge2/io.github.m-m-m/mmm-ui-fx-core/javadoc.svg["apidoc",link="https://m-m-m.github.io/docs/api/io.github.mmm.ui.fx.core/module-summary.html"]
+image:https://javadoc.io/badge2/io.github.m-m-m/mmm-ui-fx-core/javadoc.svg["JavaDoc",link=https://javadoc.io/doc/io.github.m-m-m/mmm-ui-fx-core]
 
-The module `mmm-ui-fx-all` provides the implementation of the https://github.com/m-m-m/ui-api[UI API] for https://openjfx.io/[JavaFx].
+The modules `mmm-ui-fx-*` provide the implementation of the https://github.com/m-m-m/ui-api[UI API] for https://openjfx.io/[JavaFx].
 See the JavaDoc link for further details.
 
 === Usage
